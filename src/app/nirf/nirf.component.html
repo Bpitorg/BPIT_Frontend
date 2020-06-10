@@ -1,0 +1,64 @@
+<app-nav></app-nav>
+<div class="nba-wrap container">
+  <h2 id="clr">
+    <i class="fa fa-list" aria-hidden="true"></i>
+    National Institutional Ranking Framework
+  </h2>
+  <div class="container">
+    <table class="table table-bordered table-striped table-hover table-responsive">
+    <thead>
+      <tr>
+        <th>NIRF</th>
+        <th>File Format </th>
+        <th>UPLOADING/UPDATION DATE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>B.Tech Data for NIRF 2018 </td>
+        <td><a href="pdf/NIRF BTech Data.pdf">PDF</a></td>
+        <td>12/01/18</td>
+      </tr>
+      <tr>
+        <td>MBA Data for NIRF 2018 </td>
+        <td><a href="pdf/NIRF MBA Data.pdf">PDF</a></td>
+        <td>12/01/18</td>
+      </tr>
+      <tr>
+        <td>Overall Data for NIRF 2018 </td>
+        <td><a href="pdf/NIRF Overall DATA.pdf">PDF</a></td>
+        <td>12/01/18</td>
+      </tr>
+	  <tr>
+        <td>B.Tech Data for NIRF 2017 </td>
+        <td><a href="pdf/NIRF BTech Data.rar">RAR</a></td>
+        <td>27/12/16</td>
+      </tr>
+	  <tr>
+        <td>MBA Data for NIRF 2017 </td>
+        <td><a href="pdf/NIRF MBA Data.rar">RAR</a></td>
+        <td>27/12/16</td>
+      </tr>
+	  <tr>
+        <td>Overall Data for NIRF 2017 </td>
+        <td><a href="pdf/NIRF Overall DATA.rar">RAR</a></td>
+        <td>27/12/16</td>
+      </tr>
+    </tbody>
+  </table>
+</div><br><br><br><br>
+        <div class="loader" *ngIf="loader">
+          <div class="box"></div>
+        </div>
+    <div *ngFor="let n of nirf">
+        <div class="container">
+            <div class="row dis">
+                <div class="col-sm-8 col-sm-offset-2">
+                     {{n.NIRF_title}}
+                </div>
+                 <div class="col-sm-2"><a href="{{n.NIRF_file}}"><i class="fa fa-download "></i></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-foot></app-foot>

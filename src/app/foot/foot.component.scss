@@ -1,0 +1,31 @@
+@import "../../styles.scss";
+
+.foot-wrap{
+  background: #1C2331;
+  color: #fff;
+  font-family: 'Josefin Sans', sans-serif;
+  .container{
+    box-sizing: border-box;
+  }
+}
+
+a{
+  display: block;
+  transition: $trans;
+  &:hover{
+    color: $secondary;
+  }
+}
+
+.col-sm-offset-4{
+  text-align: right;
+}
+
+#footsie{
+  padding: 10px;
+  text-align: center;
+  display: block;
+  box-sizing: border-box;
+  background: #311b92;
+  color: #fff;
+}

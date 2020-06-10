@@ -1,0 +1,12 @@
+<div id="add-animation" class="departments selfLearning">
+    <header class="heading"><span class="heading__text">Self Learning</span></header>
+
+    <div class="loader" *ngIf="loader">
+        <div class="box"></div>
+    </div>
+    <div *ngFor="let d of Data">
+        <div class="">
+            <a href="d.SLLecturePlan" class="text-content"> ~{{d.SLLecturePlan}}</a>
+        </div>
+    </div>
+</div>

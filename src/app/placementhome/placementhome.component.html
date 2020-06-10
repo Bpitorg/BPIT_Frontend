@@ -1,0 +1,40 @@
+<!-- <app-nav></app-nav> -->
+<h4 class="text-right"><a routerLink="/faculty/faculty-home">Hi,{{name}}</a></h4>
+<div class="f-wrap">
+  <div class="f-dash row">
+    <div class="col-sm-3 sidebar">
+      <h4>Menu</h4>
+      <a routerLink="placehome" routerLinkActive="active">Home</a>
+      <a routerLink="experttalks" routerLinkActive="active">Expert Talks & Seminars</a>
+      <a routerLink="industour" routerLinkActive="active">Indus. Tour & Workshops</a>
+      <a routerLink="studentplaced" routerLinkActive="active">Student Placed</a>
+      <a routerLink="recruiters" routerLinkActive="active">Recruiters</a>
+      <a routerLink="training" routerLinkActive="active">Training</a>
+    <!--  <a routerLink="placementteam" routerLinkActive="active">Placement Team</a>-->
+      <a data-target="#logoutModal" data-toggle="modal">Logout</a>
+    </div>
+    <div class="col-sm-9 content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Logout</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are You sure?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="logout()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>

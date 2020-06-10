@@ -1,0 +1,15 @@
+<div id="add-animation">
+  <header class="heading"><span class="heading__text">Expert Talks and seminars</span></header>
+  <div id="text-content">
+    <table *ngIf="list"class="table table-bordered">
+      <tr>
+        <th>Date</th>
+        <th>Activities</th>
+      </tr>
+      <tr *ngFor="let l of list">
+        <td>{{l.date_of_upload}}</td>
+        <td>{{l.description}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

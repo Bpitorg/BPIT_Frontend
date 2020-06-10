@@ -1,0 +1,12 @@
+<div id="add-animation" class="departments lessonPlan">
+    <header class="heading"><span class="heading__text">Lesson PLan</span></header>    
+    <div class="loader" *ngIf="loader">
+        <div class="box"></div>
+    </div>
+    <div *ngFor="let d of Data" class="card card-downloadBtn">
+        <!-- <img src="d.lecturePlan" class="card__pic"> -->
+        <img src="https://d2slcw3kip6qmk.cloudfront.net/marketing/press/images/template-gallery/lesson-plan-table@2x.jpeg" class="card__pic">
+        <div class="card__downloadWrap"><a href="{{d.LecturePlan}}" target="_blank" ><i class="fa fa-download "></i></a></div>
+    </div>
+</div>
+

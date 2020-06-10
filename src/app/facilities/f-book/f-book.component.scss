@@ -1,0 +1,35 @@
+.slideshow{
+  width: 80%;
+  height: 200px;
+  animation: slides 10s ease-in-out;
+  animation-iteration-count: infinite;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@keyframes slides {
+  0%{
+    background: url("https://source.unsplash.com/6njoEbtarec");
+  }
+  // 19%{
+  //   background: url("https://source.unsplash.com/6njoEbtarec");
+  // }
+  20%{
+    background: url("https://source.unsplash.com/KieCLNzKoBo");
+  }
+  // 39%{
+  //   background: url("https://source.unsplash.com/KieCLNzKoBo");
+  // }
+  40%{
+    background: url("https://source.unsplash.com/jUwvjOmCTWc");
+  }
+  60%{
+    background: url("https://source.unsplash.com/Lg8xTZjs6Lg");
+  }
+  80%{
+    background: url("https://source.unsplash.com/oZPwn40zCK4");
+  }
+  100%{
+    background: url("https://source.unsplash.com/YjVa-F9P9kk")
+  }
+}

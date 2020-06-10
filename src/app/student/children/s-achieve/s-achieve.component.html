@@ -1,0 +1,12 @@
+<div id="add-animation">
+  <h1>Achievements</h1>
+    <!-- <div class="text-center">
+       <loader [condition]="loader"></loader>
+    </div>  -->
+    <div class="loader" *ngIf="loader">
+      <div class="box"></div>
+    </div>
+  <div *ngFor="let a of achievements">
+    <div>~{{a.acivement}}</div>
+  </div>
+</div>

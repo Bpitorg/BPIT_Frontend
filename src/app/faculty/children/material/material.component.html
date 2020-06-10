@@ -1,0 +1,234 @@
+
+ <div class="">
+   <div class="loader" *ngIf="loader || submitProgress">
+        <div class="box"></div>
+    </div>
+     <div class="add-button">
+        <button class="btn btn-success" data-target="#mcq" data-toggle="modal">
+             <i class="glyphicon glyphicon-plus"> MCQ</i>
+        </button>
+        <button class="btn btn-success" data-target="#presentation" data-toggle="modal">
+             <i class="glyphicon glyphicon-plus"> Presentation</i>
+        </button>
+        <button class="btn btn-success" data-target="#assignment" data-toggle="modal">
+             <i class="glyphicon glyphicon-plus"> Assignment</i>
+        </button>
+        <button class="btn btn-success" data-target="#questionPaper" data-toggle="modal">
+             <i class="glyphicon glyphicon-plus"> Question Paper</i>
+        </button>
+     </div>
+
+
+         <div class="row" *ngIf="allMcq!=null">
+        <h3>MCQ</h3>
+        <div class="container">
+            <div class="" *ngFor ="let a of allMcq">
+                <div class="col-sm-3">
+                    <div class="card">
+                     	<div class="card-body">
+                           <h4 class="card-title"> {{a.subject.subject_name}} &nbsp;&nbsp;&nbsp;&nbsp; <a (click)="deleteMcq(a.id)"><i class="fa fa-trash-o" ></i></a>
+                             <a href="{{a.MCQ}}"  target="_blank"> <i class="fa fa-download"></i> </a></h4>
+                        </div>
+                     </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row" *ngIf="allAssignment!=null">
+        <h3>Assignment</h3>
+        <div class="container">
+            <div class="" *ngFor ="let a of allAssignment">
+                <div class="col-sm-3">
+                    <div class="card">
+                     	<div class="card-body">
+                           <h4 class="card-title"> {{a.subject.subject_name}} &nbsp;&nbsp;&nbsp;&nbsp; <a (click)="deleteAssignment(a.id)"><i class="fa fa-trash-o" ></i></a>
+                             <a href="{{a.Assignment}}"  target="_blank"> <i class="fa fa-download"></i> </a></h4>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="allPresentation!=null">
+        <h3>Presentation</h3>
+        <div class="container">
+            <div class="" *ngFor ="let a of allPresentation">
+                <div class="col-sm-3">
+                    <div class="card">
+                     	<div class="card-body">
+                           <h4 class="card-title"> {{a.subject.subject_name}} &nbsp;&nbsp;&nbsp;&nbsp; <a (click)="deletePresentation(a.id)"><i class="fa fa-trash-o" ></i></a>
+                             <a href="{{a.presentation}}"  target="_blank"> <i class="fa fa-download"></i> </a></h4>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="allQuestionPaper!=null">
+        <h3>Question Paper</h3>
+        <div class="container">
+            <div class="" *ngFor ="let a of allQuestionPaper">
+                <div class="col-sm-3">
+                    <div class="card">
+                     	<div class="card-body">
+                           <h4 class="card-title"> {{a.subject.subject_name}} &nbsp;&nbsp;&nbsp;&nbsp; <a  (click)="deleteQuestionPaper(a.id)"><i class="fa fa-trash-o" ></i></a>
+                             <a href="{{a.QuestionPaper}}" target="_blank"> <i class="fa fa-download"></i> </a></h4>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+ <div class="modal fade" id="mcq" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Add Lesson Plan
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+       <div class="modal-body">
+        <form [formGroup]="mcq">
+          <div class="form-group">
+            <select formControlName="subject" (ngModelChange)="onSubjectChange($event)" [(ngModel)]="sub">
+              <option *ngFor="let a of subjects" [value]="a.id">{{a.subject_name}}</option>
+            </select>
+          </div>
+             <div class="form-group">
+                <label for="title">MCQ File</label>
+                <input type="file" id="mcq" formControlName="MCQ" (change)="getFile($event)">
+            </div>
+            </form>
+    </div>
+        <div class="modal-footer">
+             <button type="button" (click)="onMcq()" class="btn btn-default" data-dismiss="modal">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="modal fade" id="presentation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Add Lesson Plan
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+       <div class="modal-body">
+        <form [formGroup]="presentation">
+          <div class="form-group">
+            <select formControlName="subject" (ngModelChange)="onSubjectChange($event)" [(ngModel)]="sub">
+              <option *ngFor="let a of subjects" [value]="a.id">{{a.subject_name}}</option>
+            </select>
+          </div>
+             <div class="form-group">
+                <label for="title">Presentation File</label>
+                <input type="file" id="mcq" formControlName="presentation" (change)="getFile($event)">
+            </div>
+            </form>
+    </div>
+        <div class="modal-footer">
+             <button type="button" (click)="onPresentation()" class="btn btn-default" data-dismiss="modal">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="modal fade" id="assignment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Add Lesson Plan
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+       <div class="modal-body">
+        <form [formGroup]="assignment">
+          <div class="form-group">
+            <select formControlName="subject" (ngModelChange)="onSubjectChange($event)" [(ngModel)]="sub">
+              <option *ngFor="let a of subjects" [value]="a.id">{{a.subject_name}}</option>
+            </select>
+          </div>
+             <div class="form-group">
+                <label for="assignment">Assignment File</label>
+                <input type="file" id="assignment" formControlName="Assignment" (change)="getFile($event)">
+            </div>
+            </form>
+    </div>
+        <div class="modal-footer">
+             <button type="button" (click)="onAssignment()" class="btn btn-default" data-dismiss="modal">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="modal fade" id="questionPaper" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Add Lesson Plan
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+       <div class="modal-body">
+        <form [formGroup]="questionPaper">
+          <div class="form-group">
+            <select formControlName="subject" (ngModelChange)="onSubjectChange($event)" [(ngModel)]="sub">
+              <option *ngFor="let a of subjects" [value]="a.id">{{a.subject_name}}</option>
+            </select>
+          </div>
+             <div class="form-group">
+                <label for="title">Question Paper</label>
+                <input type="file" id="mcq" formControlName="QuestionPaper" (change)="getFile($event)">
+            </div>
+            </form>
+    </div>
+        <div class="modal-footer">
+             <button type="button" (click)="onQuestionPaper()" class="btn btn-default" data-dismiss="modal">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Success
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <h4>You have successfully added the {{content}}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="successModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Success
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <h4>You have successfully deleted the {{content}}</h4>
+      </div>
+    </div>
+  </div>
+</div>

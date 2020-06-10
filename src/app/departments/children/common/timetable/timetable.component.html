@@ -1,0 +1,11 @@
+<div id="add-animation" class="departments timetable">
+    <header class="heading"><span class="heading__text">Time Table</span></header>
+    <div class="loader" *ngIf="loader">
+        <div class="box"></div>
+    </div>
+    <div *ngFor="let d of Data" class="card card-downloadBtn">
+        <!-- <img src="{{d.time_table}}" class="card__pic">           -->
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA6o9G1i0IMT4aTPu7ys5o6JahqwKuPLt9tamXe8ISnWNGMwQTkg" class="card__pic">                  
+        <div class="card__downloadWrap"><a href="{{d.time_table}}" target="_blank" ><i class="fa fa-download "></i></a></div>
+    </div>
+</div>

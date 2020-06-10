@@ -1,0 +1,40 @@
+// .download-image {
+// position: relative;
+// }
+
+// .download-image:hover .edit-image {
+// display: block;
+// }
+// .edit-image{
+//  font-size: 42px;
+//  padding-top: 7px;
+//  padding-right: 7px;
+//  position: absolute;
+//  right: 31%;
+//  top: 25%;
+//  display: none;
+// }
+
+// .edit-image a {
+//  color: black;
+// }
+
+.card-downloadBtn{
+   position: relative;
+
+   .card__downloadWrap{
+       font-size: 46px;
+       position: absolute;
+       right: 44%;
+       top: 33%;
+       display: none; 
+       a{
+            color: black;
+        }
+   }
+  &:hover .card__downloadWrap{
+       display: block;
+   } 
+}
+
+ 

@@ -1,0 +1,150 @@
+
+  <!--<section class="work" id="work" style="margin-top:-120px;">
+  	<h3 class="text-center slideanim">Gallery</h3>
+  	<div class="gallery-grids">
+  		<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+  			<div id="myTabContent" class="tab-content">
+  				<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+  					<div  class="tab_img">
+  						<div class="col-md-3 col-sm-3 col-xs-3 portfolio-grids slideanim" *ngFor="let l of list " data-target="_blank" >
+                        <button class="round-button" (click)="this.selectedId(l.id)"><a style="left:30%;">{{l.title}}</a></button>
+  						</div>
+  						<div class="clearfix"> </div>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+
+  <div *ngIf="list2">
+    <div *ngFor="let p of list2">
+      <div class="gallery-grids">
+    		<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+    			<div id="myTabContent" class="tab-content">
+    				<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+    					<div  class="tab_img">
+    						<div class="col-md-3 col-sm-6 col-xs-6 portfolio-grids slideanim"  data-target="_blank" >
+
+                	<a href="{{p.photo}}" data-target="_blank"class="b-link-stripe b-animate-go  " data-lb-group="1">
+    								<img src="{{p.photo}}" class="img-responsive" alt="w3ls" />
+    								<div class="b-wrapper">
+    									<i class="fa fa-search-plus" aria-hidden="true"></i>
+    								</div>
+    							</a>
+    						</div>
+    						<div class="clearfix"> </div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+  </div>-->
+
+
+
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+      <meta charset="UTF-8">
+      <meta name="description" content="">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+      <!-- Title -->
+      <title>Mosh - Creative Business Template | Portfolio</title>
+
+      <!-- Favicon -->
+      <link rel="icon" href="../../../../assets/gallery/img/core-img/favicon.ico">
+
+      <!-- Core Stylesheet -->
+      <link href="../../../../assets/gallery/style.css" rel="stylesheet">
+
+      <!-- Responsive CSS -->
+      <link href="../../../../assets/gallery/css/responsive.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+       <app-nav style="font-size:15px;"></app-nav>
+      <!-- ***** Breadcumb Area Start ***** -->
+      <div class="mosh-breadcumb-area" style="background-image: url(../../../../assets/gallery/breadcrumb.jpg);">
+          <div class="container h-100">
+              <div class="row h-100 align-items-center">
+                  <div class="col-12">
+                      <div class="bradcumbContent">
+                          <h2>BPIT at a Glance</h2>
+                          <nav aria-label="breadcrumb">
+                              <ol class="breadcrumb">
+                                  <li class="breadcrumb-item"><a href="/home">Home</a></li>
+                                  <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                              </ol>
+                          </nav>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- ***** Breadcumb Area End ***** -->
+
+      <!-- ***** Portfolio Area Start ***** -->
+      <section class="mosh-portfolio-area section_padding_100">
+          <div class="container">
+              <!-- <div class="row" *ngFor="let l of list">
+                  <div class="col-12">
+                      <div class="mosh-projects-menu">
+                          <div class="portfolio-menu">
+                              <p class="active"(click)="this.selectedId(l.id)">{{l.title}}</p>
+                      </div>
+                  </div>
+              </div>
+          </div> -->
+          <section class="work" id="work" style="margin-top:-120px;">
+            <h3 class="text-center slideanim">Gallery</h3>
+            <div class="gallery-grids">
+              <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                <div id="myTabContent" class="tab-content">
+                  <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+                    <div  class="tab_img">
+                      <div class="col-md-3 col-sm-3 col-xs-3 portfolio-grids slideanim" *ngFor="let l of list " data-target="_blank" >
+                                <p (click)="this.selectedId(l.id)" id="portTitle"><a>{{l.title}}</a></p>
+                                <style media="screen">
+                                  #portTitle :hover{
+                                    color: purple;
+                                    font-size: 15px;
+                                    text-transform: uppercase;
+                                    font-weight: bolder;
+                                    cursor: pointer;
+                                  }
+                                </style>
+                      </div>
+                      <div class="clearfix"> </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="mosh-portfolio" *ngFor="let p of list2">
+              <!-- Single gallery Item Start -->
+              <div class="single_gallery_item thumbnail gd">
+                  <img src="{{p.photo}}" alt="">
+                  <div class="gallery-hover-overlay d-flex align-items-center justify-content-center">
+                      <div class="port-hover-text text-center">
+
+                          <a href="{{p.photo}}"><h4>View</h4></a>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            </div>
+      </section>
+      <!-- ***** Portfolio Area End ***** -->
+        <app-foot></app-foot>
+  </body>
+
+  </html>

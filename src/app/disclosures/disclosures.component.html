@@ -1,0 +1,92 @@
+<app-nav></app-nav>
+<div class="disclosure-wrap container" style="text-align:center;">
+  <h2 id="clr">
+    <i class="fa fa-eye" aria-hidden="true"></i>
+    Disclosure
+  </h2>
+  <div class="container">
+    <table class="table table-bordered table-striped table-hover table-responsive">
+    <thead>
+      <tr>
+        <th>S.No.</th>
+        <th>Name to be displayed</th>
+        <th>Document</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Feed Back/Suggestions/Grievences</td>
+        <td><a class="text-danger" href="pdf/Feedback Suggestion BPIT.docx">Download</a></td>
+        <td>1/2/2017</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>AICTE EOA</td>
+        <td><a class="text-danger" href="pdf/AICTE EOA.pdf">Download</a></td>
+        <td>2/2/2017</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Admission Process</td>
+        <td><a class="text-danger" href="pdf/Admmission Process.pdf">Download</a></td>
+        <td>2/2/2017</td>
+      </tr>
+	  <tr>
+        <td>4</td>
+        <td>Examination Process</td>
+        <td><a class="text-danger" href="pdf/Examination Process.pdf">Download</a></td>
+        <td>2/2/2017</td>
+      </tr>
+	  <tr>
+        <td>5</td>
+        <td>Anti Ragging Committee</td>
+        <td><a class="text-danger" href="pdf/Anti Ragging.pdf">Download</a></td>
+        <td>2/2/2017</td>
+      </tr>
+	  <tr>
+        <td>6</td>
+        <td>Complaint Committee Against sexual Harassment</td>
+        <td><a class="text-danger" href="pdf/Harrassment.pdf">Download</a></td>
+        <td>2/2/2017</td>
+      </tr>
+	  <tr>
+        <td>7</td>
+        <td>Grievence Redressal Committee</td>
+        <td><a class="text-danger" href="pdf/Grievance Redressal.pdf">Download</a></td>
+        <td>2/2/2017</td>
+      </tr>
+	  <tr>
+        <td>8</td>
+        <td>Service Rule Book</td>
+        <td><a class="text-danger" href="pdf/Service Rules (BPIT).pdf">Download</a></td>
+        <td>9/9/2017</td>
+      </tr>
+	  <tr>
+        <td>9</td>
+        <td>BPIT Audit Reports</td>
+        <td><a class="text-danger" href="pdf/BPIT AUDITED REPORTS.pdf">Download</a></td>
+        <td>9/9/2017</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+       <!-- <div class="text-center">
+        <loader [condition]="loader" class="centerLoader"></loader>
+       </div> -->
+        <div class="loader" *ngIf="loader">
+          <div class="box"></div>
+        </div>
+    <div *ngFor="let d of disclosures">
+        <div class="container">
+            <div class="row dis">
+                <div class="col-sm-8 col-sm-offset-2">
+                    {{d.disclosure_title}}
+                </div>
+                <div class="col-sm-2"><a href="{{d.disclosures}}"><i class="fa fa-download "></i></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-foot></app-foot>

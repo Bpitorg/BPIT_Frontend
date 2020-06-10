@@ -1,0 +1,21 @@
+<div id="add-animation" class="department faculty">
+  <header class="heading"><span class="heading__text">Faculty</span></header>
+  <div class="loader" *ngIf="loader">
+    <div class="box"></div>
+  </div>
+  <div *ngFor="let faculty of Data | orderBy:'order'" class="card-h">
+    <img src={{faculty.profile_pic}} alt="" class="card-h__pic">
+    <div class="card-h__content ">
+      <h4>{{faculty.firstname}} {{faculty.lastname}}</h4>
+      <h5>{{faculty.email}}</h5>
+      <p>{{faculty.Qualification}}</p>
+      <p><b>Designation:</b> {{faculty.designation}}</p>
+      <p><b>Experience:</b> {{faculty.Experience}}</p>
+      <p><b>Specialization:</b> {{faculty.specialization}}</p>
+      <p *ngIf="faculty.nation_Publications !=0"><b> National Publications:</b> {{faculty.nation_Publications}} </p>
+      <p *ngIf="faculty.international_Publication!=0"><b> International Publications:</b> {{faculty.international_publication }} </p>
+      <a href="{{faculty.publication_url}}">View on Google Scholar </a>
+      <p *ngIf="faculty.date_of_joining"><b>Date of joining: </b>{{faculty.date_of_joining}}</p>
+    </div>
+  </div>
+</div>

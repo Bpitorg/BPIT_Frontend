@@ -1,0 +1,17 @@
+.faculty{
+  padding: 10px;
+  margin: 15px 0;
+  border: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .profilepic{
+    width: 25%;
+    height: 40%;
+  }
+}
+
+.content{
+  padding: 20px;
+}

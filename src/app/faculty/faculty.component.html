@@ -1,0 +1,48 @@
+<!-- <app-nav></app-nav> -->
+<div class="loader" *ngIf="loader">
+  <div class="box"></div>
+</div>
+<h4 class="text-right"><a routerLink="/faculty/faculty-home">Hi,{{name}}</a></h4>
+<div class="f-wrap">
+  <div class="f-dash row">
+    <div class="col-sm-3 sidebar">
+      <h4>Menu</h4>
+      <a routerLink="faculty-home" routerLinkActive="active">Home</a>
+      <a routerLink="notices" routerLinkActive="active">Notice</a>
+      <a routerLink="news" routerLinkActive="active">Achievements</a>
+      <a routerLink="events" routerLinkActive="active">Events</a>
+      <a routerLink="studentPub" routerLinkActive="active">Student Publications</a>
+      <a routerLink="facultyPub" routerLinkActive="active">Faculty Publications</a>
+      <a routerLink="timetable" routerLinkActive="active">Timetable</a>
+      <a routerLink="studentProj" routerLinkActive="active">Student project</a>
+      <!-- <a routerLink="material" routerLinkActive="active">Study Material</a> -->
+      <a routerLink="lessonPlan" routerLinkActive="active">Lesson Plan</a>
+      <!-- <a routerLink="selfLearning" routerLinkActive="active">Self Learning</a> -->
+      <a data-target="#logoutModal" data-toggle="modal">Logout</a>
+      <a></a>
+    </div>
+    <div class="col-sm-9 content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Logout</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are You sure?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="logout()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>

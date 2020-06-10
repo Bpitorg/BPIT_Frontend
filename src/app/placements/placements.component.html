@@ -1,0 +1,25 @@
+<app-nav></app-nav>
+
+<div class="f-wrap container">
+  <h2 id="clr">
+    <i class="fa fa-briefcase" aria-hidden="true"></i>
+    Placements
+  </h2>
+  <div class="f-dash row">
+    <div class="col-sm-3 sidebar">
+      <h4>Menu</h4>
+      <a routerLink="team" routerLinkActive="active">Team</a>
+      <a routerLink="training" routerLinkActive="active">Trainings</a>
+      <a routerLink="recruiters" routerLinkActive="active">Our Recruiters</a>
+      <a routerLink="talksandseminars" routerLinkActive="active">Expert Talks and Seminars</a>
+      <a routerLink="toursandworkshops" routerLinkActive="active">Industrial Tours and Workshops</a>
+      <a routerLink="studentsplaced" routerLinkActive="active">List of Students Placed</a>
+    </div>
+    <div class="col-sm-9 content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<app-foot></app-foot>
+

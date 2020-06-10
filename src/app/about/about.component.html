@@ -1,0 +1,24 @@
+<app-nav></app-nav>
+
+<div class="f-wrap container">
+  <h2 id="clr">
+    <i class="fa fa-address-book-o" aria-hidden="true"></i>
+    About Us
+  </h2>
+  <div class="f-dash row">
+    <div class="col-sm-3 sidebar">
+      <h4>Menu</h4>
+      <a routerLink="collegeprofile" routerLinkActive="active">College Profile</a>
+      <a routerLink="trust" routerLinkActive="active">Trust</a>
+      <a routerLink="chairmansmessage" routerLinkActive="active">Chairman's Message</a>
+      <a routerLink="principalsmessage" routerLinkActive="active">Principal's Message</a>
+      <a routerLink="visionandmission" routerLinkActive="active">Vision/Mission</a>
+      <a routerLink="pillars" routerLinkActive="active">Pillars of BPIT</a>
+      <a routerLink="certifications" routerLinkActive="active">Certifications & Accreditions</a>
+    </div>
+    <div class="col-sm-9 content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<app-foot></app-foot>

@@ -1,0 +1,70 @@
+<div class="add-animation" class="departments studyMaterial">
+    <div class="loader" *ngIf="loader">
+        <div class="box"></div>
+    </div>
+    <header class="heading"><span class="heading__text">Study Material</span></header>
+    <div class="row" *ngIf="mcq!=null">
+        <h3>MCQ</h3>
+        <div class="container">
+            <div class="" *ngFor="let a of mcq">
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"> {{a.subject.subject_name}}</h4>
+                            <a href="{{a.MCQ}}" class="btn btn-primary" target="_blank"> <i class="fa fa-download"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row" *ngIf="assignment!=null">
+        <h3>Assignment</h3>
+        <div class="container">
+            <div class="" *ngFor="let a of assignment">
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"> {{a.subject}}</h4>
+                            <a href="{{a.Assignment}}" class="btn btn-primary" target="_blank"> <i class="fa fa-download"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="presentation!=null">
+        <h3>Presentation</h3>
+        <div class="container">
+            <div class="" *ngFor="let a of presentation">
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"> {{a.subject}}</h4>
+                            <a href="{{a.presentation}}" class="btn btn-primary" target="_blank"> <i class="fa fa-download"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="question!=null">
+        <h3>Question Paper</h3>
+        <div class="container">
+            <div class="" *ngFor="let a of question">
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"> {{a.subject}}</h4>
+                            <a href="{{a.QuestionPaper}}" class="btn btn-primary" target="_blank"> <i class="fa fa-download"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

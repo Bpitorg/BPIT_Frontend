@@ -1,0 +1,93 @@
+<div class="main">
+  <h1>Welcome to Dashboard...</h1>
+  <button class="btn btn-primary home" data-target="#addModal" data-toggle="modal">Add New User</button>
+</div>
+
+
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Add Credentials
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form [formGroup]="facultyhome">
+        Username:
+        <input type="text" formControlName="username" placeholder="enter username here" required><br><br>
+        Firstname:
+        <input type="text" formControlName="first_name" placeholder="enter firstname here" required><br><br>
+        Lastname:
+        <input type="text" formControlName="last_name" placeholder="enter lastname here"required><br><br>
+        Email:
+        <input type="email" formControlName="email"  placeholder="enter email here" required><br><br>
+        Password:
+        <input type="password" formControlName="password" placeholder="enter email here" required><br><br>
+        <hr />
+        <form [formGroup]="facultyhome1">
+          Profile Picture*:
+          <input type="file" formControlName="profile_pic" (change)="getFile($event)" required><br><br>
+          Designation*:
+          <input type="text" formControlName="designation" placeholder="enter designation here" required><br><br>
+          Qualification*:
+          <input type="text"  formControlName="Qualification" placeholder="enter qualification here" required><br><br>
+          Experience (in years):
+          <input type="number" formControlName="Experience" placeholder="enter experience here" required><br><br>
+          Specialization:
+          <input type="text"  formControlName="specialization" placeholder="enter Specialization here" required><br><br>
+          Nation Publications:
+          <input type="number" formControlName="nation_Publications" placeholder="enter no of nation publications here" required><br><br>
+          International Publications:
+          <input type="number" formControlName="international_publication" placeholder="enter no of international publications here" required><br><br>
+          Faculty Publication Url:
+          <input type="text" formControlName="faculty_publication_url" placeholder="enter no of international publications here" required><br><br>
+          Date Of joining:
+          <input type="date" formControlName="date_of_joining" placeholder="enter no of international publications here" required><br><br>
+        </form>
+        <div class="modal-footer">
+         <button type="button" (click)="UserSubmit()" class="btn btn-default" data-dismiss="modal">Submit</button>
+       </div>
+     </form>
+   </div>
+   </div>
+ </div>
+</div>
+
+
+<!-- <div class="modal fade" id="FacultyAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Add Credentials
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+         <div class="modal-footer">
+          <button type="button" (click)="FacultySubmit()" class="btn btn-default" data-dismiss="modal">Submit</button>
+        </div>
+      </form>
+    </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Success
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <h4>You have successfully Added User. </h4>
+      </div>
+    </div>
+  </div>
+</div>

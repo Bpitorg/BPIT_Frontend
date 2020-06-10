@@ -1,0 +1,112 @@
+<div class="box">
+  <h1>Students Placed</h1>
+    <div class="add-button">
+       <button class="btn btn-success circle plus-btn" data-target="#addModal" data-toggle="modal">
+            <i class="glyphicon glyphicon-plus"></i>
+       </button>
+    </div>
+   <!-- display notices -->
+    <div class="display facpub center-h">
+       <div class="loader" *ngIf="loader || submitProgress">
+         <div class="box"></div>
+       </div>
+     <div *ngIf="data">
+       <div class="facpub-wrap col-sm-8 col-xs-12 center-h" *ngFor="let p of data">
+         <div>
+
+         <a class="delete" (click)="deleteStudentPlaced(p.id)"><i  class="fa fa-trash-o udIcon"></i></a>
+         <a class="edit"(click)="selectedStudentPlaced(p)" data-target="#editModal" data-toggle="modal"><i  class="fa fa-pencil udIcon"></i></a><br>
+           ~{{p.batch}}
+       </div>
+       </div>
+    </div>
+</div>
+
+<!-- add modal -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal-dialog" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       Add Student Placed
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body">
+        <form [formGroup]="StudentPlaced">
+           <div class="form-group">
+               <label for="title">Batch</label>
+               <input type="number" id="title" class="form-control" name="batch" formControlName="batch" placeholder="enter title here">
+            <br>  <label for="title">Date</label>
+            <input type="date" class="form-control" name="date_of_upload" data-date-format="YYYY MMMM DD" formControlName="date_of_upload">
+              <br>  <label for="title">Data</label>
+                <input type="file" class="form-control" name="data" formControlName="data" (change)="getFile($event)">
+           </div>
+        </form>
+   </div>
+     <div class="modal-footer">
+           <button type="button" (click)="onSubmit()" data-dismiss="modal" class="btn btn-default">Submit</button>
+     </div>
+   </div>
+ </div>
+</div>
+
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal-dialog" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       Success
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body">
+         <h4>You have successfully added Student Placed</h4>
+     </div>
+   </div>
+ </div>
+</div>
+
+<div class="modal fade" id="successModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal-dialog" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       Success
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body">
+         <h4>You have successfully deleted Student Placed</h4>
+     </div>
+   </div>
+ </div>
+</div>
+<!-- edit modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal-dialog" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+         <h5 class="modal-title" id="exapmleModalLabel">Edit Student Placed </h5>
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body" *ngIf="selected">
+         <form [formGroup]="editStudentPlaced">
+           <div class="form-group">
+               <label for="title">Batch</label>
+               <input type="number" id="title" class="form-control" name="batch" formControlName="batch" placeholder="enter title here">
+            <br>  <label for="title">Date</label>
+            <input type="date" class="form-control" name="date_of_upload" data-date-format="YYYY MMMM DD" formControlName="date_of_upload">
+              <br>  <label for="title">Data</label>
+                <input type="file" class="form-control" name="data" formControlName="data" (change)="getFile($event)">
+           </div>
+        </form>
+   </div>
+     <div class="modal-footer">
+           <button type="button" (click)="onEditSubmit(selected.id)" data-dismiss="modal" class="btn btn-default">Submit</button>
+     </div>
+   </div>
+ </div>
+</div>

@@ -1,0 +1,12 @@
+<div id="add-animation" class="departments fPublication">
+    <header class="heading"><span class="heading__text">Faculty Publications</span></header>
+    <div class="loader" *ngIf="loader">
+        <div class="box"></div>
+    </div>
+    <table class="table table-bordered">
+      <tr *ngFor="let d of Data">
+        <th>{{d.faculty_publication}}</th>
+      </tr>
+    </table>
+
+</div>

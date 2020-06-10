@@ -1,0 +1,116 @@
+<h1>Events</h1>
+<div class="add-button">
+  <button class="btn btn-success circle plus-btn" data-target="#addModal" data-toggle="modal">
+             <i class="glyphicon glyphicon-plus"></i>
+    </button>
+</div>
+<!-- display notices -->
+<div class="loader" *ngIf="loader || submitProgress">
+  <div class="box"></div>
+</div>
+<div class="events">
+  <div class="loader" *ngIf="loader">
+    <div class="box"></div>
+  </div>
+  <div class="events-wrap row" *ngIf="allEvents">
+    <div *ngFor="let event of allEvents; let i=index" class="event col-sm-5 col-xs-12">
+      <!--            <div class="event-image">0{{i}}</div>-->
+      <div>
+        <a class="delete" (click)="deleteEvent(event.id)"><i class="fa fa-trash-o udIcon"></i></a>
+        <a class="edit" (click)="onEditEvent(event)" data-target="#editModal" data-toggle="modal"><i class="fa fa-pencil udIcon"></i></a>
+      </div>
+      <div class="content">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        <div class="texts">
+          <p>{{event.title}}</p>
+          <a class="round-button black link" target="_blank" href={{event.events}}>
+                    Details
+                  <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- add modal -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Add Event
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="event">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" formControlName="title" placeholder="enter title here">
+          </div>
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" class="form-control" id="title" formControlName="date" (change)="onDueDate($event)">
+          </div>
+          <div class="form-group">
+                <label for="title">File</label>
+                <input type="file" id="title" formControlName="events" (change)="getFile($event)">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="eventsSubmit()" data-dismiss="modal" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        {{modalHeading}}
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4>{{modalBody}}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- edit modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exapmleModalLabel">Edit Event</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngIf="selected">
+        <form [formGroup]="editEvent">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" formControlName="title" placeholder="enter title here">
+          </div>
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" class="form-control" id="title" formControlName="date" (change)="onDueDate($event)">
+          </div>
+          <div class="form-group">
+                  <label for="title">File</label>
+                  <input type="file" id="title" formControlName="events" (change)="getFile($event)">
+              </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="eventEditSubmit(selected.id)" data-dismiss="modal" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

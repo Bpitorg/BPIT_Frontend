@@ -1,0 +1,21 @@
+<div id="add-animation" class="departments notice">
+  <header class="heading"><span class="heading__text">Notice</span></header>
+  <div class="notices center-h">
+    <div class="loader" *ngIf="loader">
+      <div class="box"></div>
+    </div>
+    <div *ngIf="Data">
+      <div class="notice-wrap col-sm-5 col-xs-12 center-h" *ngFor="let notice of Data">
+        <div class="notice">
+          <div *ngIf=" notice.examination_notice==true" class="red">Examination</div>
+          <div class="content">
+            <i class="fa fa-bell-o" aria-hidden="true"></i>
+            <p class="text-overflow-hidden">{{notice.title}}</p>
+          </div>
+          <!-- <span>12 hours ago</span> -->
+          <a target="_blank" href={{notice.notices}}>Click for details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

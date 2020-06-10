@@ -1,0 +1,24 @@
+<div id="add-animation" class=" departments">
+  <div class="events">
+    <header class="heading"><span class="heading__text">Events</span></header>
+    <div class="loader" *ngIf="loader">
+      <!-- <loader [condition]="eventsLoader"></loader> -->
+      <div class="box"></div>
+    </div>
+    <div class="events-wrap row">
+      <div *ngFor="let event of Data; let i=index" class="event col-sm-5 col-xs-12">
+        <!--            <div class="event-image">0{{i}}</div>-->
+        <div class="content">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          <div class="texts">
+            <p>{{event.title}}</p>
+            <a class="round-button black link" target="_blank" href={{event.events}}>
+                    Details
+                  <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                  </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
