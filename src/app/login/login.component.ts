@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   password:string;
   token:any;
   body:any;
+  options:any;
   error:boolean=false;
   serveUrl:string="";
   placementbranch:any;

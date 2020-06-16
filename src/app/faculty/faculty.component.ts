@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 
 export class FacultyComponent{
     name:any;
+    loader:boolean=false;
     loggedIn:boolean=false;
     loggedInP:boolean=false;
     constructor(
