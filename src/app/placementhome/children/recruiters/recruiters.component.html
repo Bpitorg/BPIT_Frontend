@@ -1,10 +1,10 @@
-<div class="box">
-  <h1>Recruiters</h1>
+ <h1>Recruiters</h1>
     <div class="add-button">
        <button class="btn btn-success circle plus-btn" data-target="#addModal" data-toggle="modal">
             <i class="glyphicon glyphicon-plus"></i>
        </button>
     </div>
+    <div class="box">
    <!-- display notices -->
     <div class="display facpub center-h">
        <div class="loader" *ngIf="loader || submitProgress">
@@ -21,7 +21,7 @@
        </div>
     </div>
 </div>
-
+</div>
 <!-- add modal -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
  <div class="modal-dialog" role="document">
@@ -91,7 +91,7 @@
        </button>
      </div>
      <div class="modal-body" *ngIf="selected">
-         <form [formGroup]="editRecruites">
+         <form [formGroup]="editRecruiters">
            <div class="form-group">
                <label for="title">Name</label>
                <input type="text" id="title" class="form-control"  name="recruiter_name" formControlName="recruiter_name" placeholder="enter title here">
@@ -105,4 +105,4 @@
      </div>
    </div>
  </div>
-</div>
+
