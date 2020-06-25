@@ -2,32 +2,33 @@
   <div class="head-bar">
     <div class="container">
       <span id="clr">
-         <a routerLink="/login" *ngIf="((!loggedIn) && (!loggedInP))">Sign In</a>
-         <a routerLink="/faculty" *ngIf="loggedIn">Hi, {{name}}</a>
-         <a routerLink="/placement-home" *ngIf="loggedInP">Hi,{{name}}</a>
+        <a routerLink="/login" *ngIf="((!loggedIn) && (!loggedInP))">Sign In</a>
+        <a routerLink="/faculty" *ngIf="loggedIn">Hi, {{name}}</a>
+        <a routerLink="/placement-home" *ngIf="loggedInP">Hi,{{name}}</a>
       </span>
     </div>
   </div>
   <div class="top-bar">
-    <div class="container" id="top" >
-      <div class="wrap">
-        <div class="branding">
-<div ><div class="col-sm-3" ><img src="../../../../assets/images/logo.png" alt=""></div></div>
-          <div class="logotype">
-            <div class="names" id="top1">
-
-              <p id="big" style=" font-size: 30px;font-weight:bolder;color:#5C0BF4">Bhagwan Parshuram Institute of Technology</p>
-              <span style="font-weight:bold;">Affiliated To GGSIPU, Delhi, A unit of Bhartiya Brahmin Charitable Trust, <b>ISO 9001:2008 Certified</b><br /></span>
-
-            </div>
-          </div>
+    <div class="container">
+      <div class="row center-align" id="top">
+        <div class="col-lg-2" style="padding-top: 2rem;">
+          <img src="../../../../assets/images/logo.png" alt="">
         </div>
-        <!-- <div class="search">
-          <i class="fa fa-search" aria-hidden="true"></i>
-          <span>Search</span>
-        </div> -->
-      </div>
+        <div class="col-lg-9" style="padding-top: .5rem; padding-bottom: 0;">
+          <p style="font-size: 30px;font-weight:bolder;color:#5C0BF4;">Bhagwan Parshuram Institute of
+            Technology</p>
+          <span style="font-weight:bold; padding-top: 0;">Affiliated To GGSIPU, Delhi, A unit of Bhartiya Brahmin Charitable Trust,
+            <b>ISO 9001:2008 Certified</b><br /></span>
+        </div>
+        <div class="col-lg-1">
+          <div style="justify-content: center;"><img src="../../../../assets/images/bpit-logo.png" alt=""></div>
+        </div>
     </div>
+  </div>
+    <!-- <div class="search">
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <span>Search</span>
+            </div> -->
     <br />
   </div>
 
@@ -144,7 +145,7 @@
 </div> -->
 
 
-<!--
+  <!--
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -217,138 +218,150 @@
   </div>
 </nav>
 -->
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <!------ Include the above in your HEAD tag ---------->
 
-<style>
-body {
-    padding-top: 50px;
-}
-</style>
+  <style>
+    body {
+      padding-top: 50px;
+    }
+  </style>
 
-<div class="navbar navbar-default" role="navigation">
+  <div class="navbar navbar-default" role="navigation">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a routerLink="/home">Home</a></li>
-                <li>
-                    <a routerLink="/aboutus" class="dropdown-toggle" data-toggle="dropdown">About Us<b class="caret"></b></a>
-                    <ul class="dropdown-menu multi-level">
-                        <li><a  routerLink="/aboutus/collegeprofile">College Profile</a></li>
-                        <li><a routerLink="/aboutus/trust">Trust</a></li>
-                        <li><a routerLink="/aboutus/chairmansmessage">Chairman's Message</a></li>
-                        <li><a  routerLink="/aboutus/principalsmessage">Principal's Message</a></li>
-                        <li><a routerLink="/aboutus/visionandmission">Vision/Mission</a></li>
-                        <li><a routerLink="/aboutus/pillars">Pillars of Bpit</a></li>
-                        <li><a routerLink="/aboutus/certifications">Certifications and Accredations</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Academics<b class="caret"></b></a>
-                    <ul class="dropdown-menu multi-level">
-                      <li class="dropdown-submenu">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Programme</a>
-                          <ul class="dropdown-menu">
-                              <li><a id="med" href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">MBA</a></li>
-                              <li class="dropdown-submenu">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">B.Tech</a>
-                                  <ul class="dropdown-menu">
-                                    <li><a id="med" href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">Computer Science and Engineering</a></li>
-                                    <li><a id="med" href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">Electronics and Communication Engineering</a></li>
-                                    <li><a id="med" href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">Information Technology</a></li>
-                                    <li><a id="med" href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">Electronics and Electricals Engineering</a></li>
-                                  </ul>
-                              </li>
-                            <li><a id="med" href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">BBA</a></li>
-                          </ul>
-                      </li>
-                        <li class="dropdown-submenu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Departments</a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-submenu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Applied Science</a>
-                                    <ul class="dropdown-menu">
-                                      <li><a id="med" routerLink="/departments/ac/">Applied Chemistry</a></li>
-                                      <li><a id="med" routerLink="/departments/ap/">Applied Physics</a></li>
-                                      <li><a id="med" routerLink="/departments/am/">Applied Mathematics</a></li>
-                                      <li><a id="med" routerLink="/departments/me/">Mechanical</a></li>
-                                      <li><a id="med" routerLink="/departments/hu/">Humanities</a></li>
-                                   </ul>
-                                </li>
-                                <li><a  routerLink="/departments/cse/">Computer Science and Engineering</a></li>
-                                <li><a  routerLink="/departments/ece/">Electronics and Communication Engineering</a></li>
-                                <li><a  routerLink="/departments/it/">Information Technology</a></li>
-                                <li><a  routerLink="/departments/eee/">Electronics and Electricals Engineering</a></li>
-                                <li class="dropdown-submenu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">School of Bussiness Administration</a>
-                                    <ul class="dropdown-menu">
-                                      <li><a id="med" routerLink="/departments/mba/">MBA</a></li>
-                                      <li><a id="med" routerLink="/departments/bba/">BBA</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Facilties<b class="caret"></b></a>
-                    <ul class="dropdown-menu multi-level">
-                        <li><a  routerLink="/facilities/library">Library</a></li>
-                        <li><a routerLink="/facilities/hostel">Hostel</a></li>
-                        <li><a routerLink="/facilities/medicalroom">Medical room</a></li>
-                        <li><a  routerLink="/facilities/bookbank">Book Bank</a></li>
-                        <li><a routerLink="/facilities/seminarhall">Seminar hall</a></li>
-                        <li><a routerLink="/facilities/EDUSAT">EDUSAT</a></li>
-                        <li><a routerLink="/facilities/sportsroom">Sports room</a></li>
-                        <li><a routerLink="/facilities/canteen">Canteen</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Placements<b class="caret"></b></a>
-                    <ul class="dropdown-menu multi-level">
-                      <li><a routerLink="/placements/team">Team</a></li>
-                      <li><a routerLink="/placements/training">Trainings</a></li>
-                      <li><a routerLink="/placements/recruiters">Our Recruiters</a></li>
-                      <li><a routerLink="/placements/talksandseminars">Expert Talks and Seminars</a></li>
-                      <li><a routerLink="/placements/toursandworkshops">Industrial tours and workshops</a></li>
-                      <li><a routerLink="/placements/studentsplaced">List of students placed</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Student Life<b class="caret"></b></a>
-                    <ul class="dropdown-menu multi-level">
-                      <li class="dropdown-submenu">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Departments</a>
-                          <ul class="dropdown-menu">
-                            <li><a  target="_blank" href="http://www.ipu.ac.in/exam_notices.php">Notices</a></li>
-                            <li><a  target="_blank" href="http://www.ipu.ac.in/exam_datesheet.php">Datesheet</a></li>
-                            <li><a  target="_blank" href="http://ggsipu.ac.in/ExamResults/ExamResultsmain.htm">Results</a></li>
-                          </ul>
-                      </li>
-                      <li><a  routerLink="/student/events">Events</a></li>
-                      <li><a  routerLink="/student/publications">Publications</a></li>
-                      <li><a  routerLink="/student/projects">Projects</a></li>
-                      <li><a  routerLink="/student/achievments">Achievements</a></li>
-                      <li><a  routerLink="/student/societies">Societies</a></li>
-                      <li><a  routerLink="/student/sports">Sports</a></li>
-                    </ul>
-                </li>
-                <li><a routerLink="/gallery">Gallery</a></li>
-                <li><a href="http://35.193.55.52:8080" target="blank">BPIT Connect</a></li>
-                <li><a routerLink="/disclosures">Disclosures</a></li>
-                <li><a routerLink="/nirf">NIRF</a></li>
-                <li><a routerLink="/contactus">Contact Us</a></li>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" style="border-width: .22rem;" data-toggle="collapse"
+          data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a routerLink="/home">Home</a></li>
+          <li>
+            <a routerLink="/aboutus" class="dropdown-toggle" data-toggle="dropdown">About Us<b class="caret"></b></a>
+            <ul class="dropdown-menu multi-level">
+              <li><a routerLink="/aboutus/collegeprofile">College Profile</a></li>
+              <li><a routerLink="/aboutus/trust">Trust</a></li>
+              <li><a routerLink="/aboutus/chairmansmessage">Chairman's Message</a></li>
+              <li><a routerLink="/aboutus/principalsmessage">Principal's Message</a></li>
+              <li><a routerLink="/aboutus/visionandmission">Vision/Mission</a></li>
+              <li><a routerLink="/aboutus/pillars">Pillars of Bpit</a></li>
+              <li><a routerLink="/aboutus/certifications">Certifications and Accredations</a></li>
             </ul>
-        </div><!--/.nav-collapse -->
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Academics<b class="caret"></b></a>
+            <ul class="dropdown-menu multi-level">
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Programme</a>
+                <ul class="dropdown-menu">
+                  <li><a id="med"
+                      href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">MBA</a></li>
+                  <li class="dropdown-submenu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">B.Tech</a>
+                    <ul class="dropdown-menu">
+                      <li><a id="med"
+                          href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">Computer
+                          Science and Engineering</a></li>
+                      <li><a id="med"
+                          href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">Electronics
+                          and Communication Engineering</a></li>
+                      <li><a id="med"
+                          href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">Information
+                          Technology</a></li>
+                      <li><a id="med"
+                          href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">Electronics
+                          and Electricals Engineering</a></li>
+                    </ul>
+                  </li>
+                  <li><a id="med"
+                      href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">BBA</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Departments</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-submenu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Applied Science</a>
+                    <ul class="dropdown-menu">
+                      <li><a id="med" routerLink="/departments/ac/">Applied Chemistry</a></li>
+                      <li><a id="med" routerLink="/departments/ap/">Applied Physics</a></li>
+                      <li><a id="med" routerLink="/departments/am/">Applied Mathematics</a></li>
+                      <li><a id="med" routerLink="/departments/me/">Mechanical</a></li>
+                      <li><a id="med" routerLink="/departments/hu/">Humanities</a></li>
+                    </ul>
+                  </li>
+                  <li><a routerLink="/departments/cse/">Computer Science and Engineering</a></li>
+                  <li><a routerLink="/departments/ece/">Electronics and Communication Engineering</a></li>
+                  <li><a routerLink="/departments/it/">Information Technology</a></li>
+                  <li><a routerLink="/departments/eee/">Electronics and Electricals Engineering</a></li>
+                  <li class="dropdown-submenu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">School of Bussiness Administration</a>
+                    <ul class="dropdown-menu">
+                      <li><a id="med" routerLink="/departments/mba/">MBA</a></li>
+                      <li><a id="med" routerLink="/departments/bba/">BBA</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Facilties<b class="caret"></b></a>
+            <ul class="dropdown-menu multi-level">
+              <li><a routerLink="/facilities/library">Library</a></li>
+              <li><a routerLink="/facilities/hostel">Hostel</a></li>
+              <li><a routerLink="/facilities/medicalroom">Medical room</a></li>
+              <li><a routerLink="/facilities/bookbank">Book Bank</a></li>
+              <li><a routerLink="/facilities/seminarhall">Seminar hall</a></li>
+              <li><a routerLink="/facilities/EDUSAT">EDUSAT</a></li>
+              <li><a routerLink="/facilities/sportsroom">Sports room</a></li>
+              <li><a routerLink="/facilities/canteen">Canteen</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Placements<b class="caret"></b></a>
+            <ul class="dropdown-menu multi-level">
+              <li><a routerLink="/placements/team">Team</a></li>
+              <li><a routerLink="/placements/training">Trainings</a></li>
+              <li><a routerLink="/placements/recruiters">Our Recruiters</a></li>
+              <li><a routerLink="/placements/talksandseminars">Expert Talks and Seminars</a></li>
+              <li><a routerLink="/placements/toursandworkshops">Industrial tours and workshops</a></li>
+              <li><a routerLink="/placements/studentsplaced">List of students placed</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Student Life<b class="caret"></b></a>
+            <ul class="dropdown-menu multi-level">
+              <li class="dropdown-submenu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Departments</a>
+                <ul class="dropdown-menu">
+                  <li><a target="_blank" href="http://www.ipu.ac.in/exam_notices.php">Notices</a></li>
+                  <li><a target="_blank" href="http://www.ipu.ac.in/exam_datesheet.php">Datesheet</a></li>
+                  <li><a target="_blank" href="http://ggsipu.ac.in/ExamResults/ExamResultsmain.htm">Results</a></li>
+                </ul>
+              </li>
+              <li><a routerLink="/student/events">Events</a></li>
+              <li><a routerLink="/student/publications">Publications</a></li>
+              <li><a routerLink="/student/projects">Projects</a></li>
+              <li><a routerLink="/student/achievments">Achievements</a></li>
+              <li><a routerLink="/student/societies">Societies</a></li>
+              <li><a routerLink="/student/sports">Sports</a></li>
+            </ul>
+          </li>
+          <li><a routerLink="/gallery">Gallery</a></li>
+          <li><a href="http://35.193.55.52:8080" target="blank">BPIT Connect</a></li>
+          <li><a routerLink="/disclosures">Disclosures</a></li>
+          <li><a routerLink="/nirf">NIRF</a></li>
+          <li><a routerLink="/contactus">Contact Us</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
     </div>
-</div>
+  </div>

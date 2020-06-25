@@ -73,7 +73,7 @@ login(){
     this.loggedIn=true;
     this.loader=true;
     this.router.navigate(['/faculty']);
-    location.reload();
+    // location.reload();
   }
 
   verifyFail(){
