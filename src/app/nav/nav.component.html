@@ -1,34 +1,40 @@
 <div class="nav-wrap">
   <div class="head-bar">
-    <div class="container">
+    <div class="container" style="padding-bottom: 1rem;">
       <span id="clr">
         <a routerLink="/login" *ngIf="((!loggedIn) && (!loggedInP))">Sign In</a>
         <a routerLink="/faculty" *ngIf="loggedIn">Hi, {{name}}</a>
-        <a routerLink="/placement-home" *ngIf="loggedInP">Hi,{{name}}</a>
+        <a routerLink="/placement-home/placehome" *ngIf="loggedInP">Hi,{{name}}</a>
       </span>
     </div>
   </div>
   <div class="top-bar">
-    <div class="container">
-      <div class="row center-align" id="top">
+    <div class="container" style="width: 76%;">
+      <div class="row" id="top">
         <div class="col-lg-2" style="padding-top: 2rem;">
-          <img src="../../../../assets/images/logo.png" alt="">
+          <img src="../../../../assets/images/logo.png" alt="" style="width: 180px; height: 52px;">
         </div>
-        <div class="col-lg-9" style="padding-top: .5rem; padding-bottom: 0;">
-          <p style="font-size: 30px;font-weight:bolder;color:#5C0BF4;">Bhagwan Parshuram Institute of
+        <div style="margin-top: 1.5rem; padding-left: 40px;" class="col-lg-8">
+          <p style="font-size: 30px; font-weight:bolder; color:#5C0BF4;margin-top: -0.6rem;">Bhagwan Parshuram Institute
+            of
             Technology</p>
-          <span style="font-weight:bold; padding-top: 0;">Affiliated To GGSIPU, Delhi, A unit of Bhartiya Brahmin Charitable Trust,
-            <b>ISO 9001:2008 Certified</b><br /></span>
+          <div style="font-weight:bold; font-size: 12px; margin-top: -1.1rem;">Affiliated To GGSIPU, Delhi, A unit of
+            Bhartiya Brahmin Charitable Trust,
+            <b>ISO 9001:2008 Certified</b><br />
+          </div>
         </div>
-        <div class="col-lg-1">
-          <div style="justify-content: center;"><img src="../../../../assets/images/bpit-logo.png" alt=""></div>
+        <div class="col-lg-2">
+          <div class="row">
+            <div class="col-lg-6"><img src="../../../../assets/images/bpit-logo.png" alt="">
+            </div>
+            <div class="col-lg-6"
+              style="font-weight:bold; color: #5C0BF4; margin-left: -15px; margin-top: .5rem; padding-left: 2.5rem;">
+              Bhartiya Brahmin Charitable Trust
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-  </div>
-    <!-- <div class="search">
-              <i class="fa fa-search" aria-hidden="true"></i>
-              <span>Search</span>
-            </div> -->
     <br />
   </div>
 
@@ -232,7 +238,7 @@
   <div class="navbar navbar-default" role="navigation">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" style="border-width: .22rem;" data-toggle="collapse"
+        <button type="button" style="border-width: .22rem;" class="navbar-toggle" data-toggle="collapse"
           data-target=".navbar-collapse">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
@@ -262,26 +268,26 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Programme</a>
                 <ul class="dropdown-menu">
                   <li><a id="med"
-                      href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">MBA</a></li>
+                      href="http://www.ipu.ac.in/pubinfo/admission2018/adm2018main/ADMBRO2018A_190218.pdf">MBA</a></li>
                   <li class="dropdown-submenu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">B.Tech</a>
                     <ul class="dropdown-menu">
                       <li><a id="med"
-                          href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">Computer
+                          href="http://www.ipu.ac.in/pubinfo/admission2018/adm2018main/ADMBRO2018A_190218.pdf">Computer
                           Science and Engineering</a></li>
                       <li><a id="med"
-                          href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">Electronics
+                          href="http://www.ipu.ac.in/pubinfo/admission2018/adm2018main/ADMBRO2018A_190218.pdf">Electronics
                           and Communication Engineering</a></li>
                       <li><a id="med"
-                          href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">Information
+                          href="http://www.ipu.ac.in/pubinfo/admission2018/adm2018main/ADMBRO2018A_190218.pdf">Information
                           Technology</a></li>
                       <li><a id="med"
-                          href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">Electronics
+                          href="http://www.ipu.ac.in/pubinfo/admission2018/adm2018main/ADMBRO2018A_190218.pdf">Electronics
                           and Electricals Engineering</a></li>
                     </ul>
                   </li>
                   <li><a id="med"
-                      href="http://www.ipu.ac.in/Pubinfo2020/Admission2020main/admbr2020main270220.pdf">BBA</a></li>
+                      href="http://www.ipu.ac.in/pubinfo/admission2018/adm2018main/ADMBRO2018A_190218.pdf">BBA</a></li>
                 </ul>
               </li>
               <li class="dropdown-submenu">
