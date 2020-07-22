@@ -116,7 +116,7 @@ verifySuccessP(data:any){
   localStorage.setItem('placementbranch',"PL");
   this.loggedInP=true;
   this.router.navigate(['/placement-home']);
-  location.reload();
+  // location.reload();
 }
 
 verifyFailP(){
