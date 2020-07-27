@@ -71,19 +71,22 @@ a {
     margin: auto;
   }
 }
-.heading-bpit{
+
+.heading-bpit {
   font-size: 30px;
-  font-weight:bolder;
-  color:#5C0BF4;
+  font-weight: bolder;
+  color: #5C0BF4;
 }
-@media (max-width: 1080px){
-  .heading-bpit{
+
+@media (max-width: 1080px) {
+  .heading-bpit {
     font-size: 30px;
-  font-weight:bolder;
-  color:#5C0BF4;
-  padding-left: 1rem;
+    font-weight: bolder;
+    color: #5C0BF4;
+    padding-left: 1rem;
   }
 }
+
 //1080
 // .top-bar{
 //   background-color: #FFF;
@@ -588,4 +591,56 @@ a {
   -webkit-border-radius: 6px 0 6px 6px;
   -moz-border-radius: 6px 0 6px 6px;
   border-radius: 6px 0 6px 6px;
+}
+
+// newly added styles
+
+.logo-side-line {
+  font-weight: bold;
+  color: #5C0BF4;
+  margin-left: -25px;
+  margin-top: .5rem;
+  padding-left: 2.5rem;
+}
+
+.bpit-heading-div {
+  margin-top: 1.5rem;
+  padding-left: 40px;
+}
+
+.container-style-nav {
+  width: 76%;
+}
+
+.mini-heading {
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: -1.1rem;
+}
+
+.bpit-heading {
+  font-size: 30px;
+  font-weight: bolder;
+  color: #5C0BF4;
+  margin-top: -0.6rem;
+}
+
+@media(max-width: 500px) {
+  .bpit-heading-div {
+    padding: 0;
+    // padding-bottom: 34px;
+  }
+
+  .bpit-heading {
+    font-size: 25px;
+  }
+
+  .container-style-nav {
+    width: 100%;
+    padding-left: 4rem;
+  }
+
+  .logo-side-line {
+    margin-left: 5px;
+  }
 }
