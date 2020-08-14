@@ -16,10 +16,11 @@ constructor(
 }
 
 postUser(data:any){
-    return this.http.post(this.serveUrl+'user/create/faculty/',data)
+
+    return this.http.post(this.serveUrl+'create/user',data)
  }
 
- postFaculty(data:any){
-     return this.http.post(this.serveUrl+'faculty/create',data)
-  }
+//  postFaculty(data:any){
+//      return this.http.post(this.serveUrl+'faculty/create',data)
+//   }
 }

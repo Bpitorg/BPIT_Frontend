@@ -23,11 +23,11 @@ export class DfacultyComponent implements OnInit {
         private con:Configuration,
         private router:Router,
         private ds:DepartmentsService
-  ) { 
+  ) {
     this.serveUrl=this.con.url;
     this.url = this.router.url;
     this.url=this.url.split("/").splice(0,4).join("/");
-         
+
 
   }
 
