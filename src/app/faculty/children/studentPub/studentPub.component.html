@@ -4,7 +4,7 @@
     <i class="glyphicon glyphicon-plus"></i>
   </button>
 </div>
-<div class="box">
+<!-- <div class="box"></div> -->
   <!-- display student publication -->
   <div class="StudentPub">
     <div class="display">
@@ -17,7 +17,7 @@
 
             <a class="delete" (click)="deletestudpub(p.id)"><i class="fa fa-trash-o udIcon"></i></a> &nbsp;
             <a class="edit" (click)="selectedPublication(p)" data-target="#editModal" data-toggle="modal"><i
-                class="fa fa-pencil udIcon"></i></a>
+                class="fa fa-pencil udIcon"></i></a>   <!--dekho yha pr bhi id nhi ja rhi kyuki yha se hum edited data-->
             {{p.student_publication}}
           </div>
           <br />
@@ -25,7 +25,6 @@
       </div>
     </div>
   </div>
-</div>
 <!-- add modal -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">

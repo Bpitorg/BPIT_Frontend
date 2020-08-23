@@ -15,7 +15,8 @@ constructor(
     this.serveUrl=this.con.server;
 }
 
-getNotice(branch:any){
+getNotice(branch:any){ //ab check kro
+  console.log(branch);
     return this.http.get(this.serveUrl + 'departments/'+ branch +'/notice')
 }
 
@@ -27,7 +28,7 @@ postNotice(data:any){
     return this.http.post(this.serveUrl +'notice/post',data)
 }
 
-editNotice(data:any,id:any){
+editNotice(id:any,data:any){
     return this.http.put(this.serveUrl +'notice/' +id,data)
 }
 }

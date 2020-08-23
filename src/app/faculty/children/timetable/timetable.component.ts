@@ -17,10 +17,12 @@ export class TimetableComponent implements OnInit {
   timetable:any;
   file:any;
   serveUrl:any;
+  semester: any;
   alltimetable: any;
   editTimetable:any;
   selectedTimetable:any;
   loader:Boolean=true;
+  selectedSemester: any;
   submitProgress: Boolean = false;
   branchName: any;
   branchId:any;
@@ -88,6 +90,7 @@ export class TimetableComponent implements OnInit {
     initForm(){
     return new FormGroup({
       branch:new FormControl(this.branchId,[Validators.required]),
+      semester: new FormControl(this.selectedSemester, [Validators.required]),
       branch_section: new FormControl(this.selectedSection,[Validators.required]),
       time_table:new FormControl('', [Validators.required])
     })
@@ -96,9 +99,10 @@ export class TimetableComponent implements OnInit {
       editForm(){
     return new FormGroup({
       branch:new FormControl(this.branchId,[Validators.required]),
+      semester: new FormControl(this.selectedSemester, [Validators.required]),
       branch_section: new FormControl(this.selectedSection,[Validators.required]),
       time_table:new FormControl('', [Validators.required]),
-      year:new FormControl('second',[Validators.required])
+      // year:new FormControl('second',[Validators.required])
     })
   }
 
@@ -108,6 +112,7 @@ export class TimetableComponent implements OnInit {
     timetableSubmit(){
     this.submitProgress=true;
     let formData = new FormData();
+    formData.append('semester', this.timetable.value['semester']);
     formData.append('branch',this.timetable.value['branch']);
     formData.append('branch_section', this.timetable.value['branch_section']);
     formData.append('time_table', this.file);
@@ -117,9 +122,10 @@ export class TimetableComponent implements OnInit {
     editTimetableSubmit(){
     this.submitProgress=true;
     let formData = new FormData();
+    formData.append('semester', this.editTimetable.value['semester']);
+    // console.log(this.editTimetable.value['semester']);
     formData.append('branch',this.editTimetable.value['branch']);
     formData.append('branch_section', this.editTimetable.value['branch_section']);
-    formData.append('year', this.editTimetable.value['year']);
     formData.append('time_table', this.file);
     this.onEditSubmit(formData);
   }
@@ -150,6 +156,6 @@ onEditSubmit(formData:any){
 
   selectTimetable(e:any){
     this.selectedTimetable=e;
-    console.log(e, "i am in selectTimeyvale");
+    console.log(e, "in selectTimetable");
   }
 }

@@ -4,25 +4,25 @@
     <i class="glyphicon glyphicon-plus"></i>
   </button>
 </div>
-<div class="box">
-  <!-- display notices -->
-  <div class="TimeTable">
-    <div class="display">
-      <div class="loader" *ngIf="loader || submitProgress">
-        <div class="box"></div>
-      </div>
-      <div class="TimeTable-wrap  col-sm-5 col-xs-12  center-h info" *ngFor="let a of alltimetable">
-        <p>
-          Time table for class {{a.branch_section}}
-        </p>
-        <a (click)="a.time_table"><i class="fa fa-download udIcon"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-        <a (click)="deleteTimetable(a.id)"><i class="fa fa-trash-o udIcon"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-        <a (click)="selectTimetable(a)" data-target="#editModal" data-toggle="modal"><i
-            class="fa fa-pencil udIcon"></i></a>
-      </div>
+<!-- <div class="box"> -->
+<!-- display notices -->
+<div class="TimeTable">
+  <div class="display">
+    <div class="loader" *ngIf="loader || submitProgress">
+      <div class="box"></div>
+    </div>
+    <div class="TimeTable-wrap  col-sm-5 col-xs-12  center-h info" *ngFor="let a of alltimetable">
+      <p>
+        Time table for {{a.semester}} semester.
+      </p>
+      <a href="{{a.time_table}}" target="_blank"><i class="fa fa-download udIcon"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a (click)="deleteTimetable(a.id)"><i class="fa fa-trash-o udIcon"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a (click)="selectTimetable(a)" data-target="#editModal" data-toggle="modal"><i
+          class="fa fa-pencil udIcon"></i></a>
     </div>
   </div>
 </div>
+<!-- </div> -->
 <!-- add modal -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -37,12 +37,25 @@
       <div class="modal-body">
         <form [formGroup]="timetable">
           <div class="form-group">
+            <label>Semester</label>
+            <select formControlName="semester">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+            </select>
+          </div>
+          <div class="form-group">
             <label for="title">Section</label>
             <select formControlName="branch_section" (ngModelChange)="onSelectSection($event)"
               ([ngModel])="selectedSection">
               <option *ngFor="let s of section" [value]="s.id">{{s.section}}</option>
             </select>
-          </div>
+           </div>
 
           <div class="form-group">
             <label for="title">File</label>
@@ -105,6 +118,19 @@
       <div class="modal-body">
         <form [formGroup]="editTimetable">
           <div class="form-group">
+            <label>Semester</label>
+            <select formControlName="semester" ([ngModel])="selectedSemester">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+            </select>
+          </div>
+          <div class="form-group">
             <label for="title">Section</label>
             <select formControlName="branch_section" (ngModelChange)="onSelectSection($event)"
               ([ngModel])="selectedSection">
@@ -116,7 +142,7 @@
             <label for="title">File</label>
             <input type="file" id="title" formControlName="time_table" (change)="getFile($event)">
           </div>
-
+<!--
           <div class="form-group">
             <label for="year">Year</label>
             <select formControlName="year">
@@ -125,7 +151,7 @@
               <option value="third">third</option>
               <option value="forth">forth</option>
             </select>
-          </div>
+          </div> -->
 
         </form>
       </div>

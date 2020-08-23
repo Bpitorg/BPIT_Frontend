@@ -125,17 +125,20 @@
                   <div class="box"></div>
                 </div>
                 <marquee direction="up" scrollamount="4" onmouseover="this.stop();" onmouseout="this.start();">
-                <div class="notice-wrap" *ngFor="let notice of notices">
-                  <div  class="notice">
-                    <div *ngIf=" notice.examination_notice==true" class="red">Examination</div>
-                      <div class="content">
-                        <i class="fa fa-bell-o" aria-hidden="true"></i>
-                        <p>{{notice.title}}</p>
-                      </div>
+                  <div class="notice-wrap" *ngFor="let notice of notices" >
+                    <div *ngIf=" notice.display_to_home==true">
+                      <div  class="notice">
+                        <div *ngIf=" notice.is_examination_notice==true" class="red">Examination</div>
+                          <div class="content">
+                            <i class="fa fa-bell-o" aria-hidden="true"></i>
+                            <p>{{notice.title}}</p>
+                          </div>
 
-                    <a target="_blank" href={{notice.notices}}>Click for details</a>
+                        <a target="_blank" href={{notice.notices}}>Click for details</a>
+                      </div>
+                    </div>
+
                   </div>
-                </div>
         </marquee>
               </div>
               <br><br>

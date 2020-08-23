@@ -64,7 +64,7 @@ public submitProgress: boolean = false;
 
     })
     }
-    getPublication(){
+    getPublication(){ // ye rha
         this.loader=true
         this.fs.getPublication(this.branchName).subscribe(res=>{
             this.loader=false;

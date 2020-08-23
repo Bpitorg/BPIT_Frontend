@@ -76,8 +76,8 @@
       </div>
       <div class="modal-body">
       <form [formGroup]="facultyhome">
-        <!-- Username:
-        <input type="text" formControlName="username" placeholder="enter username here" required><br><br> -->
+        Username:
+        <input type="text" formControlName="username" placeholder="enter username here" required><br><br>
         Firstname:
         <input type="text" formControlName="first_name" placeholder="enter firstname here" required><br><br>
         Lastname:
@@ -90,12 +90,12 @@
         <input type="password" formControlName="password" placeholder="enter password here" required><br><br>
         <hr />
 
-        <!-- <form [formGroup]="facultyhome1"> -->
+        <form [formGroup]="facultyhome1">
 
           Profile Picture:
           <input type="file" formControlName="profile_pic" (change)="getFile($event)"><br><br>
-          <!-- User:
-          <input type="text" formControlName="User" placeholder="enter username here" required><br><br> -->
+          User:
+          <input type="text" formControlName="User" placeholder="enter username here" required><br><br>
           Designation*:
           <input type="text" formControlName="designation" placeholder="enter designation here" required><br><br>
           <!-- Branch*
@@ -105,7 +105,7 @@
           Experience (in years):
           <input type="number" formControlName="Experience" placeholder="enter experience here" required><br><br>
           Specialization:
-          <input type="text"  formControlName="specialization" placeholder="enter Specialization here" required><br><br>
+          <input type="text"  formControlName="speacialization" placeholder="enter Specialization here" required><br><br>
           Nation Publications:
           <input type="number" formControlName="nation_Publications" placeholder="enter no of nation publications here" required><br><br>
           International Publications:
@@ -114,11 +114,13 @@
           <input type="text" formControlName="faculty_publication_url" placeholder="enter no of international publications here" required><br><br>
           Date Of joining:
           <input type="date" formControlName="date_of_joining" placeholder="enter no of international publications here" required><br><br>
+          Faculty Admin:
+          <input type="checkbox" formControlName="is_faculty_admin" required>
         </form>
         <div class="modal-footer">
          <button type="button" (click)="UserSubmit()" class="btn btn-default" data-dismiss="modal">Submit</button>
        </div>
-      <!-- </form> -->
+      </form>
    </div>
    </div>
  </div>
@@ -146,7 +148,7 @@
   </div>
 </div> -->
 
-<div class="modal fade" id="successModal" tabindex="-1" *ngIf="submitProgress" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

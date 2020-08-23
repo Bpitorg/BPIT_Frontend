@@ -4,7 +4,9 @@
     <div class="box"></div>
   </div>
   <div *ngFor="let faculty of Data | orderBy:'order'" class="card-h">
-    <img src="https://Bpit-mongo-backend.herokuapp.com{{faculty.profile_pic}}" alt="" class="card-h__pic">
+    <!-- hn yha kiya tha us time mujhe lga khi ts files me na ho nhi vaha nhi tha dekha tha -->
+    <!-- delho kya changes honge krdo aap mujhe link bta do backend ka jha se images aa rhi h  -->
+    <img src="{{faculty.profile_pic}}" alt="" class="card-h__pic">
     <div class="card-h__content ">
       <h4>{{faculty.firstname}} {{faculty.lastname}}</h4>
       <h5>{{faculty.email}}</h5>

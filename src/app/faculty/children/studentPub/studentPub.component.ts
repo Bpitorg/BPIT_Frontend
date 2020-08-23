@@ -88,7 +88,7 @@ export class StudentPubComponent {
     })
   }
 
-  onEditSubmit(id:any){
+  onEditSubmit(id:any){ // phir ye wala kahi call nhi hua yha to phle se hi tha?hnhnhnhn achaaaaaaaaa
     this.submitProgress=true;
     let formData = new FormData();
     formData.append('branch',this.publication.value['branch']);
@@ -114,8 +114,9 @@ export class StudentPubComponent {
     })
   }
 
-  selectedPublication(e:any){
-    this.selected=e;
+  selectedPublication(e:any){  // ye call hua nhi kahi pe pr edit to rha tha na ruko vha pr form data pass nhi ho rha shyd mil gya
+    this.selected=e;// vha se id notice bhej diya, ab vo this.selected me store ho jaega
+    // or ye selected fr upr vale function me as a id use hoga
     console.log(e);
   }
 

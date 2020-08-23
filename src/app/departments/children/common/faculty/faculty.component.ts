@@ -11,12 +11,12 @@ import { DepartmentsService } from '../../../departments.service';
 })
 export class DfacultyComponent implements OnInit {
     serveUrl:any;
-    Data:any;
+    Data:any; // ye to rha ab bs iska profile_pic me add krna hai server url
     loader:boolean=false;
     url:any;
     pubs: number;
     order: "order";
-    ascending = true;
+    ascending = true;  //
 
   constructor(
         private http:HttpClient,
@@ -27,13 +27,15 @@ export class DfacultyComponent implements OnInit {
     this.serveUrl=this.con.url;
     this.url = this.router.url;
     this.url=this.url.split("/").splice(0,4).join("/");
-
+// galler wali file me dekho waha bhi to photos aati hai
 
   }
 
     ngOnInit(){
         this.getData();
     }
+
+    // yhi se aa rha hai na data? yha koi function h hi kha hava me thodi na get request aai? ruko vhi dekh rhi hu
 
     getData(){
         this.loader=true;
