@@ -1,108 +1,115 @@
- <h1>Recruiters</h1>
-    <div class="add-button">
-       <button class="btn btn-success circle plus-btn" data-target="#addModal" data-toggle="modal">
-            <i class="glyphicon glyphicon-plus"></i>
-       </button>
-    </div>
-    <div class="box">
-   <!-- display notices -->
-    <div class="display facpub center-h">
-       <div class="loader" *ngIf="loader || submitProgress">
-         <div class="box"></div>
-       </div>
-     <div *ngIf="data">
-       <div class="facpub-wrap col-sm-8 col-xs-12 center-h" *ngFor="let p of data">
-         <div>
+<h1>Recruiters</h1>
+<div class="add-button">
+  <button class="btn btn-success circle plus-btn" data-target="#addModal" data-toggle="modal">
+    <i class="glyphicon glyphicon-plus"></i>
+  </button>
+</div>
+<!-- <div class="box"> -->
+<!-- display notices -->
+<div class="display facpub center-h">
+  <div class="loader" *ngIf="loader || submitProgress">
+    <div class="box"></div>
+  </div>
+  <div *ngIf="data">
+    <div class="facpub-wrap col-sm-8 col-xs-12 center-h" *ngFor="let p of data">
+      <div>
 
-         <a class="delete" (click)="deleteRecruiters(p.id)"><i  class="fa fa-trash-o udIcon"></i></a>
-         <a class="edit"(click)="selectedRecruiters(p)" data-target="#editModal" data-toggle="modal"><i  class="fa fa-pencil udIcon"></i></a><br>
-           ~{{p.recruiter_name}}
-       </div>
-       </div>
+        <a class="delete" (click)="deleteRecruiters(p.id)"><i class="fa fa-trash-o udIcon"></i></a>
+        <a class="edit" (click)="selectedRecruiters(p)" data-target="#editModal" data-toggle="modal"><i
+            class="fa fa-pencil udIcon"></i></a><br>
+        ~{{p.recruiter_name}}
+      </div>
     </div>
+  </div>
 </div>
-</div>
+<!-- </div> -->
 <!-- add modal -->
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-       Add recruiter
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-     </div>
-     <div class="modal-body">
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Add recruiter
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
         <form [formGroup]="Recruiters">
-           <div class="form-group">
-               <label for="title">Name</label>
-               <input type="text" id="title" class="form-control" name="recruiter_name" formControlName="recruiter_name" placeholder="enter title here">
-            <br>  <label for="title">Image</label>
-              <input type="file" class="form-control" name="logo" formControlName="logo" (change)="getFile($event)">
-           </div>
+          <div class="form-group">
+            <label for="title">Name</label>
+            <input type="text" id="title" class="form-control" name="recruiter_name" formControlName="recruiter_name"
+              placeholder="enter title here">
+            <br> <label for="title">Image</label>
+            <input type="file" class="form-control" name="logo" formControlName="logo" (change)="getFile($event)">
+          </div>
         </form>
-   </div>
-     <div class="modal-footer">
-           <button type="button" (click)="onSubmit()" data-dismiss="modal" class="btn btn-default">Submit</button>
-     </div>
-   </div>
- </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="onSubmit()" data-dismiss="modal" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-       Success
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-     </div>
-     <div class="modal-body">
-         <h4>You have successfully added the recruiter</h4>
-     </div>
-   </div>
- </div>
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Success
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4>You have successfully added the recruiter</h4>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="modal fade" id="successModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-       Success
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-     </div>
-     <div class="modal-body">
-         <h4>You have successfully deleted the recruiter</h4>
-     </div>
-   </div>
- </div>
+<div class="modal fade" id="successModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Success
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4>You have successfully deleted the recruiter</h4>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- edit modal -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-         <h5 class="modal-title" id="exapmleModalLabel">Edit recruiter </h5>
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-     </div>
-     <div class="modal-body" *ngIf="selected">
-         <form [formGroup]="editRecruiters">
-           <div class="form-group">
-               <label for="title">Name</label>
-               <input type="text" id="title" class="form-control"  name="recruiter_name" formControlName="recruiter_name" placeholder="enter title here">
-              <br> <label for="title">Image</label>
-              <input type="file" class="form-control" name="logo" formControlName="logo" (change)="getFile($event)">
-           </div>
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exapmleModalLabel">Edit recruiter </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngIf="selected">
+        <form [formGroup]="editRecruiters">
+          <div class="form-group">
+            <label for="title">Name</label>
+            <input type="text" id="title" class="form-control" name="recruiter_name" formControlName="recruiter_name"
+              placeholder="enter title here">
+            <br> <label for="title">Image</label>
+            <input type="file" class="form-control" name="logo" formControlName="logo" (change)="getFile($event)">
+          </div>
         </form>
-   </div>
-     <div class="modal-footer">
-           <button type="button" (click)="onEditSubmit(selected.id)" data-dismiss="modal" class="btn btn-default">Submit</button>
-     </div>
-   </div>
- </div>
-
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="onEditSubmit(selected.id)" data-dismiss="modal"
+          class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </div>

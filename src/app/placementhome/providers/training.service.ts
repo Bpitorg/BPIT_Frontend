@@ -24,7 +24,7 @@ deleteTrainings(id:any,data:any){
 }
 
 postTrainings(data:any){
-    return this.http.post(this.serveUrl +'placement/trainings/',data)
+    return this.http.post(this.serveUrl +'placement/trainings/post',data)
 }
 
 editTrainings(id:any,data:any){
