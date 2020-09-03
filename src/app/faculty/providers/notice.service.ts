@@ -31,4 +31,7 @@ postNotice(data:any){
 editNotice(id:any,data:any){
     return this.http.put(this.serveUrl +'notice/' +id,data)
 }
+getEditNotice(id:any){
+  return this.http.get(this.serveUrl+'notice/' + id);
+}
 }

@@ -27,7 +27,7 @@ export class PTourComponent implements OnInit {
 
      getPTour(){
      this.loader=true;
-     this.http.get(this.serveUrl + 'placement/trainings').subscribe(res=>{
+     this.http.get(this.serveUrl + 'placement/industrial-tour-and-workshop').subscribe(res=>{
      this.loader=false;
        this.list=res;
      },err=>{

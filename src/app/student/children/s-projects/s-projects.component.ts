@@ -16,7 +16,7 @@ export class SProjectsComponent implements OnInit {
   constructor(
     private http:HttpClient,
     private con:Configuration
-  ) { 
+  ) {
     this.serveUrl=this.con.server;
   }
 
@@ -26,11 +26,11 @@ export class SProjectsComponent implements OnInit {
 
   getProject(){
     this.loader=true;
-    this.http.get( this.serveUrl + 'student-projects').subscribe(res=>{
-    this.loader=false;      
+    this.http.get( this.serveUrl + 'student-projects/').subscribe(res=>{
+    this.loader=false;
       this.projects=res;
     },err=>{
-    this.loader=false;      
+    this.loader=false;
     })
   }
 }

@@ -4,7 +4,7 @@
     <i class="glyphicon glyphicon-plus"></i>
   </button>
 </div>
-<div class="box">
+<!-- <div class="box"> -->
   <!-- display notices -->
   <div class="display facpub center-h">
     <div class="loader" *ngIf="loader || submitProgress">
@@ -17,12 +17,14 @@
           <a class="delete" (click)="deleteStudentPlaced(p.id)"><i class="fa fa-trash-o udIcon"></i></a>
           <a class="edit" (click)="selectedStudentPlaced(p)" data-target="#editModal" data-toggle="modal"><i
               class="fa fa-pencil udIcon"></i></a><br>
-          ~{{p.batch}}
+          {{p.batch}}
+          <br>
+          {{p.branch}}
         </div>
       </div>
     </div>
   </div>
-</div>
+<!-- </div> -->
 <!-- add modal -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -37,6 +39,9 @@
       <div class="modal-body">
         <form [formGroup]="StudentPlaced">
           <div class="form-group">
+            <label for="title">Branch</label>
+            <input type="text" class="form-control" name="branch" formControlName="branch"
+              placeholder="enter branch here"><br>
             <label for="title">Batch</label>
             <input type="number" id="title" class="form-control" name="batch" formControlName="batch"
               placeholder="enter title here">
@@ -102,6 +107,9 @@
       <div class="modal-body" *ngIf="selected">
         <form [formGroup]="editStudentPlaced">
           <div class="form-group">
+            <label for="title">Branch</label>
+            <input type="text" class="form-control" name="branch" formControlName="branch"
+              placeholder="enter branch here"><br>
             <label for="title">Batch</label>
             <input type="number" id="title" class="form-control" name="batch" formControlName="batch"
               placeholder="enter title here">

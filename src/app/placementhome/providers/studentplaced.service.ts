@@ -24,7 +24,7 @@ deleteStudentPlaced(id:any,data:any){
 }
 
 postStudentPlaced(data:any){
-    return this.http.post(this.serveUrl +'placement/student-placed/',data)
+    return this.http.post(this.serveUrl +'placement/student-placed',data)
 }
 
 editStudentPlaced(id:any,data:any){

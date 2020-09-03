@@ -25,7 +25,7 @@ export class DisclosuresComponent implements OnInit{
     }
 
     getDisclosures(){
-        this.http.get(this.serveUrl + 'disclosures').subscribe(res=>{
+        this.http.get(this.serveUrl + 'disclosures/').subscribe(res=>{
             this.loader=false;
             this.disclosures=res;
         })

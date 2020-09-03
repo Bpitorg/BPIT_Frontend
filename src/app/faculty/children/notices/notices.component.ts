@@ -23,6 +23,7 @@ export class NoticesComponent implements OnInit {
   loader: boolean = true;
   branchName: any;
   editNotice: any;
+  getEditNotice: any;
   selectedNotice: any;
   delete: any;
   constructor(
@@ -63,13 +64,24 @@ export class NoticesComponent implements OnInit {
   }
 
   editForm() {
+    // this.ns.getEditNotice().subscribe(res => {
+    //   this.loader = false;
+    //   this.allNotice = res.json();
+    //   console.log('getting notices');// ab check krte hhnji
+    // }, err => {
+    //   this.loader = false;
+    // })
+
+
+    // this.notice.get("title").setValue()
+
     return new FormGroup({
-      branch: new FormControl('', [Validators.required]),
-      title: new FormControl('', [Validators.required, Validators.maxLength(250)]),
-      date: new FormControl('', [Validators.required]),
-      display_to_home: new FormControl('', [Validators.required]),
-      examination_notice: new FormControl('false', [Validators.required]),
-      notices: new FormControl('', [Validators.required])
+      branch: new FormControl(this.branch, [Validators.required]),
+      title: new FormControl(this.notice.get('title').setValue(this.notice.value['title']), [Validators.required, Validators.maxLength(250)]),
+      date: new FormControl(this.notice.value['date'], [Validators.required]),
+      display_to_home: new FormControl(this.notice.value['display_to_home'], [Validators.required]),
+      examination_notice: new FormControl('', [Validators.required]),
+      notices: new FormControl(this.file, [Validators.required])
     })
   }
 
@@ -149,24 +161,10 @@ export class NoticesComponent implements OnInit {
       this.submitProgress = false;
     })
   }
-//iski jarurat nhi h kyuki selectedNotice isme phle se hi id bhej chuke h ye variable bnaya h
-// ekmin mai bs process copy kr rha hu
-// onEditSubmit(formData: any, id:any) {
-//     this.ns.editNotice(formData, this.selectedNotice.id).subscribe(res => { // yha error h sirf id thodi bhejenge data bhi to bhejna h na
-//      console.log(this.selectedNotice.id);
-
-//       this.submitProgress = true;
-//     console.log("onEditSubmit running") /// ye to nhi vo to edit krenge tb hoga ho rha h run
-//       $('#successModal').modal('show');
-//       this.getNotices();
-//     }, err => {
-//       this.submitProgress = false;
-//     })
-//   }// ye log krke dekhte hai
 
   getNotices() {
     this.loader = true;
-    this.ns.getNotice(this.branchName).subscribe(res => { // yha se call to ho rha h to iska mtlb ye chl rha h
+    this.ns.getNotice(this.branch).subscribe(res => { // yha se call to ho rha h to iska mtlb ye chl rha h
       this.loader = false;
       this.allNotice = res.json();
       console.log('getting notices');// ab check krte hhnji

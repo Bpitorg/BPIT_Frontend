@@ -24,7 +24,7 @@ deleteTalk(id:any,data:any){
 }
 
 postTalk(data:any){
-    return this.http.post(this.serveUrl +'placement/expert-talk-seminar/',data)
+    return this.http.post(this.serveUrl +'placement/expert-talk-seminar',data)
 }
 
 editTalk(id:any,data:any){

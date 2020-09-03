@@ -27,11 +27,11 @@ export class NirfComponent implements OnInit{
 
     getNirf(){
         this.loader=true;
-        this.http.get(this.serveUrl + 'nirf').subscribe(res=>{
-            this.loader=false;            
+        this.http.get(this.serveUrl + 'nirf/').subscribe(res=>{
+            this.loader=false;
             this.nirf=res;
         },err=>{
-        this.loader=false;            
+        this.loader=false;
         })
     }
 }

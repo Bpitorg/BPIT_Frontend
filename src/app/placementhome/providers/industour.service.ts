@@ -24,7 +24,7 @@ deleteTour(id:any,data:any){
 }
 
 postTour(data:any){
-    return this.http.post(this.serveUrl +'placement/industrial-tour-and-workshop/',data)
+    return this.http.post(this.serveUrl +'placement/industrial-tour-and-workshop',data)
 }
 
 editTour(id:any,data:any){

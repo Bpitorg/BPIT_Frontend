@@ -289,3 +289,18 @@ a.wrimagecard:hover, .wrimagecard-topimage:hover {
   color:black;
   padding-bottom: 20px;
 }
+
+// video
+#banner{
+  background-size: cover;
+  width: 100%;
+}
+#banner .banner-video {
+  overflow: hidden;
+  left: 0px;
+  max-height: 650px;
+  top: 0px;
+  z-index: 10;
+  width: 100%;
+  object-fit: cover;
+}

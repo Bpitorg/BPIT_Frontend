@@ -1,14 +1,30 @@
 <div id="add-animation">
   <h1>Publications</h1>
-    <!-- <div class="text-center">
+  <!-- <div class="text-center">
        <loader [condition]="loader"></loader>
     </div>  -->
-    <div class="loader" *ngIf="loader">
-      <div class="box"></div>
-    </div>
+  <div class="loader" *ngIf="loader">
+    <div class="box"></div>
+  </div>
+
   <div id="text-content">
-    <div *ngFor="let p of publications">
-      <div>~{{p.student_publication}}</div>
+    <div *ngFor="let p of publications" >
+      <table  class="table table-bordered">
+        <tr>
+          <th>Title</th>
+        <th>Authors</th>
+        <th>Venue</th>
+        <th>Conference Name</th>
+        <th>Year</th>
+        </tr>
+        <tr>
+          <td>{{p.title}}</td>
+          <td>{{p.authors}}</td>
+          <td>{{p.venue}}</td>
+          <td>{{p.conference_name}}</td>
+          <td>{{p.year}}</td>
+        </tr>
+      </table>
     </div>
 
   </div>

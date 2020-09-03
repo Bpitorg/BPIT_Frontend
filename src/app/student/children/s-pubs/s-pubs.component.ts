@@ -25,11 +25,11 @@ export class SPubsComponent implements OnInit {
 
   getPublications(){
     this.loader=true;
-    this.http.get( this.serveUrl + 'student-publications').subscribe(res=>{
-      this.loader=false;      
+    this.http.get( this.serveUrl + 'student-publications/').subscribe(res=>{
+      this.loader=false;
       this.publications=res;
     },err=>{
-      this.loader=false;            
+      this.loader=false;
     })
 
   }

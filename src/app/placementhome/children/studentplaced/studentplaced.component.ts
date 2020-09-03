@@ -37,7 +37,7 @@ export class StudentplacedComponent implements OnInit {
     }
 
     ngOnInit() {
-      this.branch=localStorage.getItem('branch');
+      // this.branch=localStorage.getItem('branch');
       this.userId=localStorage.getItem('id');
       this.getBranch();
       this.StudentPlaced = this.initForm();
@@ -45,7 +45,7 @@ export class StudentplacedComponent implements OnInit {
     }
     public initForm() {
       return new FormGroup({
-        branch:new FormControl(this.branch,[Validators.required]),
+        branch:new FormControl('',[Validators.required]),
         batch: new FormControl('', [Validators.required]),
         date_of_upload:new FormControl('',[Validators.required]),
         data:new FormControl('',[Validators.required])
@@ -54,7 +54,7 @@ export class StudentplacedComponent implements OnInit {
 
     public EditForm() {
       return new FormGroup({
-        branch:new FormControl(this.branch,[Validators.required]),
+        branch:new FormControl('',[Validators.required]),
         batch: new FormControl('', [Validators.required]),
         date_of_upload:new FormControl('',[Validators.required]),
         data:new FormControl('',[Validators.required])
@@ -86,7 +86,7 @@ export class StudentplacedComponent implements OnInit {
 
   deleteStudentPlaced(id:any){
     let formData = new FormData();
-    formData.append('branch',this.branch);
+    formData.append('branch',this.StudentPlaced.value['branch']);
     this.fs.deleteStudentPlaced(id,formData).subscribe(res=>{
       console.log("I am deleted");
       this.getBranch();
@@ -99,8 +99,8 @@ export class StudentplacedComponent implements OnInit {
   onSubmit() {
     this.submitProgress=true;
     let formData = new FormData();
-    formData.append('branch',this.branch);
-    formData.append('batch', this.StudentPlaced.value['batch']);
+    formData.append('branch',this.StudentPlaced.value['branch']);
+    formData.append('batch', this.StudentPlaced.value['batch']);  // years aaega ek min dekhne do ye h to
     formData.append('data', this.file);
     formData.append('date_of_upload', this.StudentPlaced.value['date_of_upload']);
     this.fs.postStudentPlaced(formData).subscribe(res=>{
@@ -114,7 +114,7 @@ export class StudentplacedComponent implements OnInit {
   onEditSubmit(id:any){
     this.submitProgress=true;
     let formData = new FormData();
-    formData.append('branch',this.branch);
+    formData.append('branch',this.StudentPlaced.value['branch']);
     formData.append('batch', this.editStudentPlaced.value['batch']);
     formData.append('data', this.file);
     formData.append('date_of_upload', this.editStudentPlaced.value['date_of_upload']);

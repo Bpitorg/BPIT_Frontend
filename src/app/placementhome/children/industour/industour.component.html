@@ -4,25 +4,33 @@
     <i class="glyphicon glyphicon-plus"></i>
   </button>
 </div>
-<div class="box">
-  <!-- display notices -->
-  <div class="display facpub center-h">
-    <div class="loader" *ngIf="loader || submitProgress">
-      <div class="box"></div>
-    </div>
-    <div *ngIf="data">
-      <div class="facpub-wrap col-sm-8 col-xs-12 center-h" *ngFor="let p of data">
-        <div>
+<!-- <div class="box"> -->
+<!-- display notices -->
+<div class="display facpub center-h">
+  <div class="loader" *ngIf="loader || submitProgress">
+    <div class="box"></div>
+  </div>
+  <div *ngIf="data">
+    <div class="facpub-wrap col-sm-8 col-xs-12 center-h" *ngFor="let p of data">
+      <div>
 
-          <a class="delete" (click)="deleteTour(p.id)"><i class="fa fa-trash-o udIcon"></i></a>
-          <a class="edit" (click)="selectedTour(p)" data-target="#editModal" data-toggle="modal"><i
-              class="fa fa-pencil udIcon"></i></a><br>
-          ~{{p.description}}
-        </div>
+        <a class="delete" (click)="deleteTour(p.id)"><i class="fa fa-trash-o udIcon"></i></a>
+        <a class="edit" (click)="selectedTour(p)" data-target="#editModal" data-toggle="modal"><i
+            class="fa fa-pencil udIcon"></i></a><br>
+        {{p.description}}
+        <br>
+        Date of upload: {{p.date}}
+        <br>
+        Company Name: {{p.company}}
+        <br>
+        Branch: {{p.branch}}
+        <br>
+        Number of Participants: {{p.participants}}
       </div>
     </div>
   </div>
 </div>
+<!-- </div> -->
 <!-- add modal -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -41,8 +49,13 @@
             <input type="text" id="title" class="form-control" name="description" formControlName="description"
               placeholder="enter title here">
             <br> <label for="title">Date</label>
-            <input type="date" class="form-control" name="date_of_upload" data-date-format="YYYY MMMM DD"
-              formControlName="date_of_upload">
+            <input type="date" class="form-control" name="date" data-date-format="YYYY MMMM DD" formControlName="date">
+            <br> <label for="title">Branch</label>
+            <input type="branch" class="form-control" name="branch" formControlName="branch">
+            <br> <label for="title">Company Name</label>
+            <input type="text" class="form-control" name="company" formControlName="company">
+            <br> <label for="title">No. of Participants</label>
+            <input type="number" class="form-control" name="participants" formControlName="participants">
           </div>
         </form>
       </div>
@@ -104,8 +117,13 @@
             <input type="text" id="title" class="form-control" name="description" formControlName="description"
               placeholder="enter title here">
             <br> <label for="title">Date</label>
-            <input type="date" class="form-control" name="date_of_upload" data-date-format="YYYY MMMM DD"
-              formControlName="date_of_upload">
+            <input type="date" class="form-control" name="date" data-date-format="YYYY MMMM DD" formControlName="date">
+            <br> <label for="title">Branch</label>
+            <input type="branch" class="form-control" name="branch" formControlName="branch">
+            <br> <label for="title">Company Name</label>
+            <input type="text" class="form-control" name="company" formControlName="company">
+            <br> <label for="title">No. of Participants</label>
+            <input type="number" class="form-control" name="participants" formControlName="participants">
           </div>
         </form>
       </div>

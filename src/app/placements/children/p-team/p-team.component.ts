@@ -29,7 +29,7 @@ export class PTeamComponent implements OnInit {
 
    getPTeam(){
      this.loader=true;
-     this.http.get(this.serveUrl + 'placement/get/').subscribe(res=>{
+     this.http.get(this.serveUrl + 'placement/teams').subscribe(res=>{
      this.loader=false;
        this.list=res.json();
      },err=>{

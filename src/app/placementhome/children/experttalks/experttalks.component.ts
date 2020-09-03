@@ -24,6 +24,7 @@ export class ExperttalksComponent {
     public branch:any;
     public branchName:any;
     public data:any;
+    public file:any;
     public selected:any;
     public editTalk:FormGroup;
     constructor(
@@ -35,7 +36,7 @@ export class ExperttalksComponent {
     }
 
     ngOnInit() {
-      this.branch=localStorage.getItem('branch');
+      // this.branch=localStorage.getItem('branch');
       this.userId=localStorage.getItem('id');
       this.getBranch();
       this.Talk = this.initForm();
@@ -43,16 +44,20 @@ export class ExperttalksComponent {
     }
     public initForm() {
       return new FormGroup({
-        branch:new FormControl(this.branch,[Validators.required]),
+        branch:new FormControl('',[Validators.required]), // ye text field hoga
         description: new FormControl('', [Validators.required]),
+        data: new FormControl('', [Validators.required]),
         date_of_upload:new FormControl('',[Validators.required])
       });
     }
-
+    getFile(event: any) {
+      this.file = event.srcElement.files[0];
+    }
     public EditForm() {
       return new FormGroup({
-        branch:new FormControl(this.branch,[Validators.required]),
+        branch:new FormControl('',[Validators.required]),
         description: new FormControl('', [Validators.required]),
+        data: new FormControl('', [Validators.required]),
         date_of_upload:new FormControl('',[Validators.required])
       });
     }
@@ -94,6 +99,7 @@ export class ExperttalksComponent {
     let formData = new FormData();
     formData.append('branch',this.branch);
     formData.append('description', this.Talk.value['description']);
+    formData.append('data', this.file);
     formData.append('date_of_upload', this.Talk.value['date_of_upload']);
     this.fs.postTalk(formData).subscribe(res=>{
       this.submitProgress=false;
@@ -108,6 +114,7 @@ export class ExperttalksComponent {
     let formData = new FormData();
     formData.append('branch',this.branch);
     formData.append('description', this.editTalk.value['description']);
+    formData.append('data', this.file);
     formData.append('date_of_upload', this.editTalk.value['date_of_upload']);
     this.fs.editTalk(id,formData).subscribe(res=>{
       this.submitProgress=false;

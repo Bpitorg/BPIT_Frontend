@@ -15,11 +15,11 @@ export class PlaceHomeService{
   }
 
   postUser(data:any){
-      return this.http.post(this.serveUrl+'user/create/placement/',data)
+      return this.http.post(this.serveUrl+'user/create/placement',data)
    }
 
    postTeam(data:any){
-       return this.http.post(this.serveUrl+'placement/team/',data)
+       return this.http.post(this.serveUrl+'placement/team',data)
     }
 
 }

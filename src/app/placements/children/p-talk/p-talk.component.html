@@ -4,11 +4,15 @@
     <table *ngIf="list"class="table table-bordered">
       <tr>
         <th>Date</th>
-        <th>Activities</th>
+        <th>Description</th>
+        <th>Download</th>
       </tr>
       <tr *ngFor="let l of list">
         <td>{{l.date_of_upload}}</td>
         <td>{{l.description}}</td>
+        <td>
+          <div class="col-sm-2"><a href="{{l.data}}" target="_blank"><i class="fa fa-download"></i></a></div>
+        </td>
       </tr>
     </table>
   </div>
