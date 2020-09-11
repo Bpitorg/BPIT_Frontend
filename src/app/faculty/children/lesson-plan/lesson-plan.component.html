@@ -17,13 +17,12 @@
       <div class="lessonPlan-wrap col-sm-3  center-h" *ngFor="let d of data">
         <div class="container">
           <div class="row dis">
-            <p class="col-sm-3">{{d.subject}}&nbsp;&nbsp;&nbsp;&nbsp;
+            <p class="col-sm-3">{{d.subject}}&nbsp;&nbsp;&nbsp;&nbsp;<br>
               <a (click)="deleteLessonPlan(d.id)"><i class="fa fa-trash-o udIcon"></i></a>&nbsp;&nbsp;&nbsp;
               <a (click)="selectedLessonPlan(d)" data-target="#editModal" data-toggle="modal"><i
-                  class="fa fa-pencil udIcon"></i></a>&nbsp;&nbsp;&nbsp;
+                  class="fa fa-pencil udIcon"></i></a>&nbsp;&nbsp;
               <a href="{{d.LecturePlan}}" target="_blank"><i class="fa fa-download udIcon "></i></a><br><br>
             </p>
-
           </div>
         </div>
       </div>

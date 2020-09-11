@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonService } from "../../providers/common.service";
 import { StudentProjService } from "../../providers/studentProj.service";
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 declare let $: any;
 @Component({
@@ -30,9 +31,23 @@ export class StudentProjComponent implements OnInit {
 
   ngOnInit() {
     this.studentprojects=this.initForm();
-    this.editStudentProj =  this.editForm();
+    // this.editStudentProj =  this.editForm(e);
   }
-
+  opensweetalert()
+  {
+    Swal.fire({
+        text: 'You have successfully added the student Project',
+        icon: 'success'
+      });
+  }
+  opensweetalertEdit()
+  {
+   Swal.fire("You have successfully edit the student Project")
+  }
+  opensweetalertdng()
+  {
+   Swal.fire("You have successfully deleted the student Project")
+  }
   initForm(){
     return new FormGroup({
       branch:new FormControl(this.branch,[Validators.required]),
@@ -42,12 +57,12 @@ export class StudentProjComponent implements OnInit {
     })
   }
 
-  public editForm() {
+  public editForm(e: any) {
     return new FormGroup({
       branch:new FormControl(this.branch,[Validators.required]),
-      Project_title: new FormControl('',[Validators.required, Validators.maxLength(250)]),
-      description: new FormControl('',[Validators.required, Validators.maxLength(600)]),
-      project_pic:new FormControl('',[Validators.required])
+      Project_title: new FormControl(e.Project_title,[Validators.required, Validators.maxLength(250)]),
+      description: new FormControl(e.description,[Validators.required, Validators.maxLength(600)]),
+      project_pic:new FormControl(e.project_pic,[Validators.required])
     })
 }
 
@@ -67,7 +82,8 @@ export class StudentProjComponent implements OnInit {
   onSubmit(formData:any){
     this.ss.postStudentProj(formData).subscribe(res=>{
       this.submitProgress=false;
-      $('#successModal').modal('show');
+      // $('#successModal').modal('show');
+      this.opensweetalert();
       this.getStudentProjects();
     },err=>{
       this.submitProgress=false;
@@ -84,7 +100,8 @@ export class StudentProjComponent implements OnInit {
     this.ss.editStudentProj(id,formData).subscribe(res=>{
       this.submitProgress=false;
       this.getStudentProjects();
-      $('#successModal').modal('show');
+      // $('#successModal').modal('show');
+      this.opensweetalertEdit();
     },err=>{
         this.submitProgress = false;
     })
@@ -117,13 +134,15 @@ export class StudentProjComponent implements OnInit {
         this.ss.deleteStudentProj(id,formData).subscribe(res=>{
           console.log("I am deleted");
           this.getStudentProjects();
-      $('#successModal2').modal('show');
+      // $('#successModal2').modal('show');
+      this.opensweetalertdng();
         },err=>{
 
         })
       }
 
       selectedStudentProj(e:any){
+        this.editStudentProj = this.editForm(e);
         this.selected=e;
         console.log(e);
       }

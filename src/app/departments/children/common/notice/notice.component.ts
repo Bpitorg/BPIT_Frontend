@@ -20,11 +20,14 @@ export class DnoticeComponent{
         private con:Configuration,
         private router:Router,
         private ds:DepartmentsService
-  ) { 
+  ) {
     this.serveUrl=this.con.url;
+    console.log(this.serveUrl);
     this.url = this.router.url;
+    console.log(this.url);
     this.url=this.url.split("/").splice(0,4).join("/");
-         
+    console.log(this.url);
+
 
   }
 

@@ -5,24 +5,33 @@
   </button>
 </div>
 <!-- <div class="box"></div> -->
-  <!-- display notices -->
-  <div class="display facpub center-h">
-    <div class="loader" *ngIf="loader || submitProgress">
-      <div class="box"></div>
-    </div>
-    <div *ngIf="data">
-      <div class="facpub-wrap col-sm-8 col-xs-12 center-h" *ngFor="let p of data1">
-        <div>
+<!-- display notices -->
+<div class="display facpub center-h">
+  <div class="loader" *ngIf="loader || submitProgress">
+    <div class="box"></div>
+  </div>
+  <div *ngIf="data">
+    <div class="facpub-wrap col-sm-8 col-xs-12 center-h" *ngFor="let p of data1">
+      <div>
 
-          <a class="delete" (click)="deleteFacpubEvent(p.id)"><i class="fa fa-trash-o udIcon"></i></a>
-          <a class="edit" (click)="selectedPublication(p)" data-target="#editModal" data-toggle="modal"><i
-              class="fa fa-pencil udIcon"></i></a><br>
-          {{p.faculty_publication}}
-        </div>
+        <a class="delete" (click)="deleteFacpubEvent(p.id)"><i class="fa fa-trash-o udIcon"></i></a>
+        <a class="edit" (click)="selectedPublication(p)" data-target="#editModal" data-toggle="modal"><i
+            class="fa fa-pencil udIcon"></i></a><br>
+       Paper Title: {{p.paper_title}}
+        <br>
+       Indexing: {{p.indexing}}
+        <br>
+        Year: {{p.year}}
+        <br>
+       ISBN Number: {{p.isbn_no}}
+        <br>
+        Volume: {{p.volume}}
+        <br>
+       Journal: {{p.journal}}
       </div>
     </div>
   </div>
-
+</div>
 <!-- add modal -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -37,16 +46,28 @@
       <div class="modal-body">
         <form [formGroup]="publication">
           <div class="form-group">
-            <label for="title">Description</label>
-            <input type="text" id="title" class="form-control" name="faculty_publication"
-              formControlName="faculty_publication" placeholder="enter title here"><br>
-            <label for="title">Select The Publisher's name</label>
-            <select>
-              <option *ngFor="let p of data">{{p.username}}--->{{p.faculty_id}}</option>
-            </select><br>
-            <label for="title">Confirm User's Number</label>
-            <input type="number" id="title" class="form-control" name="faculty_belongs_to"
-              formControlName="faculty_belongs_to" placeholder="enter number here" required>
+            <label for="title">Title</label>
+            <input type="text" id="title" class="form-control" name="paper_title" formControlName="paper_title"
+              placeholder="enter title here"><br>
+            <label for="title">Indexing</label>
+            <input type="text" id="title" class="form-control" name="indexing" formControlName="indexing"
+              placeholder="enter indexing here"><br>
+            <label for="title">Year</label>
+            <input type="number" id="title" class="form-control" name="year" formControlName="year"
+              placeholder="enter date here"><br>
+            <label for="title">Volume</label>
+            <input type="text" id="title" class="form-control" name="volume" formControlName="volume"
+              placeholder="enter volume here"><br>
+            <label for="title">Journal</label>
+            <input type="text" id="title" class="form-control" name="journal" formControlName="journal"
+              placeholder="enter journal here"><br>
+            <label for="title">Isbn Number</label>
+            <input type="text" id="title" class="form-control" name="isbn_no" formControlName="isbn_no"
+              placeholder="enter isbn number here"><br>
+            <!-- <label for="title">Select The Publisher's name</label>
+            <select> -->
+              <!-- <option *ngFor="let p of data">{{p.username}}--{{p.faculty_id}}</option> -->
+            <!-- </select><br> -->
           </div>
         </form>
       </div>
@@ -104,9 +125,28 @@
       <div class="modal-body" *ngIf="selected">
         <form [formGroup]="editPublication">
           <div class="form-group">
-            <label for="title">Description</label>
-            <input type="text" id="title" class="form-control" name="faculty_publication"
-              formControlName="faculty_publication" placeholder="enter title here">
+            <label for="title">Title</label>
+            <input type="text" id="title" class="form-control" name="paper_title" formControlName="paper_title"
+              placeholder="enter title here"><br>
+            <label for="title">Indexing</label>
+            <input type="text" id="title" class="form-control" name="indexing" formControlName="indexing"
+              placeholder="enter indexing here"><br>
+            <label for="title">Year</label>
+            <input type="number" id="title" class="form-control" name="year" formControlName="year"
+              placeholder="enter date here"><br>
+            <label for="title">Volume</label>
+            <input type="text" id="title" class="form-control" name="volume" formControlName="volume"
+              placeholder="enter volume here"><br>
+            <label for="title">Journal</label>
+            <input type="text" id="title" class="form-control" name="journal" formControlName="journal"
+              placeholder="enter journal here"><br>
+            <label for="title">Isbn Number</label>
+            <input type="text" id="title" class="form-control" name="isbn_no" formControlName="isbn_no"
+              placeholder="enter isbn number here"><br>
+            <!-- <label for="title">Select The Publisher's name</label>
+            <select> -->
+              <!-- <option *ngFor="let p of data">{{p.username}}--{{p.faculty_id}}</option> -->
+            <!-- </select><br> -->
           </div>
         </form>
       </div>

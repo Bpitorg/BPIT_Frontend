@@ -13,7 +13,9 @@
     </div>
     <div class="TimeTable-wrap  col-sm-5 col-xs-12  center-h info" *ngFor="let a of alltimetable">
       <p>
-        Time table for {{a.semester}} semester.
+        Time table for semester {{a.semester}}.
+        <br>
+        Section: {{a.branch_section}}
       </p>
       <a href="{{a.time_table}}" target="_blank"><i class="fa fa-download udIcon"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
       <a (click)="deleteTimetable(a.id)"><i class="fa fa-trash-o udIcon"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -38,7 +40,7 @@
         <form [formGroup]="timetable">
           <div class="form-group">
             <label>Semester</label>
-            <select formControlName="semester">
+            <select class="form-control" formControlName="semester">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -51,15 +53,15 @@
           </div>
           <div class="form-group">
             <label for="title">Section</label>
-            <select formControlName="branch_section" (ngModelChange)="onSelectSection($event)"
+            <select class="form-control" formControlName="branch_section" (ngModelChange)="onSelectSection($event)"
               ([ngModel])="selectedSection">
               <option *ngFor="let s of section" [value]="s.id">{{s.section}}</option>
             </select>
-           </div>
+          </div>
 
           <div class="form-group">
             <label for="title">File</label>
-            <input type="file" id="title" formControlName="time_table" (change)="getFile($event)">
+            <input type="file" id="title" class="form-control" formControlName="time_table" (change)="getFile($event)">
           </div>
         </form>
       </div>
@@ -115,11 +117,11 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" *ngIf="selectedTimetable">
         <form [formGroup]="editTimetable">
           <div class="form-group">
-            <label>Semester</label>
-            <select formControlName="semester" ([ngModel])="selectedSemester">
+            <label for="semester">Semester</label>
+            <select class="form-control" formControlName="semester" ([ngModel])="selectedSemester">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -130,29 +132,19 @@
               <option>8</option>
             </select>
           </div>
+          <!-- section back se aa rha h maybe isliye -->
           <div class="form-group">
-            <label for="title">Section</label>
-            <select formControlName="branch_section" (ngModelChange)="onSelectSection($event)"
-              ([ngModel])="selectedSection">
+            <label for="branch_section">Section</label>
+            <select class="form-control" formControlName="branch_section" ([ngModel])="selectedSemester"
+              (ngModelChange)="onSelectSection($event)" ([ngModel])="selectedSection">
               <option *ngFor="let s of section" [value]="s.id">{{s.section}}</option>
             </select>
           </div>
 
           <div class="form-group">
             <label for="title">File</label>
-            <input type="file" id="title" formControlName="time_table" (change)="getFile($event)">
+            <input type="file" id="title" class="form-control" formControlName="time_table" (change)="getFile($event)">
           </div>
-<!--
-          <div class="form-group">
-            <label for="year">Year</label>
-            <select formControlName="year">
-              <option value="first">first</option>
-              <option value="second">second</option>
-              <option value="third">third</option>
-              <option value="forth">forth</option>
-            </select>
-          </div> -->
-
         </form>
       </div>
       <div class="modal-footer">

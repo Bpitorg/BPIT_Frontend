@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CommonService } from "../../providers/common.service";
 import { EventService } from "../../providers/event.service";
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 declare let $: any;
 @Component({
@@ -35,9 +36,25 @@ export class EventsComponent implements OnInit {
     this.branch=localStorage.getItem('branch');
     this.getBranchName();
     this.event=this.initForm();
-    this.editEvent = this.EditForm();
   }
-
+  opensweetalert()
+  {
+    Swal.fire({
+        text: 'You have successfully added the event',
+        icon: 'success'
+      });
+  }
+  opensweetalertEdit()
+  {
+    Swal.fire({
+        text: 'You have successfully edit the event',
+        icon: 'success'
+      });
+  }
+  opensweetalertdng()
+  {
+   Swal.fire("You have successfully deleted the event")
+  }
   public initForm(){
     return new FormGroup({
       branch:new FormControl(this.branch,[Validators.required]),
@@ -47,13 +64,19 @@ export class EventsComponent implements OnInit {
     })
   }
 
-  public EditForm(){
+  public EditForm(e:any){
   return new FormGroup({
       branch:new FormControl(this.branch,[Validators.required]),
-      title: new FormControl('',[Validators.required, Validators.maxLength(250)]),
-      date: new FormControl('',[Validators.required]),
-      events:new FormControl('', [Validators.required])
+      title: new FormControl(e.title,[Validators.required, Validators.maxLength(250)]),
+      date: new FormControl(e.date,[Validators.required]),
+      events:new FormControl("", [Validators.required])
     })
+  }
+
+  onEditEvent(e:any){
+    this.editEvent = this.EditForm(e);
+    this.selected=e;
+    console.log(e);
   }
 
 
@@ -87,9 +110,7 @@ onDueDate(e: any) {
     this.submitProgress=true;
     this.es.postEvent(formData).subscribe(res=>{
       this.submitProgress=false;
-      this.modalHeading="Success Submit";
-      this.modalBody="You have successfully submit the event";
-      $('#successModal').modal('show');
+      this.opensweetalert();
       this.getEvents();
     },err=>{
       this.submitProgress=false;
@@ -139,9 +160,7 @@ formData.append('branch',this.editEvent.value['branch']);
     this.es.editEvents(id,formData).subscribe(res=>{
       this.submitProgress=false;
       this.getEvents();
-      this.modalHeading="Success Edit";
-      this.modalBody="You have successfully Edit the event";
-      $('#successModal').modal('show');
+      this.opensweetalertEdit();
     },err=>{
         this.submitProgress = false;
     })
@@ -154,16 +173,10 @@ formData.append('branch',this.editEvent.value['branch']);
         this.es.deleteEvent(id,formData).subscribe(res=>{
           console.log("I am deleted");
           this.getEvents();
-          this.modalHeading="Success Delete";
-          this.modalBody="You have successfully deleted the event";
-          $('#successModal').modal('show');
+         this.opensweetalertdng();
         },err=>{
 
         })
       }
 
-      onEditEvent(e:any){
-        this.selected=e;
-        console.log(e);
-      }
 }

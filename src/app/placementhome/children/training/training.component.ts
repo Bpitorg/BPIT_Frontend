@@ -7,6 +7,7 @@ import { CommonService } from "../../providers/common.service";
 import { CustomHttpService } from "../../../default.header.service";
 import { Configuration } from '../../../app.constants';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 declare let $:any;
 @Component({
@@ -39,7 +40,24 @@ export class TrainingComponent implements OnInit {
       this.userId=localStorage.getItem('id');
       this.getBranch();
       this.Trainings = this.initForm();
-      this.editTrainings = this.EditForm();
+    }
+    opensweetalert()
+    {
+      Swal.fire({
+          text: 'You have successfully added the training',
+          icon: 'success'
+        });
+    }
+    opensweetalertEdit()
+    {
+      Swal.fire({
+          text: 'You have successfully edit the training',
+          icon: 'success'
+        });
+    }
+    opensweetalertdng()
+    {
+     Swal.fire("You have successfully deleted the training")
     }
     public initForm() {
       return new FormGroup({
@@ -49,11 +67,11 @@ export class TrainingComponent implements OnInit {
       });
     }
 
-    public EditForm() {
+    EditForm(e:any) {
       return new FormGroup({
         branch:new FormControl(this.branch,[Validators.required]),
-        description: new FormControl('', [Validators.required]),
-        date_of_upload:new FormControl('',[Validators.required])
+        description: new FormControl(e.description, [Validators.required]),
+        date_of_upload:new FormControl(e.date_of_upload,[Validators.required])
       });
     }
 
@@ -83,7 +101,8 @@ export class TrainingComponent implements OnInit {
     this.fs.deleteTrainings(id,formData).subscribe(res=>{
       console.log("I am deleted");
       this.getBranch();
-      $('#successModal2').modal('show');
+      // $('#successModal2').modal('show');
+      this.opensweetalertdng();
     },err=>{
 
     })
@@ -98,7 +117,8 @@ export class TrainingComponent implements OnInit {
     this.fs.postTrainings(formData).subscribe(res=>{
       this.submitProgress=false;
       this.getBranch();
-      $('#successModal').modal('show');
+      // $('#successModal').modal('show');
+      this.opensweetalert();
     },err=>{
         this.submitProgress = false;
     })
@@ -112,17 +132,15 @@ export class TrainingComponent implements OnInit {
     this.fs.editTrainings(id,formData).subscribe(res=>{
       this.submitProgress=false;
       this.getTrainings();
-      $('#successModal').modal('show');
+      this.opensweetalertEdit();
     },err=>{
         this.submitProgress = false;
     })
   }
 
-
-
   selectedTrainings(e:any){
+    this.editTrainings = this.EditForm(e);
     this.selected=e;
-    console.log(e);
   }
 
 }

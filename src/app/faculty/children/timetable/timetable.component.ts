@@ -6,6 +6,7 @@ import { Configuration } from '../../../app.constants';
 import { CustomHttpService } from "../../../default.header.service";
 import { CommonService } from "../../providers/common.service";
 import { TimetableService } from "../../providers/timetable.service";
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 declare let $:any;
 @Component({
@@ -41,10 +42,23 @@ export class TimetableComponent implements OnInit {
     this.branchId=localStorage.getItem('branch');
     this.getBranch();
     this.timetable=this.initForm();
-    this.editTimetable=this.editForm();
     this.getTimetable();
   }
-
+  opensweetalert()
+  {
+    Swal.fire({
+        text: 'You have successfully added the timetable',
+        icon: 'success'
+      });
+  }
+  opensweetalertEdit()
+  {
+   Swal.fire("You have successfully edit the timetable")
+  }
+  opensweetalertdng()
+  {
+   Swal.fire("You have successfully deleted the timetable")
+  }
     getBranch(){
     this.cs.getBranchName().subscribe(response=>{
       this.branchName=response.text();
@@ -81,7 +95,8 @@ export class TimetableComponent implements OnInit {
       this.ts.deleteTimetable(id,formData).subscribe(res=>{
         console.log("I am deleted");
         this.getTimetable();
-    $('#successModal2').modal('show');
+    // $('#successModal2').modal('show');
+    this.opensweetalertdng();
       },err=>{
 
       })
@@ -90,21 +105,27 @@ export class TimetableComponent implements OnInit {
     initForm(){
     return new FormGroup({
       branch:new FormControl(this.branchId,[Validators.required]),
-      semester: new FormControl(this.selectedSemester, [Validators.required]),
+      semester: new FormControl('', [Validators.required]),
       branch_section: new FormControl(this.selectedSection,[Validators.required]),
       time_table:new FormControl('', [Validators.required])
     })
   }
 
-      editForm(){
+  editForm(e:any){
     return new FormGroup({
       branch:new FormControl(this.branchId,[Validators.required]),
-      semester: new FormControl(this.selectedSemester, [Validators.required]),
-      branch_section: new FormControl(this.selectedSection,[Validators.required]),
+      semester: new FormControl(e.semester, [Validators.required]),
+      branch_section: new FormControl(e.branch_section,[Validators.required]),
       time_table:new FormControl('', [Validators.required]),
       // year:new FormControl('second',[Validators.required])
     })
   }
+
+  selectTimetable(e:any){
+    this.selectedTimetable=e;
+    this.editTimetable =this.editForm(e);
+  }
+
 
     getFile(event: any) {
       this.file = event.srcElement.files[0];
@@ -123,17 +144,19 @@ export class TimetableComponent implements OnInit {
     this.submitProgress=true;
     let formData = new FormData();
     formData.append('semester', this.editTimetable.value['semester']);
-    // console.log(this.editTimetable.value['semester']);
     formData.append('branch',this.editTimetable.value['branch']);
     formData.append('branch_section', this.editTimetable.value['branch_section']);
     formData.append('time_table', this.file);
+    console.log(this.editTimetable.value['semester']);
+
     this.onEditSubmit(formData);
   }
 
   onSubmit(formData:any){
     this.ts.postTimetable(formData).subscribe(res=>{
       this.submitProgress=false;
-      $('#successModal').modal('show');
+      // $('#successModal').modal('show');
+      this.opensweetalert();
       this.getTimetable();
     },err=>{
       this.submitProgress=false;
@@ -143,7 +166,8 @@ export class TimetableComponent implements OnInit {
 onEditSubmit(formData:any){
     this.ts.editTimetable(formData,this.selectedTimetable.id).subscribe(res=>{
       this.submitProgress=false;
-      $('#successModal').modal('show');
+      // $('#successModal').modal('show');
+      this.opensweetalertEdit();
       this.getTimetable();
     },err=>{
       this.submitProgress=false;
@@ -152,10 +176,8 @@ onEditSubmit(formData:any){
 
   onSelectSection(e:any){
     this.selectedSection=e;
+
   }
 
-  selectTimetable(e:any){
-    this.selectedTimetable=e;
-    console.log(e, "in selectTimetable");
-  }
+
 }

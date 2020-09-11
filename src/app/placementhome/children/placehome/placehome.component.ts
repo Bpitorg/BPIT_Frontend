@@ -7,6 +7,7 @@ import { PlaceHomeService } from "../../providers/placehome.service";
 import { CustomHttpService } from "../../../default.header.service";
 import { Configuration } from '../../../app.constants';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 declare let $:any;
 @Component({
@@ -38,7 +39,24 @@ export class PlacehomeComponent {
   ) {
     this.serveUrl=this.con.server;
   }
-
+  opensweetalert()
+  {
+    Swal.fire({
+        text: 'You have successfully Added User.',
+        icon: 'success'
+      });
+  }
+  opensweetalertEdit()
+  {
+    Swal.fire({
+        text: 'You have successfully edit the event',
+        icon: 'success'
+      });
+  }
+  opensweetalertdng()
+  {
+   Swal.fire("You have successfully deleted the event")
+  }
   ngOnInit() {
     this.branch=localStorage.getItem('branch');
     this.token=localStorage.getItem('access_token');
@@ -47,12 +65,13 @@ export class PlacehomeComponent {
     this.Team=this.initForm1();
   }
 
+
   initForm(){
     return new FormGroup({
       username:new FormControl('',[Validators.required]),
       first_name:new FormControl('',[Validators.required]),
       last_name:new FormControl('',[Validators.required]),
-      email:new FormControl('',[Validators.required]),
+      email:new FormControl('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$")]),
       password:new FormControl('',[Validators.required]),
       branch:new FormControl('',[Validators.required])
     })
@@ -63,7 +82,7 @@ export class PlacehomeComponent {
         branch:new FormControl(this.branch,[Validators.required]),
         User: new FormControl('', [Validators.required]),
         profile_pic:new FormControl('',[Validators.required]),
-        email:new FormControl(this.branch,[Validators.required]),
+        email:new FormControl(this.branch,[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$")]),
         Phone_Number: new FormControl('', [Validators.required]),
         designation:new FormControl('',[Validators.required]),
         is_placement_team_admin:new FormControl('',[Validators.required])
@@ -111,7 +130,8 @@ export class PlacehomeComponent {
   onSubmitPFaculty(formData:any){
   this.ls.postTeam(formData).subscribe(res=>{
   this.submitProgress=false;
-  $('#successModal').modal('show');
+  // $('#successModal').modal('show');
+  this.opensweetalert();
   },err=>{
   this.submitProgress=false;
   })

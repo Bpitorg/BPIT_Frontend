@@ -17,7 +17,9 @@
         <a class="delete" (click)="deleteTrainings(p.id)"><i class="fa fa-trash-o udIcon"></i></a>
         <a class="edit" (click)="selectedTrainings(p)" data-target="#editModal" data-toggle="modal"><i
             class="fa fa-pencil udIcon"></i></a><br>
-            {{p.description}}
+            Company : {{p.company}}
+            <br>
+            Description : {{p.description}}
       </div>
     </div>
   </div>
@@ -102,7 +104,7 @@
           <div class="form-group">
             <label for="title">Description</label>
             <input type="text" id="title" class="form-control" name="description" formControlName="description"
-              placeholder="enter title here">
+              placeholder="enter description here">
             <br> <label for="title">Date</label>
             <input type="date" class="form-control" name="date_of_upload" data-date-format="YYYY MMMM DD"
               formControlName="date_of_upload">

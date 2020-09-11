@@ -43,19 +43,48 @@
         </button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="Tour">
+        <form name="Tour" [formGroup]="Tour">
           <div class="form-group">
-            <label for="title">Description</label>
+            <label for="description">Description</label>
             <input type="text" id="title" class="form-control" name="description" formControlName="description"
+            [ngClass]="{'is-invalid': Tour.get('description').touched && Tour.get('description').invalid}"
               placeholder="enter title here">
-            <br> <label for="title">Date</label>
-            <input type="date" class="form-control" name="date" data-date-format="YYYY MMMM DD" formControlName="date">
-            <br> <label for="title">Branch</label>
-            <input type="branch" class="form-control" name="branch" formControlName="branch">
-            <br> <label for="title">Company Name</label>
-            <input type="text" class="form-control" name="company" formControlName="company">
-            <br> <label for="title">No. of Participants</label>
-            <input type="number" class="form-control" name="participants" formControlName="participants">
+              <div *ngIf="Tour.get('description').touched" class="invalid-feedback">This field is required.</div>
+            <br>
+             <label for="date">Date</label>
+            <input type="date" class="form-control"
+            [ngClass]="{'is-invalid': Tour.get('date').touched && Tour.get('date').invalid}"
+
+            name="date" data-date-format="YYYY MMMM DD" formControlName="date">
+            <div *ngIf="Tour.get('date').touched" class="invalid-feedback">This field is required.</div>
+
+            <br> <label for="branch">Branch</label>
+            <!-- <input type="branch" class="form-control" name="branch"
+            [ngClass]="{'is-invalid': Tour.get('branch').touched && Tour.get('branch').invalid}"
+
+            formControlName="branch"> -->
+            <select class="form-control" formControlName="branch">
+              <option>CSE</option>
+              <option>IT</option>
+              <option>ECE</option>
+              <option>EEE</option>
+            </select>
+            <div *ngIf="Tour.get('branch').touched" class="invalid-feedback">This field is required.</div>
+
+            <br> <label for="company">Company Name</label>
+            <input type="text" class="form-control" name="company"
+            [ngClass]="{'is-invalid': Tour.get('company').touched && Tour.get('company').invalid}"
+
+            formControlName="company">
+            <div *ngIf="Tour.get('company').touched" class="invalid-feedback">This field is required.</div>
+
+            <br> <label for="participants">No. of Participants</label>
+            <input type="number" class="form-control"
+            [ngClass]="{'is-invalid': Tour.get('participants').touched && Tour.get('participants').invalid}"
+
+            name="participants" formControlName="participants">
+            <div *ngIf="Tour.get('participants').touched" class="invalid-feedback">This field is required.</div>
+
           </div>
         </form>
       </div>
@@ -113,17 +142,41 @@
       <div class="modal-body" *ngIf="selected">
         <form [formGroup]="editTour">
           <div class="form-group">
-            <label for="title">Description</label>
+            <label for="description">Description</label>
             <input type="text" id="title" class="form-control" name="description" formControlName="description"
+            [ngClass]="{'is-invalid': editTour.get('description').touched && editTour.get('description').invalid}"
               placeholder="enter title here">
-            <br> <label for="title">Date</label>
-            <input type="date" class="form-control" name="date" data-date-format="YYYY MMMM DD" formControlName="date">
-            <br> <label for="title">Branch</label>
-            <input type="branch" class="form-control" name="branch" formControlName="branch">
-            <br> <label for="title">Company Name</label>
-            <input type="text" class="form-control" name="company" formControlName="company">
-            <br> <label for="title">No. of Participants</label>
-            <input type="number" class="form-control" name="participants" formControlName="participants">
+
+              <div *ngIf="editTour.get('description').touched" class="invalid-feedback">This field is required.</div>
+            <br> <label for="date">Date</label>
+
+            <input type="date" class="form-control" name="date" data-date-format="YYYY MMMM DD"
+            [ngClass]="{'is-invalid': editTour.get('date').touched && editTour.get('date').invalid}"
+
+            formControlName="date">
+            <div *ngIf="editTour.get('date').touched" class="invalid-feedback">This field is required.</div>
+
+            <br> <label for="branch">Branch</label>
+            <input type="branch" class="form-control" name="branch"
+            [ngClass]="{'is-invalid': editTour.get('branch').touched && editTour.get('branch').invalid}"
+
+            formControlName="branch">
+            <div *ngIf="editTour.get('branch').touched" class="invalid-feedback">This field is required.</div>
+
+            <br> <label for="company">Company Name</label>
+            <input type="text" class="form-control" name="company"
+            [ngClass]="{'is-invalid': editTour.get('company').touched && editTour.get('company').invalid}"
+
+            formControlName="company">
+            <div *ngIf="editTour.get('company').touched" class="invalid-feedback">This field is required.</div>
+
+            <br> <label for="participants">No. of Participants</label>
+            <input type="number" class="form-control"
+            [ngClass]="{'is-invalid': editTour.get('participants').touched && editTour.get('participants').invalid}"
+
+            name="participants" formControlName="participants">
+            <div *ngIf="editTour.get('participants').touched" class="invalid-feedback">This field is required.</div>
+
           </div>
         </form>
       </div>

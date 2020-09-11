@@ -3,10 +3,32 @@
     <div class="loader" *ngIf="loader">
         <div class="box"></div>
     </div>
-    <table class="table table-bordered">
-      <tr *ngFor="let d of Data">
-        <th>{{d.faculty_publication}}</th>
-      </tr>
+
+    <table class="table table-bordered table-striped table-hover table-responsive">
+      <thead>
+        <tr>
+        <th>Name of Faculty</th>
+        <th>Paper Title</th>
+        <th>Indexing</th>
+        <th>Year</th>
+        <th>ISSN/ISBN No.</th>
+        <th>Volume</th>
+        <th>Journal Name</th>
+        </tr>
+      </thead>
+      <!-- <div *ngFor="let d of disclosures"> -->
+      <tbody>
+        <tr *ngFor="let d of Data">
+        <td>{{d.name}}</td>
+        <td>{{d.paper_title}}</td>
+        <td>{{d.indexing}}</td>
+        <td>{{d.year}}</td>
+        <td>{{d.isbn_no}}</td>
+        <td>{{d.volume}}</td>
+        <td>{{d.journal}}</td>
+        </tr>
+      </tbody>
+      <!-- </div> -->
     </table>
 
 </div>

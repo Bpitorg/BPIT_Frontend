@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { XHRBackend, RequestOptions, HttpModule } from '@angular/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { DomSanitizer} from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 import { AppComponent } from './app.component';
@@ -67,7 +67,7 @@ import { ACertiComponent } from './about/children/a-certi/a-certi.component';
 import { ACMessageComponent } from './about/children/a-c-message/a-c-message.component';
 import { APMessageComponent } from './about/children/a-p-message/a-p-message.component';
 import { PTeamComponent } from './placements/children/p-team/p-team.component';
-import { SafePipe} from './placements/children/p-placed/p-placed-pipe.service';
+import { SafePipe } from './placements/children/p-placed/p-placed-pipe.service';
 import { PTrainingComponent } from './placements/children/p-training/p-training.component';
 import { PRecComponent } from './placements/children/p-rec/p-rec.component';
 import { PTalkComponent } from './placements/children/p-talk/p-talk.component';
@@ -101,7 +101,7 @@ import { TimetableComponent } from './faculty/children/timetable/timetable.compo
 import { CustomHttpService } from "./default.header.service";
 import { LessonPlanComponent } from './faculty/children/lesson-plan/lesson-plan.component';
 import { SelfLearningComponent } from './faculty/children/self-learning/self-learning.component';
-import { ArraySortPipe} from './departments/children/common/faculty/order-by.pipe';
+import { ArraySortPipe } from './departments/children/common/faculty/order-by.pipe';
 
 //services=====================================
 import { CommonService } from './faculty/providers/common.service';
@@ -124,10 +124,11 @@ import { TrainingComponent } from './placementhome/children/training/training.co
 import { PlacementteamComponent } from './placementhome/children/placementteam/placementteam.component';
 import { PlacehomeComponent } from './placementhome/children/placehome/placehome.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { DteamComponent } from './dteam/dteam.component';
 
 
 
-export var AuthToken:any;
+export var AuthToken: any;
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCUjbJaDoJGl09DQa96j3EVXSjJgIbVQU4",
@@ -139,18 +140,21 @@ export const firebaseConfig = {
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
+  {path: 'team', component: DteamComponent},
   { path: 'btech', component: BtechComponent },
   { path: 'sba', component: ASbaComponent },
-  { path: 'aboutus', component: AboutComponent,
+  {
+    path: 'aboutus', component: AboutComponent,
     children: [
-      {path: 'collegeprofile', component:AProfileComponent},
-      {path: 'trust', component:ATrustComponent},
-      {path: 'visionandmission', component:AVmComponent},
-      {path: 'pillars', component:APillarsComponent},
-      {path: 'certifications', component:ACertiComponent},
-      {path: 'chairmansmessage', component:ACMessageComponent},
-      {path: 'principalsmessage', component:APMessageComponent},
-      { path: '',
+      { path: 'collegeprofile', component: AProfileComponent },
+      { path: 'trust', component: ATrustComponent },
+      { path: 'visionandmission', component: AVmComponent },
+      { path: 'pillars', component: APillarsComponent },
+      { path: 'certifications', component: ACertiComponent },
+      { path: 'chairmansmessage', component: ACMessageComponent },
+      { path: 'principalsmessage', component: APMessageComponent },
+      {
+        path: '',
         redirectTo: '/aboutus/collegeprofile',
         pathMatch: 'full'
       },
@@ -162,30 +166,34 @@ const appRoutes: Routes = [
   { path: 'disclosures', component: DisclosuresComponent },
   { path: 'nba', component: NbaComponent },
   { path: 'nirf', component: NirfComponent },
-  { path: 'student', component: StudentComponent,
+  {
+    path: 'student', component: StudentComponent,
     children: [
-      {path: 'examinations', component:SExamComponent},
-      {path: 'events', component:SEventsComponent},
-      {path: 'publications', component:SPubsComponent},
-      {path: 'projects', component:SProjectsComponent},
-      {path: 'achievments', component:SAchieveComponent},
-      {path: 'societies', component:SSocietyComponent},
-      {path: 'sports', component:SSportsComponent},
-      { path: '',
+      { path: 'examinations', component: SExamComponent },
+      { path: 'events', component: SEventsComponent },
+      { path: 'publications', component: SPubsComponent },
+      { path: 'projects', component: SProjectsComponent },
+      { path: 'achievments', component: SAchieveComponent },
+      { path: 'societies', component: SSocietyComponent },
+      { path: 'sports', component: SSportsComponent },
+      {
+        path: '',
         redirectTo: '/student/events',
         pathMatch: 'full'
       },
     ]
   },
-  { path: 'placements', component: PlacementsComponent,
+  {
+    path: 'placements', component: PlacementsComponent,
     children: [
-      {path: 'team', component:PTeamComponent},
-      {path: 'training', component:PTrainingComponent},
-      {path: 'recruiters', component:PRecComponent},
-      {path: 'talksandseminars', component:PTalkComponent},
-      {path: 'toursandworkshops', component:PTourComponent},
-      {path: 'studentsplaced', component:PPlacedComponent},
-      { path: '',
+      { path: 'team', component: PTeamComponent },
+      { path: 'training', component: PTrainingComponent },
+      { path: 'recruiters', component: PRecComponent },
+      { path: 'talksandseminars', component: PTalkComponent },
+      { path: 'toursandworkshops', component: PTourComponent },
+      { path: 'studentsplaced', component: PPlacedComponent },
+      {
+        path: '',
         redirectTo: '/placements/team',
         pathMatch: 'full'
       },
@@ -193,7 +201,8 @@ const appRoutes: Routes = [
   },
 
 
-  { path: 'departments', component: DepartmentsComponent,
+  {
+    path: 'departments', component: DepartmentsComponent,
 
     children: [
       // {path: 'about', component:DAboutComponent},
@@ -204,260 +213,300 @@ const appRoutes: Routes = [
       //   redirectTo: '/departments/about',
       //   pathMatch: 'full'
       // },
-      {path: 'cse',component:CseComponent,
-      children:[
-        { path: '',
-          redirectTo: '/departments/cse/about',
-          pathMatch: 'full'
-        },
-        {path: 'about',component:DaboutComponent},
-      {path: 'faculty',component:DfacultyComponent},
-      {path: 'news',component:DNewsComponent},
-      {path: 'events',component:DEventsComponent},
-      {path: 'faculty-publication',component:DfpubsComponent},
-      {path: 'lab-resources',component:DlabComponent},
-      {path: 'lesson-plan',component:DlessonPlanComponent},
-      {path: 'notice',component:DnoticeComponent},
-      {path: 'self-learning',component:DselfLearningComponent},
-      {path: 'study-material',component:DstudyMaterialComponent},
-      {path: 'time-table',component:DtimetableComponent},
-      ]},
+      {
+        path: 'cse', component: CseComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: '/departments/cse/about',
+            pathMatch: 'full'
+          },
+          { path: 'about', component: DaboutComponent },
+          { path: 'faculty', component: DfacultyComponent },
+          { path: 'news', component: DNewsComponent },
+          { path: 'events', component: DEventsComponent },
+          { path: 'faculty-publication', component: DfpubsComponent },
+          { path: 'lab-resources', component: DlabComponent },
+          { path: 'lesson-plan', component: DlessonPlanComponent },
+          { path: 'notice', component: DnoticeComponent },
+          { path: 'self-learning', component: DselfLearningComponent },
+          { path: 'study-material', component: DstudyMaterialComponent },
+          { path: 'time-table', component: DtimetableComponent },
+        ]
+      },
 
-      {path: 'ece',component:EceComponent,children:[
-        { path: '',
-          redirectTo: '/departments/ece/about',
-          pathMatch: 'full'
-        },
-        {path: 'about',component:DaboutComponent},
-        {path: 'faculty',component:DfacultyComponent},
-        {path: 'news',component:DNewsComponent},
-        {path: 'events',component:DEventsComponent},
-        {path: 'faculty-publication',component:DfpubsComponent},
-        {path: 'lab-resources',component:DlabComponent},
-        {path: 'lesson-plan',component:DlessonPlanComponent},
-        {path: 'notice',component:DnoticeComponent},
-        {path: 'self-learning',component:DselfLearningComponent},
-        {path: 'study-material',component:DstudyMaterialComponent},
-        {path: 'time-table',component:DtimetableComponent},
-      ]},
-      {path: 'mba',component:MbaComponent,
-        children:[
-          { path: '',
+      {
+        path: 'ece', component: EceComponent, children: [
+          {
+            path: '',
+            redirectTo: '/departments/ece/about',
+            pathMatch: 'full'
+          },
+          { path: 'about', component: DaboutComponent },
+          { path: 'faculty', component: DfacultyComponent },
+          { path: 'news', component: DNewsComponent },
+          { path: 'events', component: DEventsComponent },
+          { path: 'faculty-publication', component: DfpubsComponent },
+          { path: 'lab-resources', component: DlabComponent },
+          { path: 'lesson-plan', component: DlessonPlanComponent },
+          { path: 'notice', component: DnoticeComponent },
+          { path: 'self-learning', component: DselfLearningComponent },
+          { path: 'study-material', component: DstudyMaterialComponent },
+          { path: 'time-table', component: DtimetableComponent },
+        ]
+      },
+      {
+        path: 'mba', component: MbaComponent,
+        children: [
+          {
+            path: '',
             redirectTo: '/departments/mba/about',
             pathMatch: 'full'
           },
-          {path: 'about',component:DaboutComponent},
-          {path: 'faculty',component:DfacultyComponent},
-          {path: 'news',component:DNewsComponent},
-          {path: 'events',component:DEventsComponent},
-          {path: 'faculty-publication',component:DfpubsComponent},
-          {path: 'lab-resources',component:DlabComponent},
-          {path: 'lesson-plan',component:DlessonPlanComponent},
-          {path: 'notice',component:DnoticeComponent},
-          {path: 'self-learning',component:DselfLearningComponent},
-          {path: 'study-material',component:DstudyMaterialComponent},
-          {path: 'time-table',component:DtimetableComponent}
-      ]},
-      {path: 'bba',component:BbaComponent,
-        children:[
-          { path: '',
+          { path: 'about', component: DaboutComponent },
+          { path: 'faculty', component: DfacultyComponent },
+          { path: 'news', component: DNewsComponent },
+          { path: 'events', component: DEventsComponent },
+          { path: 'faculty-publication', component: DfpubsComponent },
+          { path: 'lab-resources', component: DlabComponent },
+          { path: 'lesson-plan', component: DlessonPlanComponent },
+          { path: 'notice', component: DnoticeComponent },
+          { path: 'self-learning', component: DselfLearningComponent },
+          { path: 'study-material', component: DstudyMaterialComponent },
+          { path: 'time-table', component: DtimetableComponent }
+        ]
+      },
+      {
+        path: 'bba', component: BbaComponent,
+        children: [
+          {
+            path: '',
             redirectTo: '/departments/bba/about',
             pathMatch: 'full'
           },
-          {path: 'about',component:DaboutComponent},
-          {path: 'faculty',component:DfacultyComponent},
-          {path: 'news',component:DNewsComponent},
-          {path: 'events',component:DEventsComponent},
-          {path: 'faculty-publication',component:DfpubsComponent},
-          {path: 'lab-resources',component:DlabComponent},
-          {path: 'lesson-plan',component:DlessonPlanComponent},
-          {path: 'notice',component:DnoticeComponent},
-          {path: 'self-learning',component:DselfLearningComponent},
-          {path: 'study-material',component:DstudyMaterialComponent},
-          {path: 'time-table',component:DtimetableComponent}
-      ]},
-      {path: 'ac',component:AcComponent,
-        children:[
-          { path: '',
+          { path: 'about', component: DaboutComponent },
+          { path: 'faculty', component: DfacultyComponent },
+          { path: 'news', component: DNewsComponent },
+          { path: 'events', component: DEventsComponent },
+          { path: 'faculty-publication', component: DfpubsComponent },
+          { path: 'lab-resources', component: DlabComponent },
+          { path: 'lesson-plan', component: DlessonPlanComponent },
+          { path: 'notice', component: DnoticeComponent },
+          { path: 'self-learning', component: DselfLearningComponent },
+          { path: 'study-material', component: DstudyMaterialComponent },
+          { path: 'time-table', component: DtimetableComponent }
+        ]
+      },
+      {
+        path: 'ac', component: AcComponent,
+        children: [
+          {
+            path: '',
             redirectTo: '/departments/ac/about',
             pathMatch: 'full'
           },
-          {path: 'about',component:DaboutComponent},
-          {path: 'faculty',component:DfacultyComponent},
-          {path: 'news',component:DNewsComponent},
-          {path: 'events',component:DEventsComponent},
-          {path: 'faculty-publication',component:DfpubsComponent},
-          {path: 'lab-resources',component:DlabComponent},
-          {path: 'lesson-plan',component:DlessonPlanComponent},
-          {path: 'notice',component:DnoticeComponent},
-          {path: 'self-learning',component:DselfLearningComponent},
-          {path: 'study-material',component:DstudyMaterialComponent},
-          {path: 'time-table',component:DtimetableComponent}
-      ]},
-      {path: 'am',component:AmComponent,
-        children:[
-          { path: '',
+          { path: 'about', component: DaboutComponent },
+          { path: 'faculty', component: DfacultyComponent },
+          { path: 'news', component: DNewsComponent },
+          { path: 'events', component: DEventsComponent },
+          { path: 'faculty-publication', component: DfpubsComponent },
+          { path: 'lab-resources', component: DlabComponent },
+          { path: 'lesson-plan', component: DlessonPlanComponent },
+          { path: 'notice', component: DnoticeComponent },
+          { path: 'self-learning', component: DselfLearningComponent },
+          { path: 'study-material', component: DstudyMaterialComponent },
+          { path: 'time-table', component: DtimetableComponent }
+        ]
+      },
+      {
+        path: 'am', component: AmComponent,
+        children: [
+          {
+            path: '',
             redirectTo: '/departments/am/about',
             pathMatch: 'full'
           },
-          {path: 'about',component:DaboutComponent},
-          {path: 'faculty',component:DfacultyComponent},
-          {path: 'news',component:DNewsComponent},
-          {path: 'events',component:DEventsComponent},
-          {path: 'faculty-publication',component:DfpubsComponent},
-          {path: 'lab-resources',component:DlabComponent},
-          {path: 'lesson-plan',component:DlessonPlanComponent},
-          {path: 'notice',component:DnoticeComponent},
-          {path: 'self-learning',component:DselfLearningComponent},
-          {path: 'study-material',component:DstudyMaterialComponent},
-          {path: 'time-table',component:DtimetableComponent}
-      ]},
-      {path: 'ap',component:ApComponent,
-        children:[
-          { path: '',
+          { path: 'about', component: DaboutComponent },
+          { path: 'faculty', component: DfacultyComponent },
+          { path: 'news', component: DNewsComponent },
+          { path: 'events', component: DEventsComponent },
+          { path: 'faculty-publication', component: DfpubsComponent },
+          { path: 'lab-resources', component: DlabComponent },
+          { path: 'lesson-plan', component: DlessonPlanComponent },
+          { path: 'notice', component: DnoticeComponent },
+          { path: 'self-learning', component: DselfLearningComponent },
+          { path: 'study-material', component: DstudyMaterialComponent },
+          { path: 'time-table', component: DtimetableComponent }
+        ]
+      },
+      {
+        path: 'ap', component: ApComponent,
+        children: [
+          {
+            path: '',
             redirectTo: '/departments/ap/about',
             pathMatch: 'full'
           },
-          {path: 'about',component:DaboutComponent},
-          {path: 'faculty',component:DfacultyComponent},
-          {path: 'news',component:DNewsComponent},
-          {path: 'events',component:DEventsComponent},
-          {path: 'faculty-publication',component:DfpubsComponent},
-          {path: 'lab-resources',component:DlabComponent},
-          {path: 'lesson-plan',component:DlessonPlanComponent},
-          {path: 'notice',component:DnoticeComponent},
-          {path: 'self-learning',component:DselfLearningComponent},
-          {path: 'study-material',component:DstudyMaterialComponent},
-          {path: 'time-table',component:DtimetableComponent}
-      ]},
-      {path: 'me',component:MeComponent,
-        children:[
-          { path: '',
+          { path: 'about', component: DaboutComponent },
+          { path: 'faculty', component: DfacultyComponent },
+          { path: 'news', component: DNewsComponent },
+          { path: 'events', component: DEventsComponent },
+          { path: 'faculty-publication', component: DfpubsComponent },
+          { path: 'lab-resources', component: DlabComponent },
+          { path: 'lesson-plan', component: DlessonPlanComponent },
+          { path: 'notice', component: DnoticeComponent },
+          { path: 'self-learning', component: DselfLearningComponent },
+          { path: 'study-material', component: DstudyMaterialComponent },
+          { path: 'time-table', component: DtimetableComponent }
+        ]
+      },
+      {
+        path: 'me', component: MeComponent,
+        children: [
+          {
+            path: '',
             redirectTo: '/departments/me/about',
             pathMatch: 'full'
           },
-          {path: 'about',component:DaboutComponent},
-          {path: 'faculty',component:DfacultyComponent},
-          {path: 'news',component:DNewsComponent},
-          {path: 'events',component:DEventsComponent},
-          {path: 'faculty-publication',component:DfpubsComponent},
-          {path: 'lab-resources',component:DlabComponent},
-          {path: 'lesson-plan',component:DlessonPlanComponent},
-          {path: 'notice',component:DnoticeComponent},
-          {path: 'self-learning',component:DselfLearningComponent},
-          {path: 'study-material',component:DstudyMaterialComponent},
-          {path: 'time-table',component:DtimetableComponent}
-      ]},
-      {path: 'hu',component:huComponent,
-        children:[
-          { path: '',
+          { path: 'about', component: DaboutComponent },
+          { path: 'faculty', component: DfacultyComponent },
+          { path: 'news', component: DNewsComponent },
+          { path: 'events', component: DEventsComponent },
+          { path: 'faculty-publication', component: DfpubsComponent },
+          { path: 'lab-resources', component: DlabComponent },
+          { path: 'lesson-plan', component: DlessonPlanComponent },
+          { path: 'notice', component: DnoticeComponent },
+          { path: 'self-learning', component: DselfLearningComponent },
+          { path: 'study-material', component: DstudyMaterialComponent },
+          { path: 'time-table', component: DtimetableComponent }
+        ]
+      },
+      {
+        path: 'hu', component: huComponent,
+        children: [
+          {
+            path: '',
             redirectTo: '/departments/hu/about',
             pathMatch: 'full'
           },
-          {path: 'about',component:DaboutComponent},
-          {path: 'faculty',component:DfacultyComponent},
-          {path: 'news',component:DNewsComponent},
-          {path: 'events',component:DEventsComponent},
-          {path: 'faculty-publication',component:DfpubsComponent},
-          {path: 'lab-resources',component:DlabComponent},
-          {path: 'lesson-plan',component:DlessonPlanComponent},
-          {path: 'notice',component:DnoticeComponent},
-          {path: 'self-learning',component:DselfLearningComponent},
-          {path: 'study-material',component:DstudyMaterialComponent},
-          {path: 'time-table',component:DtimetableComponent}
-      ]},
-      {path: 'eee',component:EeeComponent,
-      children:[
-        { path: '',
-          redirectTo: '/departments/eee/about',
-          pathMatch: 'full'
-        },
-        {path: 'about',component:DaboutComponent},
-        {path: 'faculty',component:DfacultyComponent},
-        {path: 'news',component:DNewsComponent},
-        {path: 'events',component:DEventsComponent},
-        {path: 'faculty-publication',component:DfpubsComponent},
-        {path: 'lab-resources',component:DlabComponent},
-        {path: 'lesson-plan',component:DlessonPlanComponent},
-        {path: 'notice',component:DnoticeComponent},
-        {path: 'self-learning',component:DselfLearningComponent},
-        {path: 'study-material',component:DstudyMaterialComponent},
-        {path: 'time-table',component:DtimetableComponent}
-    ]},
-      {path: 'it',component:ItComponent,
-      children:[
-        { path: '',
-          redirectTo: '/departments/it/about',
-          pathMatch: 'full'
-        },
-        {path: 'about',component:DaboutComponent},
-        {path: 'faculty',component:DfacultyComponent},
-        {path: 'faculty-publication',component:DfpubsComponent},
-        {path: 'news',component:DNewsComponent},
-        {path: 'events',component:DEventsComponent},
-        {path: 'lab-resources',component:DlabComponent},
-        {path: 'lesson-plan',component:DlessonPlanComponent},
-        {path: 'notice',component:DnoticeComponent},
-        {path: 'self-learning',component:DselfLearningComponent},
-        {path: 'study-material',component:DstudyMaterialComponent},
-        {path: 'time-table',component:DtimetableComponent},
-    ]}
+          { path: 'about', component: DaboutComponent },
+          { path: 'faculty', component: DfacultyComponent },
+          { path: 'news', component: DNewsComponent },
+          { path: 'events', component: DEventsComponent },
+          { path: 'faculty-publication', component: DfpubsComponent },
+          { path: 'lab-resources', component: DlabComponent },
+          { path: 'lesson-plan', component: DlessonPlanComponent },
+          { path: 'notice', component: DnoticeComponent },
+          { path: 'self-learning', component: DselfLearningComponent },
+          { path: 'study-material', component: DstudyMaterialComponent },
+          { path: 'time-table', component: DtimetableComponent }
+        ]
+      },
+      {
+        path: 'eee', component: EeeComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: '/departments/eee/about',
+            pathMatch: 'full'
+          },
+          { path: 'about', component: DaboutComponent },
+          { path: 'faculty', component: DfacultyComponent },
+          { path: 'news', component: DNewsComponent },
+          { path: 'events', component: DEventsComponent },
+          { path: 'faculty-publication', component: DfpubsComponent },
+          { path: 'lab-resources', component: DlabComponent },
+          { path: 'lesson-plan', component: DlessonPlanComponent },
+          { path: 'notice', component: DnoticeComponent },
+          { path: 'self-learning', component: DselfLearningComponent },
+          { path: 'study-material', component: DstudyMaterialComponent },
+          { path: 'time-table', component: DtimetableComponent }
+        ]
+      },
+      {
+        path: 'it', component: ItComponent,
+        children: [
+          {
+            path: '',
+            redirectTo: '/departments/it/about',
+            pathMatch: 'full'
+          },
+          { path: 'about', component: DaboutComponent },
+          { path: 'faculty', component: DfacultyComponent },
+          { path: 'faculty-publication', component: DfpubsComponent },
+          { path: 'news', component: DNewsComponent },
+          { path: 'events', component: DEventsComponent },
+          { path: 'lab-resources', component: DlabComponent },
+          { path: 'lesson-plan', component: DlessonPlanComponent },
+          { path: 'notice', component: DnoticeComponent },
+          { path: 'self-learning', component: DselfLearningComponent },
+          { path: 'study-material', component: DstudyMaterialComponent },
+          { path: 'time-table', component: DtimetableComponent },
+        ]
+      }
 
     ]
   },
-  { path: 'facilities', component: FacilitiesComponent,
+  {
+    path: 'facilities', component: FacilitiesComponent,
     children: [
-      {path: 'library', component:FLibraryComponent},
-      {path: 'hostel', component:FHostelComponent},
-      {path: 'medicalroom', component:FMedComponent},
-      {path: 'bookbank', component:FBookComponent},
-      {path: 'seminarhall', component:FSemhallComponent},
-      {path: 'EDUSAT', component:FEduComponent},
-      {path: 'sportsroom', component:FSportsComponent},
-      {path: 'canteen', component:FCanteenComponent},
-      { path: '',
+      { path: 'library', component: FLibraryComponent },
+      { path: 'hostel', component: FHostelComponent },
+      { path: 'medicalroom', component: FMedComponent },
+      { path: 'bookbank', component: FBookComponent },
+      { path: 'seminarhall', component: FSemhallComponent },
+      { path: 'EDUSAT', component: FEduComponent },
+      { path: 'sportsroom', component: FSportsComponent },
+      { path: 'canteen', component: FCanteenComponent },
+      {
+        path: '',
         redirectTo: '/facilities/library',
         pathMatch: 'full'
       },
     ]
   },
-  { path: 'faculty', component: FacultyComponent , canActivate:[LoggedInGuard],
-  children: [
-      {path: 'faculty-home', component:FacultyHomeComponent},
-      {path: 'events', component:EventsComponent},
-      {path: 'facultyPub', component:FacultyPubComponent},
-      {path: 'material', component:MaterialComponent},
-      {path: 'news', component:NewsComponent},
-      {path: 'notices', component:NoticesComponent},
-      {path: 'studentProj', component:StudentProjComponent},
-      {path: 'studentPub', component:StudentPubComponent},
-      {path: 'timetable', component:TimetableComponent},
-      {path: 'selfLearning', component:SelfLearningComponent},
-      {path: 'lessonPlan', component:LessonPlanComponent},
-        { path: '',
-          redirectTo: '/faculty/faculty-home',
-          pathMatch: 'full'
-        },
-  ]
+  {
+    path: 'faculty', component: FacultyComponent, canActivate: [LoggedInGuard],
+    children: [
+      { path: 'faculty-home', component: FacultyHomeComponent },
+      { path: 'events', component: EventsComponent },
+      { path: 'facultyPub', component: FacultyPubComponent },
+      { path: 'material', component: MaterialComponent },
+      { path: 'news', component: NewsComponent },
+      { path: 'notices', component: NoticesComponent },
+      { path: 'studentProj', component: StudentProjComponent },
+      { path: 'studentPub', component: StudentPubComponent },
+      { path: 'timetable', component: TimetableComponent },
+      { path: 'selfLearning', component: SelfLearningComponent },
+      { path: 'lessonPlan', component: LessonPlanComponent },
+      {
+        path: '',
+        redirectTo: '/faculty/faculty-home',
+        pathMatch: 'full'
+      },
+    ]
 
-},
-{ path: 'placement-home', component: PlacementhomeComponent, canActivate:[LoggedInGuardP],
-children: [
-    {path: 'placehome', component:PlacehomeComponent},
-    {path: 'industour', component:IndustourComponent},
-    {path: 'experttalks', component:ExperttalksComponent},
-    {path: 'placementteam', component:PlacementteamComponent},
-    {path: 'recruiters', component:RecruitersComponent},
-    {path: 'studentplaced', component:StudentplacedComponent},
-    {path: 'training', component:TrainingComponent},
-      { path: '',
+  },
+  {
+    path: 'placement-home', component: PlacementhomeComponent, canActivate: [LoggedInGuardP],
+    children: [
+      { path: 'placehome', component: PlacehomeComponent },
+      { path: 'industour', component: IndustourComponent },
+      { path: 'experttalks', component: ExperttalksComponent },
+      { path: 'placementteam', component: PlacementteamComponent },
+      { path: 'recruiters', component: RecruitersComponent },
+      { path: 'studentplaced', component: StudentplacedComponent },
+      { path: 'training', component: TrainingComponent },
+      {
+        path: '',
         redirectTo: '/placement-home/placehome',
         pathMatch: 'full'
       },
-]
+    ]
 
-},
-  { path: '',
+  },
+  {
+    path: '',
     redirectTo: '/home',
     pathMatch: 'full'
   },
@@ -560,7 +609,8 @@ children: [
     PlacementteamComponent,
     PlacehomeComponent,
     GalleryComponent,
-    SafePipe
+    SafePipe,
+    DteamComponent
   ],
   imports: [
     BrowserModule,
@@ -599,7 +649,7 @@ children: [
     //   },
     //   deps: [XHRBackend, RequestOptions]
     // }
-    {provide: LocationStrategy, useClass: HashLocationStrategy}
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })

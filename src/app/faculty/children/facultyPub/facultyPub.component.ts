@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CommonService } from "../../providers/common.service";
 import { FacultyPubService } from "../../providers/facultyPub.service";
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 declare let $:any;
 @Component({
@@ -31,28 +32,59 @@ public submitProgress: boolean = false;
   ngOnInit() {
     this.branch=localStorage.getItem('branch');
     this.userId=localStorage.getItem('id');
+
     this.getBranch();
     this.publication = this.initForm();
-    this.editPublication = this.EditForm();
   }
-
+  opensweetalert()
+  {
+    Swal.fire({
+        text: 'You have successfully added the Faculty Publication',
+        icon: 'success'
+      });
+  }
+  opensweetalertEdit()
+  {
+    Swal.fire({
+        text: 'You have successfully edit the Faculty Publication',
+        icon: 'success'
+      });
+  }
+  opensweetalertdng()
+  {
+   Swal.fire("You have successfully deleted the Faculty Publication")
+  }
   public initForm() {
     return new FormGroup({
       branch:new FormControl(this.branch,[Validators.required]),
-      faculty_publication: new FormControl('', [Validators.required]),
-      faculty_belongs_to: new FormControl('', [Validators.required]),
+      paper_title: new FormControl('', [Validators.required]),
+      indexing: new FormControl('', [Validators.required]),
+      year: new FormControl('', [Validators.required]),
+      isbn_no: new FormControl('', [Validators.required]),
+      volume: new FormControl('', [Validators.required]),
+      journal: new FormControl('', [Validators.required]),
       user_id: new FormControl('', [Validators.required]),
     });
   }
 
-  public EditForm() {
+  EditForm(e:any) {
     return new FormGroup({
       branch:new FormControl(this.branch,[Validators.required]),
-      faculty_belongs_to: new FormControl('', [Validators.required]),
-      faculty_publication: new FormControl('', [Validators.required]),
-      user_id: new FormControl('', [Validators.required])
+      paper_title: new FormControl(e.paper_title, [Validators.required]),
+      indexing: new FormControl(e.indexing, [Validators.required]),
+      year: new FormControl(e.year, [Validators.required]),
+      isbn_no: new FormControl(e.isbn_no, [Validators.required]),
+      volume: new FormControl(e.volume, [Validators.required]),
+      journal: new FormControl(e.journal, [Validators.required]),
+      user_id: new FormControl(e.user_id, [Validators.required]),
     });
   }
+
+  selectedPublication(e:any){
+    this.selected=e;
+    this.editPublication = this.EditForm(e);
+  }
+
     getBranch(){
     this.cs.getBranchName().subscribe(response=>{
       this.branchName=response.text();
@@ -64,7 +96,7 @@ public submitProgress: boolean = false;
 
     })
     }
-    getPublication(){ // ye rha
+    getPublication(){
         this.loader=true
         this.fs.getPublication(this.branchName).subscribe(res=>{
             this.loader=false;
@@ -91,7 +123,7 @@ public submitProgress: boolean = false;
     this.fs.deleteFacPub(id,formData).subscribe(res=>{
       console.log("I am deleted");
       this.getBranch();
-      $('#successModal2').modal('show');
+      this.opensweetalertdng();
     },err=>{
 
     })
@@ -101,13 +133,17 @@ public submitProgress: boolean = false;
     this.submitProgress=true;
     let formData = new FormData();
     formData.append('branch',this.branch);
-    formData.append('user_id',this.userId);
-    formData.append('faculty_publication', this.publication.value['faculty_publication']);
-    formData.append('faculty_belongs_to', this.publication.value['faculty_belongs_to']);
+    formData.append('User',this.userId);
+    formData.append('paper_title', this.publication.value['paper_title']);
+    formData.append('indexing', this.publication.value['indexing']);
+    formData.append('year', this.publication.value['year']);
+    formData.append('isbn_no', this.publication.value['isbn_no']);
+    formData.append('volume', this.publication.value['volume']);
+    formData.append('journal', this.publication.value['journal']);
     this.fs.postPublication(formData).subscribe(res=>{
       this.submitProgress=false;
       this.getBranch();
-      $('#successModal').modal('show');
+      this.opensweetalert();
     },err=>{
         this.submitProgress = false;
     })
@@ -116,11 +152,17 @@ public submitProgress: boolean = false;
     this.submitProgress=true;
     let formData = new FormData();
     formData.append('branch',this.branch);
-    formData.append('faculty_publication', this.editPublication.value['faculty_publication']);
+    formData.append('User',this.userId);
+    formData.append('paper_title', this.editPublication.value['paper_title']);
+    formData.append('indexing', this.editPublication.value['indexing']);
+    formData.append('year', this.editPublication.value['year']);
+    formData.append('isbn_no', this.editPublication.value['isbn_no']);
+    formData.append('volume', this.editPublication.value['volume']);
+    formData.append('journal', this.editPublication.value['journal']);
     this.fs.editFacultyPub(id,formData).subscribe(res=>{
       this.submitProgress=false;
       this.getPublication();
-      $('#successModal').modal('show');
+      this.opensweetalertEdit();
     },err=>{
         this.submitProgress = false;
     })
@@ -128,8 +170,5 @@ public submitProgress: boolean = false;
 
 
 
-  selectedPublication(e:any){
-    this.selected=e;
-    console.log(e);
-  }
+
 }

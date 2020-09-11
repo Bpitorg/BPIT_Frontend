@@ -5,6 +5,7 @@ import { CustomHttpService } from "../../../default.header.service";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Configuration } from '../../../app.constants';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 declare let $: any;
 @Component({
@@ -47,7 +48,17 @@ ngOnInit() {
   this.facultyhome=this.initForm();
   this.facultyhome1=this.initForm1();
 }
-
+opensweetalert()
+{
+  Swal.fire({
+      text: 'You have successfully Added User.',
+      icon: 'success'
+    });
+}
+opensweetalertdng()
+{
+ Swal.fire("You have successfully deleted the notice")
+}
 initForm(){
   return new FormGroup({
     username:new FormControl('',[Validators.required]),
@@ -110,7 +121,7 @@ onSubmit(formData:any){
     formData1.append('date_of_joining',this.facultyhome1.value['date_of_joining']);
     formData1.append('faculty_publication_url',this.facultyhome1.value['faculty_publication_url']);
     formData1.append('is_faculty_admin',this.facultyhome1.value['is_faculty_admin']);
-    formData1.append('branch',this.branch); // yaha branch name nhi branch id jaegi tbhi yha pr value nhi li h, vha drop down bn jaega hn
+    formData1.append('branch',this.branch);
     this.onSubmitFaculty(formData1);
     console.log(formData1)
     },err=>{
@@ -119,16 +130,13 @@ onSubmit(formData:any){
 }
 
 
-// FacultySubmit(){
-//   this.submitProgress=true;
-//
-// }
 
 
 onSubmitFaculty(formData:any){
 this.ls.postFaculty(formData).subscribe(res=>{
 this.submitProgress=false;
-$('#successModal').modal('show');
+// $('#successModal').modal('show');
+this.opensweetalert();
 },err=>{
 this.submitProgress=false;
 })

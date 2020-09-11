@@ -17,9 +17,11 @@
           <a class="delete" (click)="deleteStudentPlaced(p.id)"><i class="fa fa-trash-o udIcon"></i></a>
           <a class="edit" (click)="selectedStudentPlaced(p)" data-target="#editModal" data-toggle="modal"><i
               class="fa fa-pencil udIcon"></i></a><br>
-          {{p.batch}}
+          BATCH : {{p.batch}}
           <br>
-          {{p.branch}}
+          BRANCH : {{p.branch}}
+          <br>
+            <a href="{{p.data}}" target="_blank">Click Here</a>
         </div>
       </div>
     </div>
@@ -113,7 +115,7 @@
             <label for="title">Batch</label>
             <input type="number" id="title" class="form-control" name="batch" formControlName="batch"
               placeholder="enter title here">
-            <br> <label for="title">Date</label>
+            <br> <label for="date">Date</label>
             <input type="date" class="form-control" name="date_of_upload" data-date-format="YYYY MMMM DD"
               formControlName="date_of_upload">
             <br> <label for="title">Data</label>

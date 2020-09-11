@@ -7,6 +7,7 @@ import { CommonService } from "../../providers/common.service";
 import { CustomHttpService } from "../../../default.header.service";
 import { Configuration } from '../../../app.constants';
 import { Http, Headers, RequestOptions } from '@angular/http';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 declare let $:any;
 @Component({
@@ -41,6 +42,24 @@ export class PlacementteamComponent implements OnInit {
       this.getBranch();
       this.Team = this.initForm();
       this.editTeam = this.EditForm();
+    }
+    opensweetalert()
+    {
+      Swal.fire({
+          text: 'You have successfully added the Placement team Member',
+          icon: 'success'
+        });
+    }
+    opensweetalertEdit()
+    {
+      Swal.fire({
+          text: 'You have successfully edit the Placement team Member',
+          icon: 'success'
+        });
+    }
+    opensweetalertdng()
+    {
+     Swal.fire("You have successfully deleted the Placement team Member")
     }
     public initForm() {
       return new FormGroup({
@@ -92,7 +111,8 @@ export class PlacementteamComponent implements OnInit {
     this.fs.deleteTeam(id,formData).subscribe(res=>{
       console.log("I am deleted");
       this.getBranch();
-      $('#successModal2').modal('show');
+      // $('#successModal2').modal('show');
+      this.opensweetalertdng();
     },err=>{
 
     })
@@ -111,7 +131,8 @@ export class PlacementteamComponent implements OnInit {
     this.fs.postTeam(formData).subscribe(res=>{
       this.submitProgress=false;
       this.getBranch();
-      $('#successModal').modal('show');
+      // $('#successModal').modal('show');
+      this.opensweetalert();
     },err=>{
         this.submitProgress = false;
     })
@@ -134,7 +155,8 @@ export class PlacementteamComponent implements OnInit {
     this.fs.editTeam(id,formData).subscribe(res=>{
       this.submitProgress=false;
       this.getTeam();
-      $('#successModal').modal('show');
+      // $('#successModal').modal('show');
+      this.opensweetalertEdit();
     },err=>{
         this.submitProgress = false;
     })
