@@ -61,13 +61,21 @@ export class StudentPubComponent {
   }
   opensweetalertEdit()
   {
-   Swal.fire("You have successfully edit the student Publication")
+   Swal.fire({
+    text: 'You have successfully edited the student Publication',
+    icon: 'success'
+  });
   }
   opensweetalertdng()
   {
    Swal.fire("You have successfully deleted the student Publication")
   }
-
+  opensweetalertError() {
+    Swal.fire({
+      text: 'Please Enter the valid field',
+      icon: 'error'
+    });
+  }
   editForm(e: any) {
     return new FormGroup({
       branch: new FormControl(this.branch, [Validators.required]),
@@ -120,6 +128,7 @@ export class StudentPubComponent {
       this.opensweetalert();
     }, err => {
       this.submitProgress = false;
+      this.opensweetalertError();
     })
   }
 
@@ -139,6 +148,7 @@ export class StudentPubComponent {
       this.opensweetalertEdit();
     }, err => {
       this.submitProgress = false;
+      this.opensweetalertError();
     })
   }
 

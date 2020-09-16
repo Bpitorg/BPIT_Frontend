@@ -61,6 +61,12 @@ export class StudentplacedComponent implements OnInit {
     {
      Swal.fire("You have successfully deleted Student Placed")
     }
+    opensweetalertError() {
+      Swal.fire({
+        text: 'Please Enter the valid field',
+        icon: 'error'
+      });
+    }
     public initForm() {
       return new FormGroup({
         branch:new FormControl('',[Validators.required]),
@@ -131,6 +137,7 @@ export class StudentplacedComponent implements OnInit {
       this.opensweetalert();
     },err=>{
         this.submitProgress = false;
+        this.opensweetalertError();
     })
   }
   onEditSubmit(id:any){
@@ -147,6 +154,7 @@ export class StudentplacedComponent implements OnInit {
       this.opensweetalertEdit();
     },err=>{
         this.submitProgress = false;
+        this.opensweetalertError();
     })
   }
 

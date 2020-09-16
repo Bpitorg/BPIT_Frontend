@@ -54,6 +54,12 @@ export class MaterialComponent {
   opensweetalertdng() {
     Swal.fire("You have successfully deleted the content")
   }
+  opensweetalertError() {
+    Swal.fire({
+      text: 'Please Enter the valid field',
+      icon: 'error'
+    });
+  }
   getBranchName() {
     this.cs.getBranchName().subscribe(response => {
       this.branchName = response.text();

@@ -40,7 +40,15 @@
             <label for="title">Name</label>
             <input type="text" id="title" class="form-control" name="recruiter_name" formControlName="recruiter_name"
               placeholder="enter title here">
-            <br> <label for="title">Image</label>
+            <br>
+            <div
+            *ngIf="Recruiters.controls['recruiter_name'].invalid && (Recruiters.controls['recruiter_name'].dirty || Recruiters.controls['recruiter_name'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="Recruiters.controls['recruiter_name'].errors.required">
+              This field is required.
+            </div>
+          </div>
+            <label for="title">Image</label>
             <input type="file" class="form-control" name="logo" formControlName="logo" (change)="getFile($event)">
           </div>
         </form>

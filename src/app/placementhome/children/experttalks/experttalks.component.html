@@ -38,25 +38,32 @@
         </button>
       </div>
       <div class="modal-body">
-        <form name="Talk" [formGroup]="Talk">
+        <form [formGroup]="Talk">
           <div class="form-group">
             <label for="title">Description</label>
             <input required type="text" id="title" class="form-control" name="description" formControlName="description"
-            [ngClass]="{'is-invalid':Talk.get('description').invalid && Talk.get('description').touched}"
-             placeholder="enter title here">
-            <div *ngIf="Talk.get('description').touched" class="invalid-feedback">
-              This field is required.
+              placeholder="enter title here">
+            <br>
+            <div
+              *ngIf="Talk.controls['description'].invalid && (Talk.controls['description'].dirty || Talk.controls['description'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="Talk.controls['description'].errors.required">
+                This field is required.
+              </div>
             </div>
-             <br>
             <label for="date">Date</label>
             <input type="date" class="form-control" name="date_of_upload" data-date-format="YYYY MMMM DD"
-            [ngClass]="{'is-invalid': Talk.get('date_of_upload').touched && Talk.get('date_of_upload').invalid}" formControlName="date_of_upload">
-            <div *ngIf="Talk.get('date_of_upload').touched" class="invalid-feedback">
-              This field is required.
+              formControlName="date_of_upload">
+            <br>
+            <div
+              *ngIf="Talk.controls['date_of_upload'].invalid && (Talk.controls['date_of_upload'].dirty || Talk.controls['date_of_upload'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="Talk.controls['date_of_upload'].errors.required">
+                This field is required.
+              </div>
             </div>
-              <br> <label for="title">Data</label>
-              <input type="file" class="form-control" name="data"
-                formControlName="data" (change)="getFile($event)">
+            <label for="title">Data</label>
+            <input type="file" class="form-control" name="data" formControlName="data" (change)="getFile($event)">
           </div>
         </form>
       </div>
@@ -116,20 +123,19 @@
           <div class="form-group">
             <label for="description">Description</label>
             <input type="text" id="title" class="form-control" name="description" formControlName="description"
-             [ngClass]="{'is-invalid':editTalk.get('description').invalid && editTalk.get('description').touched}" placeholder="enter title here">
-            <div *ngIf="editTalk.get('description').touched" class="invalid-feedback">
+              placeholder="enter title here">
+            <!-- <div *ngIf="editTalk.get('description').touched" class="invalid-feedback">
               This field is required.
-            </div>
-             <br>
+            </div> -->
+            <br>
             <label for="date_of_upload">Date</label>
             <input type="date" class="form-control" name="date_of_upload" data-date-format="YYYY MMMM DD"
-            [ngClass]="{'is-invalid':editTalk.get('date_of_upload').invalid && editTalk.get('date_of_upload').touched}" formControlName="date_of_upload">
-            <div *ngIf="editTalk.get('date_of_upload').touched" class="invalid-feedback">
+              formControlName="date_of_upload">
+            <!-- <div *ngIf="editTalk.get('date_of_upload').touched" class="invalid-feedback">
               This field is required.
-            </div>
-              <br> <label for="data">Data</label>
-              <input type="file" class="form-control" name="data"
-                formControlName="data" (change)="getFile($event)">
+            </div> -->
+            <br> <label for="data">Data</label>
+            <input type="file" class="form-control" name="data" formControlName="data" (change)="getFile($event)">
           </div>
         </form>
       </div>

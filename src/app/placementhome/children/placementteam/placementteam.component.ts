@@ -61,6 +61,12 @@ export class PlacementteamComponent implements OnInit {
     {
      Swal.fire("You have successfully deleted the Placement team Member")
     }
+    opensweetalertError() {
+      Swal.fire({
+        text: 'Please Enter the valid field',
+        icon: 'error'
+      });
+    }
     public initForm() {
       return new FormGroup({
         branch:new FormControl(this.branch,[Validators.required]),
@@ -135,6 +141,7 @@ export class PlacementteamComponent implements OnInit {
       this.opensweetalert();
     },err=>{
         this.submitProgress = false;
+       this.opensweetalertError();
     })
   }
 
@@ -159,6 +166,7 @@ export class PlacementteamComponent implements OnInit {
       this.opensweetalertEdit();
     },err=>{
         this.submitProgress = false;
+        this.opensweetalertError();
     })
   }
 

@@ -15,54 +15,87 @@
         </button>
       </div>
       <div class="modal-body">
-        <form name="user" [formGroup]="user">
+        <form [formGroup]="user">
           Username:
-          <input type="text" formControlName="username"
-            [ngClass]="{'is-invalid': user.get('username').touched && user.get('username').invalid}"
-            placeholder="enter username here" required>
-          <div *ngIf="user.get('username').touched" class="invalid-feedback">This field is required.</div>
+          <input type="text" formControlName="username" placeholder="enter username here" required>
           <br><br>
+          <div
+            *ngIf="user.controls['username'].invalid && (user.controls['username'].dirty || user.controls['username'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="user.controls['username'].errors.required">
+              This field is required.
+            </div>
+          </div>
           Firstname:
-          <input type="text" formControlName="first_name"
-            [ngClass]="{'is-invalid': user.get('first_name').touched && user.get('first_name').invalid}"
-            placeholder="enter firstname here" required>
-          <div *ngIf="user.get('first_name').touched" class="invalid-feedback">This field is required.</div>
+          <input type="text" formControlName="first_name" placeholder="enter firstname here" required>
           <br><br>
+          <div
+            *ngIf="user.controls['first_name'].invalid && (user.controls['first_name'].dirty || user.controls['first_name'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="user.controls['first_name'].errors.required">
+              This field is required.
+            </div>
+          </div>
           Lastname:
-          <input type="text" formControlName="last_name"
-            [ngClass]="{'is-invalid': user.get('last_name').touched && user.get('last_name').invalid}"
-            placeholder="enter lastname here" required>
-          <div *ngIf="user.get('last_name').touched" class="invalid-feedback">This field is required.</div>
+          <input type="text" formControlName="last_name" placeholder="enter lastname here" required>
           <br><br>
+          <div
+            *ngIf="user.controls['last_name'].invalid && (user.controls['last_name'].dirty || user.controls['last_name'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="user.controls['last_name'].errors.required">
+              This field is required.
+            </div>
+          </div>
           Email:
-          <input type="email" formControlName="email"
-            [ngClass]="{'is-invalid': user.get('email').touched && user.get('email').invalid}"
-            placeholder="enter email here" required>
-            <br><br>
-          <div *ngIf="user.get('email').touched" class="invalid-feedback">This field is required.</div>
-          <!-- <div *ngIf="user.get('email').errors.pattern" class="invalid-feedback">Please enter a valid email address.</div> -->
-          Password:
-          <input type="password" formControlName="password" placeholder="enter password here"
-            [ngClass]="{'is-invalid': user.get('password').touched && user.get('password').invalid}" required>
-          <div *ngIf="user.get('password').touched" class="invalid-feedback">This field is required.</div>
+          <input type="email" formControlName="email" placeholder="enter email here" required>
           <br><br>
+          <div
+            *ngIf="user.controls['email'].invalid && (user.controls['email'].dirty || user.controls['email'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="user.controls['email'].errors.required">
+              This field is required.
+            </div>
+          </div>
+          Password:
+          <input type="password" formControlName="password" placeholder="enter password here" required>
+          <br><br>
+          <div
+            *ngIf="user.controls['password'].invalid && (user.controls['password'].dirty || user.controls['password'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="user.controls['password'].errors.required">
+              This field is required.
+            </div>
+          </div>
           <hr />
           <form [formGroup]="Team">
             <div class="form-group">
               <br> <label for="title">Profile pic</label>
               <input type="file" class="form-control" name="profile_pic" formControlName="profile_pic"
                 (change)="getFile($event)">
-              <br> <label for="title">Phone Number</label>
+              <br>
+              <label for="title">Phone Number</label>
               <input type="number" class="form-control" name="Phone_Number" formControlName="Phone_Number"
-                [ngClass]="{'is-invalid': Team.get('Phone_Number').touched && Team.get('Phone_Number').invalid}"
                 placeholder="enter number here">
-              <div *ngIf="Team.get('Phone_Number').touched" class="invalid-feedback">This field is required.</div>
-              <br> <label for="title">Designation</label>
+              <br>
+              <div
+                *ngIf="Team.controls['Phone_Number'].invalid && (Team.controls['Phone_Number'].dirty || Team.controls['Phone_Number'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="Team.controls['Phone_Number'].errors.required">
+                  This field is required.
+                </div>
+              </div>
+              <label for="title">Designation</label>
               <input type="text" class="form-control" name="designation" formControlName="designation"
-              [ngClass]="{'is-invalid': Team.get('designation').touched && Team.get('designation').invalid}"
-              placeholder="enter title here">
-              <div *ngIf="Team.get('designation').touched" class="invalid-feedback">This field is required.</div>
-              <br> <label for="title">Is faculty admin?</label> <input type="checkbox" name="is_placement_team_admin"
+                placeholder="enter title here">
+              <br>
+              <div
+              *ngIf="Team.controls['designation'].invalid && (Team.controls['designation'].dirty || Team.controls['designation'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="Team.controls['designation'].errors.required">
+                This field is required.
+              </div>
+            </div>
+              <label for="title">Is faculty admin?</label> <input type="checkbox" name="is_placement_team_admin"
                 formControlName="is_placement_team_admin">
             </div>
           </form>
@@ -75,25 +108,6 @@
   </div>
 </div>
 
-<!-- <div class="modal fade" id="FacultyAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        Add Credentials
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-         <div class="modal-footer">
-          <button type="button" (click)="FacultySubmit()" class="btn btn-default" data-dismiss="modal">Submit</button>
-        </div>
-      </form>
-    </div>
-    </div>
-  </div>
-</div> -->
 
 <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">

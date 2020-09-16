@@ -55,6 +55,12 @@ export class EventsComponent implements OnInit {
   {
    Swal.fire("You have successfully deleted the event")
   }
+  opensweetalertError() {
+    Swal.fire({
+      text: 'Please Enter the valid field',
+      icon: 'error'
+    });
+  }
   public initForm(){
     return new FormGroup({
       branch:new FormControl(this.branch,[Validators.required]),
@@ -114,6 +120,7 @@ onDueDate(e: any) {
       this.getEvents();
     },err=>{
       this.submitProgress=false;
+      this.opensweetalertError();
     })
   }
 
@@ -163,6 +170,7 @@ formData.append('branch',this.editEvent.value['branch']);
       this.opensweetalertEdit();
     },err=>{
         this.submitProgress = false;
+        this.opensweetalertError();
     })
   }
 

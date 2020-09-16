@@ -54,6 +54,12 @@ public submitProgress: boolean = false;
   {
    Swal.fire("You have successfully deleted the Faculty Publication")
   }
+  opensweetalertError() {
+    Swal.fire({
+      text: 'Please Enter the valid field',
+      icon: 'error'
+    });
+  }
   public initForm() {
     return new FormGroup({
       branch:new FormControl(this.branch,[Validators.required]),
@@ -146,6 +152,8 @@ public submitProgress: boolean = false;
       this.opensweetalert();
     },err=>{
         this.submitProgress = false;
+        this.opensweetalertError();
+
     })
   }
   onEditSubmit(id:any){
@@ -165,6 +173,7 @@ public submitProgress: boolean = false;
       this.opensweetalertEdit();
     },err=>{
         this.submitProgress = false;
+        this.opensweetalertError();
     })
   }
 

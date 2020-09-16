@@ -11,42 +11,183 @@
 <app-nav></app-nav>
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.5/jquery.bxslider.css">
-<div class="home-wrap">
 
+<div class="home-wrap">
   <marquee *ngFor="let m of marquee">
-    <span style="margin-top:-10px;" id="clr" style="font-weight:bolder;">{{m.marquee_text}}</span>
+    <span style="margin-top:-10px; font-weight:bolder; color: #f34043; font-size: 14px;"
+      id="clr">{{m.marquee_text}}</span>
   </marquee>
   <!-- The Grid -->
-  <div class="w3-row">
-    <!-- Left Column -->
+  <!-- <div class="w3-row"> -->
+  <!-- Left Column -->
 
-    <!-- Middle Column -->
-    <div class="w3-col m12" style="margin-top:-40px;">
+  <!-- Middle Column -->
+  <!-- <div class="w3-col m12" style="margin-top:-40px;">
 
       <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
-        <div id="banner">
-          <img style="width:100%; height: 100%;" src="../../assets/gallery/video/ezgif.com-optimize.gif"
-            class="banner-video">
+        <div id="banner"> -->
+  <!-- <img style="width:100%; height: 100%;" src="../../assets/gallery/video/ezgif.com-optimize.gif"
+            class="banner-video"> -->
+  <!-- <img src="">
         </div>
         <br>
+      </div> -->
+  <!-- End Middle Column -->
+  <!-- </div> -->
+
+
+
+  <!-- carousel -->
+  <!-- <div _ngcontent-c1="" class="w3-row"> -->
+
+
+
+  <!-- <div _ngcontent-c1="" class="w3-col m12" style="margin-top:-40px;"> -->
+
+  <!-- <div _ngcontent-c1="" class="w3-container w3-card w3-white w3-round w3-margin"><br _ngcontent-c1=""> -->
+  <div _ngcontent-c1="" class="carousel slide" data-ride="carousel" id="screenshot-carousel">
+    <ol _ngcontent-c1="" class="carousel-indicators">
+      <li _ngcontent-c1="" class="" data-slide-to="0" data-target="#screenshot-carousel" class="active"></li>
+      <li _ngcontent-c1="" data-slide-to="1" data-target="#screenshot-carousel" class=""></li>
+      <li _ngcontent-c1="" data-slide-to="2" data-target="#screenshot-carousel"></li>
+
+    </ol>
+
+    <div _ngcontent-c1="" class="carousel-inner">
+      <div _ngcontent-c1="" class="item active">
+        <img _ngcontent-c1="" alt="Bootstrap Touch Slider" class="slide-image" id="img2"
+          src="../../../assets/images/slide-1.jpg">
+        <div _ngcontent-c1="" class="bs-slider-overlay"> </div>
+        <div _ngcontent-c1="" class="container">
+          <div _ngcontent-c1="" class="row">
+
+            <div _ngcontent-c1="" class="slide-text slide_style_left" style="font-weight:bolder;">
+              <h1 _ngcontent-c1=""></h1>
+              <p _ngcontent-c1=""></p>
+
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- End Middle Column -->
+
+      <div _ngcontent-c1="" class="item">
+
+        <img _ngcontent-c1="" alt="text of the image" id="img1" src="../../../assets/images/slide-2.jpg">
+        <div _ngcontent-c1="" class="bs-slider-overlay"></div>
+
+        <div _ngcontent-c1="" class="slide-text slide_style_left" style="font-weight:bolder;">
+
+          <h1 _ngcontent-c1=""></h1>
+          <p _ngcontent-c1=""></p>
+        </div>
+      </div>
+
+      <div _ngcontent-c1="" class="item">
+
+        <img _ngcontent-c1="" alt="Bootstrap Touch Slider" class="slide-image" id="img3"
+          src="../../../assets/images/slide-3.jpg">
+        <div _ngcontent-c1="" class="bs-slider-overlay"></div>
+
+        <div _ngcontent-c1="" class="slide-text slide_style_left" style="font-weight:bolder;">
+          <h1 _ngcontent-c1=""></h1>
+          <p _ngcontent-c1=""></p>
+        </div>
+      </div>
     </div>
 
-    <!-- Right Column -->
-    <div class="w3-col m12">
-      <div class="w3-col m4">
-        <div class="w3-card w3-round w3-white w3-center">
-          <div class="w3-container" style="height:300px; overflow:hidden;">
-            <h3>News</h3>
-            <marquee direction="up" scrollamount="4" onmouseover="this.stop();" onmouseout="this.start();">
+    <a _ngcontent-c1="" class="left carousel-control" data-slide="prev" href="#screenshot-carousel" role="button">
+      <span _ngcontent-c1="" class="glyphicon glyphicon-chevron-left"></span>
+      <span _ngcontent-c1="" class="sr-only">Previous</span>
+    </a>
+    <a _ngcontent-c1="" class="right carousel-control" data-slide="next" href="#screenshot-carousel" role="button">
+      <span _ngcontent-c1="" class="glyphicon glyphicon-chevron-right"></span>
+      <span _ngcontent-c1="" class="sr-only">Next</span>
+    </a>
+
+  </div>
+  <br _ngcontent-c1="">
+  <!-- </div> -->
+  <!-- </div> -->
+  <!-- </div> -->
+
+  <!-- end carousel -->
+
+  <!-- Right Column -->
+  <section class="w3-col m12" style="margin-top: 2rem; margin-bottom: 2rem;">
+   <div class="container-fluid middleNotice">
+    <div class="col-lg-4 col-md-4 col-sm-6 m4">
+      <div class="w3-card w3-white w3-center" style="margin-top: 6px;">
+        <div style="height:300px; overflow:hidden; padding: 6px;">
+          <h3 style="color: #2e3094;">News</h3>
+          <marquee behavior="scroll" direction="up" scrollamount="4" onmouseover="this.stop();" onmouseout="this.start();">
+            <div class="events-wrap row">
+              <div *ngFor="let n of news; let i=index" class="event col-sm-11">
+                <div class="content">
+                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                  <div class="texts">
+                    <p style="font-size:15px;">{{n.title}}</p>
+                    <a class="round-button black link" target="_blank" href={{n.news}}>
+                      Details
+                      <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </marquee>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 m4">
+      <div class="w3-card w3-white w3-center" style=" margin-top: 6px;">
+        <div style="height:300px; overflow:hidden; padding: 5px;">
+          <div class="notices" style="padding: 6px;">
+            <h3 style="color: #2e3094;">Notices</h3>
+            <div class="loader" *ngIf="noticesLoader">
+              <div class="box"></div>
+            </div>
+            <marquee behavior="scroll" direction="up" scrollamount="4" onmouseover="this.stop();" onmouseout="this.start();">
+              <div *ngFor="let notice of notices">
+                <div *ngIf=" notice.display_to_home==true">
+                  <div class="notice-wrap">
+                    <div class="notice">
+                      <div *ngIf=" notice.examination_notice==true" class="red">Examination</div>
+                      <div class="content">
+                        <i class="fa fa-bell-o" aria-hidden="true"></i>
+                        <p>{{notice.title}}</p>
+                      </div>
+
+                      <a target="_blank" href={{notice.notices}}>Click for details</a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </marquee>
+          </div>
+          <br><br>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 m4">
+      <div class="w3-card w3-white w3-center" style="margin-top: 6px;">
+        <div style="height:300px; overflow:hidden;">
+          <div class="events" style="padding:6px;">
+            <h3 style="color: #2e3094;">Events</h3>
+            <div class="loader" *ngIf="eventsLoader">
+
+              <div class="box"></div>
+            </div>
+            <marquee behavior="scroll" direction="up" scrollamount="4" onmouseover="this.stop();" onmouseout="this.start();">
               <div class="events-wrap row">
-                <div *ngFor="let n of news; let i=index" class="event col-sm-11">
+
+                <div *ngFor="let event of events; let i=index" class="event col-sm-11">
+
                   <div class="content">
                     <i class="fa fa-calendar" aria-hidden="true"></i>
                     <div class="texts">
-                      <p style="font-size:15px;">{{n.title}}</p>
-                      <a class="round-button black link" target="_blank" href={{n.news}}>
+                      <p style="font-size:15px;">{{event.title}}</p>
+                      <a class="round-button black link" target="_blank" href={{event.events}}>
                         Details
                         <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                       </a>
@@ -58,76 +199,13 @@
           </div>
         </div>
       </div>
-      <div class="w3-col m4">
-        <div class="w3-card w3-round w3-white w3-center" style="margin-left:3px; margin-right:3px;">
-          <div class="w3-container" style="height:300px; overflow:hidden;">
-            <div class="notices">
-              <h3>Notices</h3>
-              <div class="loader" *ngIf="noticesLoader">
-                <div class="box"></div>
-              </div>
-              <marquee direction="up" scrollamount="4" onmouseover="this.stop();" onmouseout="this.start();">
-                <div *ngFor="let notice of notices">
-                  <div *ngIf=" notice.display_to_home==true">
-                    <div class="notice-wrap">
-                      <div class="notice">
-                        <div *ngIf=" notice.examination_notice==true" class="red">Examination</div>
-                        <div class="content">
-                          <i class="fa fa-bell-o" aria-hidden="true"></i>
-                          <p>{{notice.title}}</p>
-                        </div>
-
-                        <a target="_blank" href={{notice.notices}}>Click for details</a>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-              </marquee>
-            </div>
-            <br><br>
-          </div>
-        </div>
-      </div>
-
-      <div class="w3-col m4">
-
-
-        <div class="w3-card w3-round w3-white w3-center">
-          <div class="w3-container">
-            <div class="events" style="height:300px; overflow:hidden;">
-              <h3>Events</h3>
-              <div class="loader" *ngIf="eventsLoader">
-
-                <div class="box"></div>
-              </div>
-              <marquee direction="up" scrollamount="4" onmouseover="this.stop();" onmouseout="this.start();">
-                <div class="events-wrap row">
-
-                  <div *ngFor="let event of events; let i=index" class="event col-sm-11">
-
-                    <div class="content">
-                      <i class="fa fa-calendar" aria-hidden="true"></i>
-                      <div class="texts">
-                        <p style="font-size:15px;">{{event.title}}</p>
-                        <a class="round-button black link" target="_blank" href={{event.events}}>
-                          Details
-                          <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </marquee>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End Right Column -->
     </div>
+   </div>
+    <!-- End Right Column -->
+  </section>
 
-    <!-- End Grid -->
-  </div>
+  <!-- End Grid -->
+  <!-- </div> -->
 
   <!-- End Page Container -->
   <br>
@@ -159,7 +237,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <div class="container-fluid" style="background:#f1f1f1;">
   <br><br><br>
-  <h1 id="glance">BPIT AT A GLANCE</h1>
+  <h1 id="glance">BPIT AT A <strong style="color: #EF2123;">GLANCE</strong></h1>
   <p id="glancep">BPIT is a pioneer Institute providing education to the students of delhi and outside delhi in the
     field of engineering and management since more than a decade. BPIT is the only self financing institute affiliated
     to GGSIP University whose all UG engineering programs (B.Tech. CSE/IT/ ECE / EEE) are NBA (National Board of

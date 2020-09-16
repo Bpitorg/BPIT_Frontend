@@ -56,6 +56,12 @@ export class LessonPlanComponent implements OnInit {
   opensweetalertdng() {
     Swal.fire("You have successfully deleted the notice")
   }
+  opensweetalertError() {
+    Swal.fire({
+      text: 'Please Enter the valid field',
+      icon: 'error'
+    });
+  }
   initForm() {
     return new FormGroup({
       branch: new FormControl(this.branch, [Validators.required]),
@@ -108,6 +114,7 @@ export class LessonPlanComponent implements OnInit {
       this.getData();
     }, err => {
       this.submitProgress = false;
+      this.opensweetalertError();
     })
   }
   subjects: any;
@@ -137,10 +144,11 @@ export class LessonPlanComponent implements OnInit {
     this.ls.editLessonPlan(id, formData).subscribe(res => {
       this.submitProgress = false;
       this.getData();
-      // $('#successModal').modal('show');
       this.opensweetalertEdit();
     }, err => {
       this.submitProgress = false;
+      this.opensweetalertError();
+
     })
   }
 
@@ -151,7 +159,6 @@ export class LessonPlanComponent implements OnInit {
     this.ls.deletelessonPlan(id, formData).subscribe(res => {
       console.log("I am deleted");
       this.getData();
-      // $('#successModal2').modal('show');
       this.opensweetalertdng();
     }, err => {
 

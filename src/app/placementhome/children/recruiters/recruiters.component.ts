@@ -57,6 +57,12 @@ export class RecruitersComponent implements OnInit {
   opensweetalertdng() {
     Swal.fire("You have successfully deleted the recruiter")
   }
+  opensweetalertError() {
+    Swal.fire({
+      text: 'Please Enter the valid field',
+      icon: 'error'
+    });
+  }
   public initForm() {
     return new FormGroup({
       branch: new FormControl(this.branch, [Validators.required]),
@@ -119,6 +125,7 @@ export class RecruitersComponent implements OnInit {
       this.opensweetalert();
     }, err => {
       this.submitProgress = false;
+      this.opensweetalertError();
     })
   }
 
@@ -138,6 +145,7 @@ export class RecruitersComponent implements OnInit {
       this.opensweetalertEdit();
     }, err => {
       this.submitProgress = false;
+      this.opensweetalertError();
     })
   }
 

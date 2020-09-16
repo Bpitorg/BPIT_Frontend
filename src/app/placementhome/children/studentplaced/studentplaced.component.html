@@ -44,13 +44,36 @@
             <label for="title">Branch</label>
             <input type="text" class="form-control" name="branch" formControlName="branch"
               placeholder="enter branch here"><br>
+              <div
+              *ngIf="StudentPlaced.controls['branch'].invalid && (StudentPlaced.controls['branch'].dirty || StudentPlaced.controls['branch'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="StudentPlaced.controls['branch'].errors.required">
+                This field is required.
+              </div>
+            </div>
             <label for="title">Batch</label>
             <input type="number" id="title" class="form-control" name="batch" formControlName="batch"
               placeholder="enter title here">
-            <br> <label for="title">Date</label>
+            <br>
+            <div
+            *ngIf="StudentPlaced.controls['batch'].invalid && (StudentPlaced.controls['batch'].dirty || StudentPlaced.controls['batch'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="StudentPlaced.controls['batch'].errors.required">
+              This field is required.
+            </div>
+          </div>
+            <label for="title">Date</label>
             <input type="date" class="form-control" name="date_of_upload" data-date-format="YYYY MMMM DD"
               formControlName="date_of_upload">
-            <br> <label for="title">Data</label>
+            <br>
+            <div
+            *ngIf="StudentPlaced.controls['date_of_upload'].invalid && (StudentPlaced.controls['date_of_upload'].dirty || StudentPlaced.controls['date_of_upload'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="StudentPlaced.controls['date_of_upload'].errors.required">
+              This field is required.
+            </div>
+          </div>
+             <label for="title">Data</label>
             <input type="file" class="form-control" name="data" formControlName="data" (change)="getFile($event)">
           </div>
         </form>

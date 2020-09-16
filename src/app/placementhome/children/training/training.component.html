@@ -42,9 +42,35 @@
             <label for="title">Description</label>
             <input type="text" id="title" class="form-control" name="description" formControlName="description"
               placeholder="enter title here">
-            <br> <label for="title">Date</label>
+            <br>
+            <div
+            *ngIf="Trainings.controls['description'].invalid && (Trainings.controls['description'].dirty || Trainings.controls['description'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="Trainings.controls['description'].errors.required">
+              This field is required.
+            </div>
+          </div>
+          <label for="title">Company</label>
+          <input type="text" id="title" class="form-control" name="company" formControlName="company"
+            placeholder="enter title here">
+          <br>
+          <div
+          *ngIf="Trainings.controls['company'].invalid && (Trainings.controls['company'].dirty || Trainings.controls['company'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="Trainings.controls['company'].errors.required">
+            This field is required.
+          </div>
+        </div>
+            <label for="title">Date</label>
             <input type="date" class="form-control" name="date_of_upload" data-date-format="YYYY MMMM DD"
-              formControlName="date_of_upload">
+              formControlName="date_of_upload"><br>
+              <div
+              *ngIf="Trainings.controls['date_of_upload'].invalid && (Trainings.controls['date_of_upload'].dirty || Trainings.controls['date_of_upload'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="Trainings.controls['date_of_upload'].errors.required">
+                This field is required.
+              </div>
+            </div>
           </div>
         </form>
       </div>
@@ -54,7 +80,6 @@
     </div>
   </div>
 </div>
-
 <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -105,7 +130,11 @@
             <label for="title">Description</label>
             <input type="text" id="title" class="form-control" name="description" formControlName="description"
               placeholder="enter description here">
-            <br> <label for="title">Date</label>
+            <br>
+            <label for="title">Company</label>
+            <input type="text" id="title" class="form-control" name="company" formControlName="company"
+              placeholder="enter title here"><br>
+            <label for="title">Date</label>
             <input type="date" class="form-control" name="date_of_upload" data-date-format="YYYY MMMM DD"
               formControlName="date_of_upload">
           </div>

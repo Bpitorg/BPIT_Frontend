@@ -1,121 +1,168 @@
-<div class="box">
-  <h1>Placement Team</h1>
-    <div class="add-button">
-       <button class="btn btn-success circle plus-btn" data-target="#addModal" data-toggle="modal">
-            <i class="glyphicon glyphicon-plus"></i>
-       </button>
-    </div>
-   <!-- display notices -->
-    <div class="display facpub center-h">
-       <div class="loader" *ngIf="loader || submitProgress">
-         <div class="box"></div>
-       </div>
-     <div *ngIf="data">
-       <div class="facpub-wrap col-sm-8 col-xs-12 center-h" *ngFor="let p of data">
-         <div>
+<!-- <div class="box"> -->
+<h1>Placement Team</h1>
+<div class="add-button">
+  <button class="btn btn-success circle plus-btn" data-target="#addModal" data-toggle="modal">
+    <i class="glyphicon glyphicon-plus"></i>
+  </button>
+</div>
+<!-- display notices -->
+<div class="display facpub center-h">
+  <div class="loader" *ngIf="loader || submitProgress">
+    <div class="box"></div>
+  </div>
+  <div *ngIf="data">
+    <div class="facpub-wrap col-sm-8 col-xs-12 center-h" *ngFor="let p of data">
+      <div>
 
-         <a class="delete" (click)="deleteTeam(p.id)"><i  class="fa fa-trash-o udIcon"></i></a>
-         <a class="edit"(click)="selectedTeam(p)" data-target="#editModal" data-toggle="modal"><i  class="fa fa-pencil udIcon"></i></a><br>
-           ~{{p.profile_pic}}
-            ~{{p.User}}
-       </div>
-       </div>
+        <a class="delete" (click)="deleteTeam(p.id)"><i class="fa fa-trash-o udIcon"></i></a>
+        <a class="edit" (click)="selectedTeam(p)" data-target="#editModal" data-toggle="modal"><i
+            class="fa fa-pencil udIcon"></i></a><br>
+        {{p.profile_pic}}
+        {{p.User}}
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- add modal -->
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-       Add Member
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-     </div>
-     <div class="modal-body">
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Add Member
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
         <form [formGroup]="Team">
-           <div class="form-group">
-               <label for="title">Name</label>
-               <input type="text" id="title" class="form-control" name="User" formControlName="User" placeholder="enter title here">
-         <br>  <label for="title">Profile pic</label>
-             <input type="file" class="form-control" name="profile_pic" formControlName="profile_pic" (change)="getFile($event)">
-            <br>  <label for="title">Email</label>
-              <input type="email" class="form-control" name="email" formControlName="email" placeholder="enter email">
-              <br>  <label for="title">Phone Number</label>
-                <input type="number" class="form-control" name="Phone_Number" formControlName="Phone_Number" placeholder="enter title here">
-                <br>  <label for="title">Designation</label>
-                  <input type="text" class="form-control" name="designation" formControlName="designation" placeholder="enter title here">
-             <br> <label for="title">Is faculty admin?</label> <input type="checkbox" name="is_placement_team_admin" formControlName="is_placement_team_admin">
-           </div>
+          <div class="form-group">
+            <label for="title">Name</label>
+            <input type="text" id="title" class="form-control" name="User" formControlName="User"
+              placeholder="enter title here">
+            <br>
+            <div *ngIf="Team.controls['User'].invalid && (Team.controls['User'].dirty || Team.controls['User'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="Team.controls['User'].errors.required">
+                This field is required.
+              </div>
+            </div>
+            <label for="title">Profile pic</label>
+            <input type="file" class="form-control" name="profile_pic" formControlName="profile_pic"
+              (change)="getFile($event)">
+            <br>
+            <label for="title">Email</label>
+            <input type="email" class="form-control" name="email" formControlName="email" placeholder="enter email">
+            <br>
+            <div
+              *ngIf="Team.controls['email'].invalid && (Team.controls['email'].dirty || Team.controls['email'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="Team.controls['email'].errors.required">
+                This field is required.
+              </div>
+            </div>
+            <label for="title">Phone Number</label>
+            <input type="number" class="form-control" name="Phone_Number" formControlName="Phone_Number"
+              placeholder="enter title here">
+            <br>
+            <div
+              *ngIf="Team.controls['Phone_Number'].invalid && (Team.controls['Phone_Number'].dirty || Team.controls['Phone_Number'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="Team.controls['Phone_Number'].errors.required">
+                This field is required.
+              </div>
+            </div>
+            <label for="title">Designation</label>
+            <input type="text" class="form-control" name="designation" formControlName="designation"
+              placeholder="enter title here">
+            <br>
+            <div
+              *ngIf="Team.controls['designation'].invalid && (Team.controls['designation'].dirty || Team.controls['designation'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="Team.controls['designation'].errors.required">
+                This field is required.
+              </div>
+            </div>
+            <label for="title">Is faculty admin?</label> <input type="checkbox" name="is_placement_team_admin"
+              formControlName="is_placement_team_admin">
+          </div>
         </form>
-   </div>
-     <div class="modal-footer">
-           <button type="button" (click)="onSubmit()" data-dismiss="modal" class="btn btn-default">Submit</button>
-     </div>
-   </div>
- </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="onSubmit()" data-dismiss="modal" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-       Success
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-     </div>
-     <div class="modal-body">
-         <h4>You have successfully added the Placement team Member</h4>
-     </div>
-   </div>
- </div>
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Success
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4>You have successfully added the Placement team Member</h4>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="modal fade" id="successModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-       Success
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-     </div>
-     <div class="modal-body">
-         <h4>You have successfully deleted the Placement team Member</h4>
-     </div>
-   </div>
- </div>
+<div class="modal fade" id="successModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Success
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4>You have successfully deleted the Placement team Member</h4>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- edit modal -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <div class="modal-dialog" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-         <h5 class="modal-title" id="exapmleModalLabel">Edit Placement team Member </h5>
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-     </div>
-     <div class="modal-body" *ngIf="selected">
-       <form [formGroup]="editTeam">
-         <div class="form-group">
-             <label for="title">Name</label>
-             <input type="text" id="title" class="form-control" name="User" formControlName="User" placeholder="enter title here">
-          <br>  <label for="title">Email</label>
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exapmleModalLabel">Edit Placement team Member </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngIf="selected">
+        <form [formGroup]="editTeam">
+          <div class="form-group">
+            <label for="title">Name</label>
+            <input type="text" id="title" class="form-control" name="User" formControlName="User"
+              placeholder="enter title here">
+            <br> <label for="title">Email</label>
             <input type="email" class="form-control" name="email" formControlName="email" placeholder="enter email">
-            <br>  <label for="title">Phone Number</label>
-              <input type="number" class="form-control" name="Phone_Number" formControlName="Phone_Number" placeholder="enter title here">
-              <br>  <label for="title">Designation</label>
-                <input type="text" class="form-control" name="designation" formControlName="designation" placeholder="enter title here">
-           <br> <label for="title">Is faculty admin?</label> <input type="checkbox" name="is_placement_team_admin" formControlName="is_placement_team_admin">
-         </div>
-       </form>
-   </div>
-     <div class="modal-footer">
-           <button type="button" (click)="onEditSubmit(selected.id)" data-dismiss="modal" class="btn btn-default">Submit</button>
-     </div>
-   </div>
- </div>
+            <br> <label for="title">Phone Number</label>
+            <input type="number" class="form-control" name="Phone_Number" formControlName="Phone_Number"
+              placeholder="enter title here">
+            <br> <label for="title">Designation</label>
+            <input type="text" class="form-control" name="designation" formControlName="designation"
+              placeholder="enter title here">
+            <br> <label for="title">Is faculty admin?</label> <input type="checkbox" name="is_placement_team_admin"
+              formControlName="is_placement_team_admin">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="onEditSubmit(selected.id)" data-dismiss="modal"
+          class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </div>
 </div>

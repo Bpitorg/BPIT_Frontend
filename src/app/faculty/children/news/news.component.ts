@@ -52,7 +52,12 @@ export class NewsComponent implements OnInit {
   opensweetalertdng() {
     Swal.fire("You have successfully deleted the news")
   }
-
+  opensweetalertError() {
+    Swal.fire({
+      text: 'Please Enter the valid field',
+      icon: 'error'
+    });
+  }
   public initForm() {
     return new FormGroup({
       branch: new FormControl(this.branch, [Validators.required]),
@@ -132,6 +137,7 @@ export class NewsComponent implements OnInit {
       this.getNews();
     }, err => {
       this.submitProgress = false;
+      this.opensweetalertError();
     })
   }
 
@@ -164,6 +170,8 @@ export class NewsComponent implements OnInit {
       this.opensweetalertEdit();
     }, err => {
       this.submitProgress = false;
+      this.opensweetalertError();
+
     })
   }
 

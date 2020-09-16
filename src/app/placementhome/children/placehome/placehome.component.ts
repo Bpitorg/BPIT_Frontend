@@ -57,6 +57,12 @@ export class PlacehomeComponent {
   {
    Swal.fire("You have successfully deleted the event")
   }
+  opensweetalertError() {
+    Swal.fire({
+      text: 'Please Enter the valid field',
+      icon: 'error'
+    });
+  }
   ngOnInit() {
     this.branch=localStorage.getItem('branch');
     this.token=localStorage.getItem('access_token');
@@ -117,6 +123,7 @@ export class PlacehomeComponent {
     this.onSubmitPFaculty(formData);
     },err=>{
         this.submitProgress = false;
+        this.opensweetalertError();
     })
   }
 
@@ -130,10 +137,10 @@ export class PlacehomeComponent {
   onSubmitPFaculty(formData:any){
   this.ls.postTeam(formData).subscribe(res=>{
   this.submitProgress=false;
-  // $('#successModal').modal('show');
   this.opensweetalert();
   },err=>{
   this.submitProgress=false;
+  this.opensweetalertError();
   })
   }
 

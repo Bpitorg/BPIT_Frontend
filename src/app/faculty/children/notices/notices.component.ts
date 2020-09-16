@@ -46,16 +46,20 @@ export class NoticesComponent implements OnInit {
     this.delete = this.deleteform();
 
   }
-  opensweetalert()
-  {
+  opensweetalert() {
     Swal.fire({
-        text: 'You have successfully added the notice',
-        icon: 'success'
-      });
+      text: 'You have successfully added the notice',
+      icon: 'success'
+    });
   }
-  opensweetalertdng()
-  {
-   Swal.fire("You have successfully deleted the notice")
+  opensweetalertdng() {
+    Swal.fire("You have successfully deleted the notice")
+  }
+  opensweetalertError() {
+    Swal.fire({
+      text: 'Please Enter the valid field',
+      icon: 'error'
+    });
   }
   deleteform() {
     return new FormGroup({
@@ -135,6 +139,7 @@ export class NoticesComponent implements OnInit {
       this.getNotices();
     }, err => {
       this.submitProgress = false;
+      this.opensweetalertError();
     })
   }
 
@@ -150,6 +155,7 @@ export class NoticesComponent implements OnInit {
       this.getNotices();
     }, err => {
       this.submitProgress = false;
+      this.opensweetalertError();
     })
   }
   getBranchName() {
@@ -169,7 +175,6 @@ export class NoticesComponent implements OnInit {
     this.ns.getNotice(this.branchName).subscribe(res => {
       this.loader = false;
       this.allNotice = res.json();
-      console.log('getting notices');
     }, err => {
       this.loader = false;
     })
@@ -192,7 +197,7 @@ export class NoticesComponent implements OnInit {
       // $('#successModal2').modal('show');
       this.opensweetalertdng();
     }, err => {
-
+      this.opensweetalertError();
     })
   }
 

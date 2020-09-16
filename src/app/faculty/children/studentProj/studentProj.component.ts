@@ -48,6 +48,12 @@ export class StudentProjComponent implements OnInit {
   {
    Swal.fire("You have successfully deleted the student Project")
   }
+  opensweetalertError() {
+    Swal.fire({
+      text: 'Please Enter the valid field',
+      icon: 'error'
+    });
+  }
   initForm(){
     return new FormGroup({
       branch:new FormControl(this.branch,[Validators.required]),
@@ -87,6 +93,7 @@ export class StudentProjComponent implements OnInit {
       this.getStudentProjects();
     },err=>{
       this.submitProgress=false;
+      this.opensweetalertError();
     })
   }
 
@@ -104,6 +111,7 @@ export class StudentProjComponent implements OnInit {
       this.opensweetalertEdit();
     },err=>{
         this.submitProgress = false;
+        this.opensweetalertError();
     })
   }
 
@@ -134,7 +142,6 @@ export class StudentProjComponent implements OnInit {
         this.ss.deleteStudentProj(id,formData).subscribe(res=>{
           console.log("I am deleted");
           this.getStudentProjects();
-      // $('#successModal2').modal('show');
       this.opensweetalertdng();
         },err=>{
 

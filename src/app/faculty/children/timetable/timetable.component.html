@@ -50,16 +50,27 @@
               <option>7</option>
               <option>8</option>
             </select>
-          </div>
-          <div class="form-group">
+            <br>
+            <div
+              *ngIf="timetable.controls['semester'].invalid && (timetable.controls['semester'].dirty || timetable.controls['semester'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="timetable.controls['semester'].errors.required">
+                Please select a field.
+               </div>
+            </div>
             <label for="title">Section</label>
             <select class="form-control" formControlName="branch_section" (ngModelChange)="onSelectSection($event)"
               ([ngModel])="selectedSection">
               <option *ngFor="let s of section" [value]="s.id">{{s.section}}</option>
             </select>
-          </div>
-
-          <div class="form-group">
+            <br>
+            <div
+              *ngIf="timetable.controls['branch_section'].invalid && (timetable.controls['branch_section'].dirty || timetable.controls['branch_section'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="timetable.controls['branch_section'].errors.required">
+                Please select a field.
+               </div>
+            </div>
             <label for="title">File</label>
             <input type="file" id="title" class="form-control" formControlName="time_table" (change)="getFile($event)">
           </div>

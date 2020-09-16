@@ -59,6 +59,12 @@ opensweetalertdng()
 {
  Swal.fire("You have successfully deleted the notice")
 }
+opensweetalertError() {
+  Swal.fire({
+    text: 'Please Enter the valid field',
+    icon: 'error'
+  });
+}
 initForm(){
   return new FormGroup({
     username:new FormControl('',[Validators.required]),
@@ -101,7 +107,7 @@ UserSubmit(){
   formData.append('last_name',this.facultyhome.value['last_name']);
   formData.append('email',this.facultyhome.value['email']);
   formData.append('password',this.facultyhome.value['password']);
-  // formData.append('branch',this.branch); // user model me ye nhi hoga
+  // formData.append('branch',this.branch);
   this.onSubmit(formData);
 }
 
@@ -109,8 +115,7 @@ onSubmit(formData:any){
   this.ls.postUser(formData).subscribe(res=>{
     let Data = res.json();
     let formData1 = new FormData();
-    formData1.append('User',Data['pk']);  // ye sahi hai yaha nhi aaega
-    console.log(Data['pk']);
+    formData1.append('User',Data['pk']);  
     formData1.append('profile_pic',this.file);
     formData1.append('designation',this.facultyhome1.value['designation']);
     formData1.append('Qualification',this.facultyhome1.value['Qualification']);
@@ -126,19 +131,18 @@ onSubmit(formData:any){
     console.log(formData1)
     },err=>{
   this.submitProgress=false;
+  this.opensweetalertError();
 })
 }
-
-
 
 
 onSubmitFaculty(formData:any){
 this.ls.postFaculty(formData).subscribe(res=>{
 this.submitProgress=false;
-// $('#successModal').modal('show');
 this.opensweetalert();
 },err=>{
 this.submitProgress=false;
+this.opensweetalertError();
 })
 }
 

@@ -53,7 +53,12 @@ export class IndustourComponent implements OnInit {
   {
    Swal.fire("You have successfully deleted the Industrial tour or Workshop")
   }
-
+  opensweetalertError() {
+    Swal.fire({
+      text: 'Please Enter the valid field',
+      icon: 'error'
+    });
+  }
   ngOnInit() {
     // this.branch=localStorage.getItem('branch');
     this.userId = localStorage.getItem('id');
@@ -126,6 +131,7 @@ export class IndustourComponent implements OnInit {
       this.opensweetalert();
     }, err => {
       this.submitProgress = false;
+      this.opensweetalertError();
     })
   }
   onEditSubmit(id: any) {
@@ -139,10 +145,10 @@ export class IndustourComponent implements OnInit {
     this.fs.editTour(id, formData).subscribe(res => {
       this.submitProgress = false;
       this.getTour();
-      // $('#successModal').modal('show');
       this.opensweetalertEdit();
     }, err => {
       this.submitProgress = false;
+      this.opensweetalertError();
     })
   }
 

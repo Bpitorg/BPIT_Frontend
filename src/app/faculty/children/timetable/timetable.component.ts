@@ -59,6 +59,12 @@ export class TimetableComponent implements OnInit {
   {
    Swal.fire("You have successfully deleted the timetable")
   }
+  opensweetalertError() {
+    Swal.fire({
+      text: 'Please Enter the valid field',
+      icon: 'error'
+    });
+  }
     getBranch(){
     this.cs.getBranchName().subscribe(response=>{
       this.branchName=response.text();
@@ -160,17 +166,18 @@ export class TimetableComponent implements OnInit {
       this.getTimetable();
     },err=>{
       this.submitProgress=false;
+      this.opensweetalertError();
     })
   }
 
 onEditSubmit(formData:any){
     this.ts.editTimetable(formData,this.selectedTimetable.id).subscribe(res=>{
       this.submitProgress=false;
-      // $('#successModal').modal('show');
       this.opensweetalertEdit();
       this.getTimetable();
     },err=>{
       this.submitProgress=false;
+      this.opensweetalertError();
     })
   }
 

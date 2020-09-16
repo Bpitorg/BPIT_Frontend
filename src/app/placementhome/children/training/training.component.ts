@@ -59,10 +59,17 @@ export class TrainingComponent implements OnInit {
     {
      Swal.fire("You have successfully deleted the training")
     }
+    opensweetalertError() {
+      Swal.fire({
+        text: 'Please Enter the valid field',
+        icon: 'error'
+      });
+    }
     public initForm() {
       return new FormGroup({
         branch:new FormControl(this.branch,[Validators.required]),
         description: new FormControl('', [Validators.required]),
+        company: new FormControl('', [Validators.required]),
         date_of_upload:new FormControl('',[Validators.required])
       });
     }
@@ -71,6 +78,7 @@ export class TrainingComponent implements OnInit {
       return new FormGroup({
         branch:new FormControl(this.branch,[Validators.required]),
         description: new FormControl(e.description, [Validators.required]),
+        company: new FormControl(e.description, [Validators.required]),
         date_of_upload:new FormControl(e.date_of_upload,[Validators.required])
       });
     }
@@ -101,7 +109,6 @@ export class TrainingComponent implements OnInit {
     this.fs.deleteTrainings(id,formData).subscribe(res=>{
       console.log("I am deleted");
       this.getBranch();
-      // $('#successModal2').modal('show');
       this.opensweetalertdng();
     },err=>{
 
@@ -113,6 +120,7 @@ export class TrainingComponent implements OnInit {
     let formData = new FormData();
     formData.append('branch',this.branch);
     formData.append('description', this.Trainings.value['description']);
+    formData.append('company', this.Trainings.value['company']);
     formData.append('date_of_upload', this.Trainings.value['date_of_upload']);
     this.fs.postTrainings(formData).subscribe(res=>{
       this.submitProgress=false;
@@ -121,6 +129,7 @@ export class TrainingComponent implements OnInit {
       this.opensweetalert();
     },err=>{
         this.submitProgress = false;
+        this.opensweetalertError();
     })
   }
   onEditSubmit(id:any){
@@ -128,6 +137,7 @@ export class TrainingComponent implements OnInit {
     let formData = new FormData();
     formData.append('branch',this.branch);
     formData.append('description', this.editTrainings.value['description']);
+    formData.append('company', this.editTrainings.value['company']);
     formData.append('date_of_upload', this.editTrainings.value['date_of_upload']);
     this.fs.editTrainings(id,formData).subscribe(res=>{
       this.submitProgress=false;
@@ -135,6 +145,7 @@ export class TrainingComponent implements OnInit {
       this.opensweetalertEdit();
     },err=>{
         this.submitProgress = false;
+        this.opensweetalertError();
     })
   }
 
