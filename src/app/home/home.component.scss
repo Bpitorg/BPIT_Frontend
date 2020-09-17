@@ -204,7 +204,7 @@ a.wrimagecard:hover,
 
 .wrimagecard-topimage_title {
   padding: 20px 24px;
-  height: 250px;
+  height: 220px;
   padding-bottom: 0.75rem;
   position: relative;
 }
@@ -313,7 +313,7 @@ a.wrimagecard:hover,
 
 #glancep {
   text-align: center;
-  font-size: 15px;
+  font-size: 17px;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: bold;
   color: black;
@@ -334,4 +334,9 @@ a.wrimagecard:hover,
   z-index: 10;
   width: 100%;
   object-fit: cover;
+}
+a:hover
+{
+  text-decoration: none;
+  color: red;
 }

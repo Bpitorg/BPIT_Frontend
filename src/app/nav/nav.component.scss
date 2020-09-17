@@ -362,9 +362,9 @@ a {
 .logo-side-line {
   font-weight: bold;
   color: #2f3094;
-  margin-left: 50px;
+  // margin-left: 50px;
   width: 200px;
-  margin-top: -70px;
+  // margin-top: 20px;
 }
 
 .bpit-heading-div {
@@ -410,11 +410,10 @@ a {
  padding-left: 10px;
 }
 
-// @media(max-width: 768px) {
+// @media(max-width: 1081px) {
 //   .logo-side-line {
-//     margin-left: 20px;
-//     // text-align: center;
-//     float: left;
+//     margin-left: 40px;
+//     margin-top: 20px;
 //   }
 //   .logoImg{
 //     padding-left: 40px;
@@ -422,16 +421,15 @@ a {
 //   }
 // }
 
-@media(max-width: 576px) {
-  .logo-side-line {
-    margin-left: 40px;
-    float: left;
-  }
-  .logoImg{
-    padding-left: 0px;
-    float: left;
-  }
-}
+// @media(max-width: 576px) {
+//   .logo-side-line {
+//     margin-left: 40px;
+//     float: left;
+//   }
+//   .logoImg{
+//     padding-left: 0px;
+//   }
+// }
 // @media(max-width: 1200px) {
 //   .logo-side-line {
 //     margin-left: 40px;

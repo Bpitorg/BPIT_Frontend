@@ -149,6 +149,7 @@
             <marquee behavior="scroll" direction="up" scrollamount="4" onmouseover="this.stop();" onmouseout="this.start();">
               <div *ngFor="let notice of notices">
                 <div *ngIf=" notice.display_to_home==true">
+                  <a target="_blank" href={{notice.notices}}>
                   <div class="notice-wrap">
                     <div class="notice">
                       <div *ngIf=" notice.examination_notice==true" class="red">Examination</div>
@@ -156,11 +157,12 @@
                         <i class="fa fa-bell-o" aria-hidden="true"></i>
                         <p>{{notice.title}}</p>
                       </div>
-
+                      <br>
                       <a target="_blank" href={{notice.notices}}>Click for details</a>
                     </div>
                   </div>
 
+                </a>
                 </div>
               </div>
             </marquee>
