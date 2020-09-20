@@ -114,95 +114,134 @@
 
   <!-- Right Column -->
   <section class="w3-col m12" style="margin-top: 2rem; margin-bottom: 2rem;">
-   <div class="container-fluid middleNotice">
-    <div class="col-lg-4 col-md-4 col-sm-6 m4">
-      <div class="w3-card w3-white w3-center" style="margin-top: 6px;">
-        <div style="height:300px; overflow:hidden; padding: 6px;">
-          <h3 style="color: #2e3094;">News</h3>
-          <marquee behavior="scroll" direction="up" scrollamount="4" onmouseover="this.stop();" onmouseout="this.start();">
-            <div class="events-wrap row">
-              <div *ngFor="let n of news; let i=index" class="event col-sm-11">
-                <div class="content">
-                  <i class="fa fa-calendar" aria-hidden="true"></i>
-                  <div class="texts">
-                    <p style="font-size:15px;">{{n.title}}</p>
-                    <a class="round-button black link" target="_blank" href={{n.news}}>
-                      Details
-                      <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </marquee>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 m4">
-      <div class="w3-card w3-white w3-center" style=" margin-top: 6px;">
-        <div style="height:300px; overflow:hidden; padding: 5px;">
-          <div class="notices" style="padding: 6px;">
-            <h3 style="color: #2e3094;">Notices</h3>
-            <div class="loader" *ngIf="noticesLoader">
-              <div class="box"></div>
-            </div>
-            <marquee behavior="scroll" direction="up" scrollamount="4" onmouseover="this.stop();" onmouseout="this.start();">
-              <div *ngFor="let notice of notices">
-                <div *ngIf=" notice.display_to_home==true">
-                  <a target="_blank" href={{notice.notices}}>
-                  <div class="notice-wrap">
-                    <div class="notice">
-                      <div *ngIf=" notice.examination_notice==true" class="red">Examination</div>
-                      <div class="content">
-                        <i class="fa fa-bell-o" aria-hidden="true"></i>
-                        <p>{{notice.title}}</p>
+    <div class="container-fluid middleNotice">
+      <div class="col-lg-4 col-md-4 col-sm-6 m4">
+        <div class="w3-card w3-white w3-center" style="margin-top: 6px;">
+          <div style="height:300px; overflow:hidden;">
+            <div class="notices" style="padding: 6px;">
+              <h3 style="color: #2e3094;">News</h3>
+              <marquee behavior="scroll" direction="up" scrollamount="4" onmouseover="this.stop();"
+                onmouseout="this.start();">
+
+
+                <div *ngFor="let n of news; let i=index">
+                  <!-- <div *ngIf=" n.display_to_home==true"> -->
+                  <a target="_blank" href={{n.news}}>
+                    <div class="notice-wrap">
+                      <div class="notice">
+                        <div class="content">
+                          <i class="fa fa-bell-o" aria-hidden="true"></i>
+                          <p>{{n.title}}</p>
+                        </div>
+                        <br>
+                        <a target="_blank" href={{n.news}}>Click for details</a>
                       </div>
-                      <br>
-                      <a target="_blank" href={{notice.notices}}>Click for details</a>
                     </div>
-                  </div>
-
-                </a>
+                  </a>
                 </div>
-              </div>
-            </marquee>
-          </div>
-          <br><br>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-6 m4">
-      <div class="w3-card w3-white w3-center" style="margin-top: 6px;">
-        <div style="height:300px; overflow:hidden;">
-          <div class="events" style="padding:6px;">
-            <h3 style="color: #2e3094;">Events</h3>
-            <div class="loader" *ngIf="eventsLoader">
+                <!-- </div> -->
 
-              <div class="box"></div>
-            </div>
-            <marquee behavior="scroll" direction="up" scrollamount="4" onmouseover="this.stop();" onmouseout="this.start();">
-              <div class="events-wrap row">
-
-                <div *ngFor="let event of events; let i=index" class="event col-sm-11">
-
+                <!-- <div class="events-wrap row">
+                <div *ngFor="let n of news; let i=index" class="event col-sm-11">
                   <div class="content">
                     <i class="fa fa-calendar" aria-hidden="true"></i>
                     <div class="texts">
-                      <p style="font-size:15px;">{{event.title}}</p>
-                      <a class="round-button black link" target="_blank" href={{event.events}}>
+                      <p style="font-size:15px;">{{n.title}}</p>
+                      <a class="round-button black link" target="_blank" href={{n.news}}>
                         Details
                         <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                       </a>
                     </div>
                   </div>
                 </div>
+              </div> -->
+              </marquee>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 m4">
+        <div class="w3-card w3-white w3-center" style=" margin-top: 6px;">
+          <div style="height:300px; overflow:hidden; padding: 5px;">
+            <div class="notices" style="padding: 6px;">
+              <h3 style="color: #2e3094;">Notices</h3>
+              <div class="loader" *ngIf="noticesLoader">
+                <div class="box"></div>
               </div>
-            </marquee>
+              <marquee behavior="scroll" direction="up" scrollamount="4" onmouseover="this.stop();"
+                onmouseout="this.start();">
+                <div *ngFor="let notice of notices">
+                  <div *ngIf=" notice.display_to_home==true">
+                    <a target="_blank" href={{notice.notices}}>
+                      <div class="notice-wrap">
+                        <div class="notice">
+                          <div *ngIf=" notice.examination_notice==true" class="red">Examination</div>
+                          <div class="content">
+                            <i class="fa fa-bell-o" aria-hidden="true"></i>
+                            <p>{{notice.title}}</p>
+                          </div>
+                          <br>
+                          <a target="_blank" href={{notice.notices}}>Click for details</a>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </marquee>
+            </div>
+            <br><br>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 m4">
+        <div class="w3-card w3-white w3-center" style="margin-top: 6px;">
+          <div style="height:300px; overflow:hidden;">
+            <div class="notices" style="padding:6px;">
+              <h3 style="color: #2e3094;">Events</h3>
+              <div class="loader" *ngIf="eventsLoader">
+                <div class="box"></div>
+              </div>
+              <marquee behavior="scroll" direction="up" scrollamount="4" onmouseover="this.stop();"
+                onmouseout="this.start();">
+
+                <div *ngFor="let event of events; let i=index">
+                  <!-- <div *ngIf=" n.display_to_home==true"> -->
+                  <a target="_blank" href={{event.events}}>
+                    <div class="notice-wrap">
+                      <div class="notice">
+                        <div class="content">
+                          <i class="fa fa-bell-o" aria-hidden="true"></i>
+                          <p>{{event.title}}</p>
+                        </div>
+                        <br>
+                        <a target="_blank" href={{event.events}}>Click for details</a>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- <div class="events-wrap row">
+
+                  <div *ngFor="let event of events; let i=index" class="event col-sm-11">
+
+                    <div class="content">
+                      <i class="fa fa-calendar" aria-hidden="true"></i>
+                      <div class="texts">
+                        <p style="font-size:15px;">{{event.title}}</p>
+                        <a class="round-button black link" target="_blank" href={{event.events}}>
+                          Details
+                          <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+              </marquee>
+            </div>
           </div>
         </div>
       </div>
     </div>
-   </div>
     <!-- End Right Column -->
   </section>
 
