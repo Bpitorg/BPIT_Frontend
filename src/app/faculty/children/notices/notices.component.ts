@@ -70,7 +70,7 @@ export class NoticesComponent implements OnInit {
   public initForm() {
     return new FormGroup({
       branch: new FormControl(this.branch, [Validators.required]),
-      title: new FormControl('', [Validators.required, Validators.maxLength(250)]),
+      title: new FormControl('', [Validators.required, Validators.maxLength(250), Validators.pattern('[A-Za-z]+([\ A-Za-z]+)*')]),
       date: new FormControl('', [Validators.required]),
       display_to_home: new FormControl('', [Validators.required]),
       examination_notice: new FormControl('false', [Validators.required]),
@@ -81,7 +81,7 @@ export class NoticesComponent implements OnInit {
   editForm(data: any) {
     return new FormGroup({
       branch: new FormControl(this.branch, [Validators.required]),
-      title: new FormControl(data.title, [Validators.required, Validators.maxLength(250)]),
+      title: new FormControl(data.title, [Validators.required, Validators.maxLength(250), Validators.pattern('[A-Za-z]+([\ A-Za-z]+)*')]),
       date: new FormControl(data.date, [Validators.required]),
       display_to_home: new FormControl(data.display_to_home, [Validators.required]),
       examination_notice: new FormControl(data.examination_notice, [Validators.required]),

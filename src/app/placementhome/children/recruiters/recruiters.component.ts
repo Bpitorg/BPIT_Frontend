@@ -66,7 +66,7 @@ export class RecruitersComponent implements OnInit {
   public initForm() {
     return new FormGroup({
       branch: new FormControl(this.branch, [Validators.required]),
-      recruiter_name: new FormControl('', [Validators.required]),
+      recruiter_name: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z]+([\ A-Za-z]+)*')]),
       logo: new FormControl('', [Validators.required])
     });
   }
@@ -74,7 +74,7 @@ export class RecruitersComponent implements OnInit {
   EditForm(e: any) {
     return new FormGroup({
       branch: new FormControl(this.branch, [Validators.required]),
-      recruiter_name: new FormControl(e.recruiter_name, [Validators.required]),
+      recruiter_name: new FormControl(e.recruiter_name, [Validators.required, Validators.pattern('[A-Za-z]+([\ A-Za-z]+)*')]),
       logo: new FormControl('', [Validators.required])
     });
   }

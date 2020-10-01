@@ -45,8 +45,8 @@ export class StudentPubComponent {
   public initForm() {
     return new FormGroup({
       branch: new FormControl(this.branch, [Validators.required]),
-      title: new FormControl('', [Validators.required]),
-      authors: new FormControl('', [Validators.required]),
+      title: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z]+([\ A-Za-z]+)*')]),
+      authors: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z]+([\ A-Za-z]+)*')]),
       venue: new FormControl('', [Validators.required]),
       year: new FormControl('', [Validators.required]),
       conference_name: new FormControl('', [Validators.required])
@@ -79,8 +79,8 @@ export class StudentPubComponent {
   editForm(e: any) {
     return new FormGroup({
       branch: new FormControl(this.branch, [Validators.required]),
-      title: new FormControl(e.title, [Validators.required]),
-      authors: new FormControl(e.authors, [Validators.required]),
+      title: new FormControl(e.title, [Validators.required, Validators.pattern('[A-Za-z]+([\ A-Za-z]+)*')]),
+      authors: new FormControl(e.authors, [Validators.required, Validators.pattern('[A-Za-z]+([\ A-Za-z]+)*')]),
       venue: new FormControl(e.venue, [Validators.required]),
       year: new FormControl(e.year, [Validators.required]),
       conference_name: new FormControl(e.conference_name, [Validators.required])

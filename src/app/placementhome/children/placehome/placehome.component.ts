@@ -75,8 +75,8 @@ export class PlacehomeComponent {
   initForm(){
     return new FormGroup({
       username:new FormControl('',[Validators.required]),
-      first_name:new FormControl('',[Validators.required]),
-      last_name:new FormControl('',[Validators.required]),
+      first_name:new FormControl('',[Validators.required, Validators.pattern('[A-Za-z]+')]),
+      last_name:new FormControl('',[Validators.required, Validators.pattern('[A-Za-z]+')]),
       email:new FormControl('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$")]),
       password:new FormControl('',[Validators.required]),
       branch:new FormControl('',[Validators.required])

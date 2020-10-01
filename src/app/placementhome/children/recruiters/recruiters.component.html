@@ -42,12 +42,16 @@
               placeholder="enter title here">
             <br>
             <div
-            *ngIf="Recruiters.controls['recruiter_name'].invalid && (Recruiters.controls['recruiter_name'].dirty || Recruiters.controls['recruiter_name'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="Recruiters.controls['recruiter_name'].errors.required">
-              This field is required.
+              *ngIf="Recruiters.controls['recruiter_name'].invalid && (Recruiters.controls['recruiter_name'].dirty || Recruiters.controls['recruiter_name'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="Recruiters.controls['recruiter_name'].errors.required">
+                This field is required.
+              </div>
+              <div
+                *ngIf="Recruiters.controls['recruiter_name'].invalid && (Recruiters.controls['recruiter_name'].dirty)">
+                (Name should contain alphabets only).
+              </div>
             </div>
-          </div>
             <label for="title">Image</label>
             <input type="file" class="form-control" name="logo" formControlName="logo" (change)="getFile($event)">
           </div>
@@ -110,7 +114,19 @@
             <label for="title">Name</label>
             <input type="text" id="title" class="form-control" name="recruiter_name" formControlName="recruiter_name"
               placeholder="enter title here">
-            <br> <label for="title">Image</label>
+            <br>
+            <div
+            *ngIf="editRecruiters.controls['recruiter_name'].invalid && (editRecruiters.controls['recruiter_name'].dirty || editRecruiters.controls['recruiter_name'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="editRecruiters.controls['recruiter_name'].errors.required">
+              This field is required.
+            </div>
+            <div
+              *ngIf="editRecruiters.controls['recruiter_name'].invalid && (editRecruiters.controls['recruiter_name'].dirty)">
+              (Name should contain alphabets only).
+            </div>
+          </div>
+            <label for="title">Image</label>
             <input type="file" class="form-control" name="logo" formControlName="logo" (change)="getFile($event)">
           </div>
         </form>

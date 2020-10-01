@@ -70,7 +70,7 @@ initForm(){
     username:new FormControl('',[Validators.required]),
     first_name:new FormControl('',[Validators.required]),
     last_name:new FormControl('',[Validators.required]),
-    email:new FormControl('',[Validators.required]),
+    email:new FormControl('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$")]),
     password:new FormControl('',[Validators.required]),
     branch:new FormControl('',[Validators.required])
   })
@@ -115,7 +115,7 @@ onSubmit(formData:any){
   this.ls.postUser(formData).subscribe(res=>{
     let Data = res.json();
     let formData1 = new FormData();
-    formData1.append('User',Data['pk']);  
+    formData1.append('User',Data['pk']);
     formData1.append('profile_pic',this.file);
     formData1.append('designation',this.facultyhome1.value['designation']);
     formData1.append('Qualification',this.facultyhome1.value['Qualification']);

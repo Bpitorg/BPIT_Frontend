@@ -47,23 +47,27 @@
         <form [formGroup]="event">
           <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" formControlName="title" placeholder="enter title here"><br>
+            <input type="text" class="form-control" id="title" formControlName="title"
+              placeholder="enter title here"><br>
             <div
-            *ngIf="event.controls['title'].invalid && (event.controls['title'].dirty || event.controls['title'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="event.controls['title'].errors.required">
-              This field is required.
+              *ngIf="event.controls['title'].invalid && (event.controls['title'].dirty || event.controls['title'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="event.controls['title'].errors.required">
+                This field is required.
+              </div>
+              <div *ngIf="event.controls['title'].invalid && (event.controls['title'].dirty)">
+                (Please enter a valid field including alphabets only).
+              </div>
             </div>
-          </div>
             <label for="date">Date</label>
             <input type="date" class="form-control" id="title" formControlName="date" (change)="onDueDate($event)"><br>
             <div
-            *ngIf="event.controls['date'].invalid && (event.controls['date'].dirty || event.controls['date'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="event.controls['date'].errors.required">
-              This field is required.
+              *ngIf="event.controls['date'].invalid && (event.controls['date'].dirty || event.controls['date'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="event.controls['date'].errors.required">
+                This field is required.
+              </div>
             </div>
-          </div>
             <label for="title">File</label>
             <input type="file" id="title" formControlName="events" (change)="getFile($event)"><br>
           </div>
@@ -109,8 +113,18 @@
         <form [formGroup]="editEvent">
           <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" formControlName="title" placeholder="enter title here"><br>
-
+            <input type="text" class="form-control" id="title" formControlName="title"
+              placeholder="enter title here"><br>
+              <div
+              *ngIf="editEvent.controls['title'].invalid && (editEvent.controls['title'].dirty || editEvent.controls['title'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="editEvent.controls['title'].errors.required">
+                This field is required.
+              </div>
+              <div *ngIf="editEvent.controls['title'].invalid && (editEvent.controls['title'].dirty)">
+                (Please enter a valid field including alphabets only).
+              </div>
+            </div>
             <label for="date">Date</label>
             <input type="date" class="form-control" id="title" formControlName="date" (change)="onDueDate($event)"><br>
 

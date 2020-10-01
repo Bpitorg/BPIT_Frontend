@@ -51,12 +51,15 @@
               <div *ngIf="notice.controls['title'].errors.required">
                 This field is required.
               </div>
+              <div *ngIf="notice.controls['title'].invalid && (notice.controls['title'].dirty)">
+                (Please enter a valid field including alphabets only).
+              </div>
             </div>
 
             <label for="date">Date</label>
             <input type="date" id="title" class="form-control" formControlName="date" (change)="onDueDate($event)"
               required><br>
-              <div
+            <div
               *ngIf="notice.controls['date'].invalid && (notice.controls['date'].dirty || notice.controls['date'].touched)"
               class="alert alert-danger">
               <div *ngIf="notice.controls['date'].errors.required">
@@ -66,7 +69,7 @@
 
             <label for="display_to_home">Display to home</label>
             <input type="checkbox" id="display_to_home" formControlName="display_to_home"><br>
-     
+
             <label for="examination">Examination notice</label>
             <input type="checkbox" id="examination" formControlName="examination_notice"><br>
 
@@ -135,6 +138,16 @@
             <input type="text" class="form-control" id="title" formControlName="title" placeholder="enter title here"
               required>
           </div>
+          <div
+          *ngIf="editNotice.controls['title'].invalid && (editNotice.controls['title'].dirty || editNotice.controls['title'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="editNotice.controls['title'].errors.required">
+            This field is required.
+          </div>
+          <div *ngIf="editNotice.controls['title'].invalid && (editNotice.controls['title'].dirty)">
+            (Please enter a valid field including alphabets only).
+          </div>
+        </div>
           <div class="form-group">
             <label for="date">Date</label>
             <input type="date" id="title" class="form-control" formControlName="date" (change)="onDueDate($event)"

@@ -57,7 +57,7 @@ export class StudentProjComponent implements OnInit {
   initForm(){
     return new FormGroup({
       branch:new FormControl(this.branch,[Validators.required]),
-      Project_title: new FormControl('',[Validators.required, Validators.maxLength(250)]),
+      Project_title: new FormControl('',[Validators.required, Validators.maxLength(250), Validators.pattern('[A-Za-z]+([\ A-Za-z]+)*')]),
       description: new FormControl('',[Validators.required, Validators.maxLength(600)]),
       project_pic:new FormControl('',[Validators.required])
     })
@@ -66,7 +66,7 @@ export class StudentProjComponent implements OnInit {
   public editForm(e: any) {
     return new FormGroup({
       branch:new FormControl(this.branch,[Validators.required]),
-      Project_title: new FormControl(e.Project_title,[Validators.required, Validators.maxLength(250)]),
+      Project_title: new FormControl(e.Project_title,[Validators.required, Validators.maxLength(250), Validators.pattern('[A-Za-z]+([\ A-Za-z]+)*')]),
       description: new FormControl(e.description,[Validators.required, Validators.maxLength(600)]),
       project_pic:new FormControl(e.project_pic,[Validators.required])
     })

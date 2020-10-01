@@ -64,7 +64,7 @@ export class EventsComponent implements OnInit {
   public initForm(){
     return new FormGroup({
       branch:new FormControl(this.branch,[Validators.required]),
-      title: new FormControl('',[Validators.required, Validators.maxLength(250)]),
+      title: new FormControl('',[Validators.required, Validators.maxLength(250), Validators.pattern('[A-Za-z]+([\ A-Za-z]+)*')]),
       date: new FormControl('',[Validators.required]),
       events:new FormControl('', [Validators.required])
     })
@@ -73,7 +73,7 @@ export class EventsComponent implements OnInit {
   public EditForm(e:any){
   return new FormGroup({
       branch:new FormControl(this.branch,[Validators.required]),
-      title: new FormControl(e.title,[Validators.required, Validators.maxLength(250)]),
+      title: new FormControl(e.title,[Validators.required, Validators.maxLength(250), Validators.pattern('[A-Za-z]+([\ A-Za-z]+)*')]),
       date: new FormControl(e.date,[Validators.required]),
       events:new FormControl("", [Validators.required])
     })

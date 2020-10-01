@@ -63,7 +63,7 @@ public submitProgress: boolean = false;
   public initForm() {
     return new FormGroup({
       branch:new FormControl(this.branch,[Validators.required]),
-      paper_title: new FormControl('', [Validators.required]),
+      paper_title: new FormControl('', [Validators.required, Validators.pattern('[A-Za-z]+([\ A-Za-z]+)*')]),
       indexing: new FormControl('', [Validators.required]),
       year: new FormControl('', [Validators.required]),
       isbn_no: new FormControl('', [Validators.required]),
@@ -76,7 +76,7 @@ public submitProgress: boolean = false;
   EditForm(e:any) {
     return new FormGroup({
       branch:new FormControl(this.branch,[Validators.required]),
-      paper_title: new FormControl(e.paper_title, [Validators.required]),
+      paper_title: new FormControl(e.paper_title, [Validators.required, Validators.pattern('[A-Za-z]+([\ A-Za-z]+)*')]),
       indexing: new FormControl(e.indexing, [Validators.required]),
       year: new FormControl(e.year, [Validators.required]),
       isbn_no: new FormControl(e.isbn_no, [Validators.required]),

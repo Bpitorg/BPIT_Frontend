@@ -57,18 +57,24 @@
               <div *ngIf="publication.controls['title'].errors.required">
                 This field is required.
               </div>
+              <div *ngIf="publication.controls['title'].invalid && (publication.controls['title'].dirty)">
+                (Please enter a valid field including alphabets only).
+              </div>
             </div>
             <label for="authors">Authors</label>
             <input type="text" id="authors" class="form-control" formControlName="authors"
               placeholder="enter author here">
-              <br>
-              <div
-                *ngIf="publication.controls['authors'].invalid && (publication.controls['authors'].dirty || publication.controls['authors'].touched)"
-                class="alert alert-danger">
-                <div *ngIf="publication.controls['authors'].errors.required">
-                  This field is required.
-                </div>
+            <br>
+            <div
+              *ngIf="publication.controls['authors'].invalid && (publication.controls['authors'].dirty || publication.controls['authors'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="publication.controls['authors'].errors.required">
+                This field is required.
               </div>
+              <div *ngIf="publication.controls['authors'].invalid && (publication.controls['authors'].dirty)">
+                (Please enter a valid field including alphabets only).
+              </div>
+            </div>
             <label for="venue">Venue</label>
             <input type="text" id="venue" class="form-control" formControlName="venue" placeholder="enter venue here">
             <br>
@@ -82,24 +88,24 @@
             <label for="conference_name">Conference Name</label>
             <input type="text" id="conference_name" class="form-control" formControlName="conference_name"
               placeholder="enter conference name here">
-              <br>
-              <div
-                *ngIf="publication.controls['conference_name'].invalid && (publication.controls['conference_name'].dirty || publication.controls['conference_name'].touched)"
-                class="alert alert-danger">
-                <div *ngIf="publication.controls['conference_name'].errors.required">
-                  This field is required.
-                </div>
+            <br>
+            <div
+              *ngIf="publication.controls['conference_name'].invalid && (publication.controls['conference_name'].dirty || publication.controls['conference_name'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="publication.controls['conference_name'].errors.required">
+                This field is required.
               </div>
+            </div>
             <label for="date">Date</label>
             <input type="number" id="date" class="form-control" formControlName="year" placeholder="enter date here">
             <br>
-              <div
-                *ngIf="publication.controls['year'].invalid && (publication.controls['year'].dirty || publication.controls['year'].touched)"
-                class="alert alert-danger">
-                <div *ngIf="publication.controls['year'].errors.required">
-                  This field is required.
-                </div>
+            <div
+              *ngIf="publication.controls['year'].invalid && (publication.controls['year'].dirty || publication.controls['year'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="publication.controls['year'].errors.required">
+                This field is required.
               </div>
+            </div>
           </div>
         </form>
       </div>
@@ -159,11 +165,31 @@
             <label for="title">Title</label>
             <input type="text" id="title" class="form-control" formControlName="title" placeholder="enter title here">
           </div>
+          <div
+            *ngIf="editPublication.controls['title'].invalid && (editPublication.controls['title'].dirty || editPublication.controls['title'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="editPublication.controls['title'].errors.required">
+              This field is required.
+            </div>
+            <div *ngIf="editPublication.controls['title'].invalid && (editPublication.controls['title'].dirty)">
+              (Please enter a valid field including alphabets only).
+            </div>
+          </div>
           <div class="form-group">
             <label for="authors">Authors</label>
             <input type="text" id="authors" class="form-control" formControlName="authors"
               placeholder="enter author here">
           </div>
+          <div
+          *ngIf="editPublication.controls['authors'].invalid && (editPublication.controls['authors'].dirty || editPublication.controls['authors'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="editPublication.controls['authors'].errors.required">
+            This field is required.
+          </div>
+          <div *ngIf="editPublication.controls['authors'].invalid && (editPublication.controls['authors'].dirty)">
+            (Please enter a valid field including alphabets only).
+          </div>
+        </div>
           <div class="form-group">
             <label for="venue">Venue</label>
             <input type="text" id="venue" class="form-control" formControlName="venue" placeholder="enter venue here">

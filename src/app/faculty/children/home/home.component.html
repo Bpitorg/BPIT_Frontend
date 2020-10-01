@@ -60,6 +60,9 @@
         <div *ngIf="facultyhome.controls['email'].errors.required">
           This field is required.
         </div>
+        <div *ngIf="facultyhome.controls['email'].invalid && (facultyhome.controls['email'].dirty)">
+          Enter a valid email address.
+        </div>
       </div>
         Password:
         <input type="password" formControlName="password" placeholder="enter password here" required><br><br>
