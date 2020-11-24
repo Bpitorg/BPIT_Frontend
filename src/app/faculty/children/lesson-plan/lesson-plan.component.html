@@ -1,125 +1,125 @@
 <h1>Lesson Plan</h1>
 <div class="add-button">
-  <button class="btn btn-success circle plus-btn" data-target="#addModal" data-toggle="modal">
-    <i class="glyphicon glyphicon-plus"></i>
-  </button>
+	<button class="btn btn-success circle plus-btn" data-target="#addModal" data-toggle="modal">
+		<i class="glyphicon glyphicon-plus"></i>
+	</button>
 </div>
 <!-- <div class="box"> -->
-  <!-- display notices -->
-  <div class="lessonPlan">
-    <div class="display">
-      <!-- <div class="text-center">
-        <loader [condition]="loader || submitProgress" class="centerLoader"></loader>
-       </div> -->
-      <div class="loader" *ngIf="loader">
-        <div class="box"></div>
-      </div>
-      <div class="lessonPlan-wrap col-sm-3  center-h" *ngFor="let d of data">
-        <div class="container">
-          <div class="row dis">
-            <p class="col-sm-3">{{d.subject}}&nbsp;&nbsp;&nbsp;&nbsp;<br>
-              <a (click)="deleteLessonPlan(d.id)"><i class="fa fa-trash-o udIcon"></i></a>&nbsp;&nbsp;&nbsp;
-              <a (click)="selectedLessonPlan(d)" data-target="#editModal" data-toggle="modal"><i
-                  class="fa fa-pencil udIcon"></i></a>&nbsp;&nbsp;
-              <a href="{{d.LecturePlan}}" target="_blank"><i class="fa fa-download udIcon "></i></a><br><br>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- display notices -->
+<div class="lessonPlan">
+	<div class="display">
+		<div class="loader" *ngIf="loader">
+			<div class="box"></div>
+		</div>
+		<div class="lessonPlan-wrap col-sm-3  center-h" *ngFor="let d of data">
+			<div class="container">
+				<div class="row dis">
+					<p class="col-sm-3">{{d.subject}}&nbsp;&nbsp;&nbsp;&nbsp;<br>
+						<a (click)="deleteLessonPlan(d.id)"><i class="fa fa-trash-o udIcon"></i></a>&nbsp;&nbsp;&nbsp;
+						<a (click)="selectedLessonPlan(d)" data-target="#editModal" data-toggle="modal"><i
+								class="fa fa-pencil udIcon"></i></a>&nbsp;&nbsp;
+						<a href="{{d.LecturePlan}}" target="_blank"><i class="fa fa-download udIcon "></i></a><br><br>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 <!-- </div> -->
 <!-- add modal -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        Add Lesson Plan
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="lessonplan">
-          <div class="form-group">
-            <label>Subject</label>
-            <select formControlName="subject" (ngModelChange)="onSelectSubject($event)" [(ngModel)]="selectedSubject">
-              <option *ngFor="let s of subjects" [value]="s.id">{{s.subject_name}}</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="title">Lesson Plan</label>
-            <input type="file" id="title" formControlName="LecturePlan" (change)="getFile($event)">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" (click)="lessonplanSubmit()" class="btn btn-default" data-dismiss="modal">Submit</button>
-      </div>
-    </div>
-  </div>
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				Add Lesson Plan
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form [formGroup]="lessonplan">
+					<div class="form-group">
+						<label>Subject</label>
+						<select formControlName="subject" (ngModelChange)="onSelectSubject($event)"
+							[(ngModel)]="selectedSubject">
+							<option *ngFor="let s of subjects" [value]="s.id">{{s.subject_name}}</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="title">Lesson Plan</label>
+						<input type="file" id="title" formControlName="LecturePlan" (change)="getFile($event)">
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" (click)="lessonplanSubmit()" class="btn btn-default"
+					data-dismiss="modal">Submit</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        Success
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h4>You have successfully added the notice</h4>
-      </div>
-    </div>
-  </div>
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				Success
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<h4>You have successfully added the notice</h4>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="modal fade" id="successModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        Success
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h4>You have successfully deleted the event </h4>
-      </div>
-    </div>
-  </div>
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				Success
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<h4>You have successfully deleted the event </h4>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- edit modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exapmleModalLabel">Edit News</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" *ngIf="selected">
-        <form [formGroup]="editLessonPlan">
-          <select formControlName="subject" (ngModelChange)="onSelectSubject($event)" [(ngModel)]="selectedSubject">
-            <option *ngFor="let s of subjects" [value]="s.id">{{s.subject_name}}</option>
-          </select>
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exapmleModalLabel">Edit News</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body" *ngIf="selected">
+				<form [formGroup]="editLessonPlan">
+					<select formControlName="subject" (ngModelChange)="onSelectSubject($event)"
+						[(ngModel)]="selectedSubject">
+						<option *ngFor="let s of subjects" [value]="s.id">{{s.subject_name}}</option>
+					</select>
 
-          <div class="form-group">
-            <label for="title">Lesson Plan</label>
-            <input type="file" id="title" formControlName="LecturePlan" (change)="getFile($event)">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" (click)="onEditSubmit(selected.id)" data-dismiss="modal"
-          class="btn btn-default">Submit</button>
-      </div>
-    </div>
-  </div>
+					<div class="form-group">
+						<label for="title">Lesson Plan</label>
+						<input type="file" id="title" formControlName="LecturePlan" (change)="getFile($event)">
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" (click)="onEditSubmit(selected.id)" data-dismiss="modal"
+					class="btn btn-default">Submit</button>
+			</div>
+		</div>
+	</div>

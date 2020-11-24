@@ -1,33 +1,31 @@
 <app-nav></app-nav>
 <div class="disclosure-wrap container" style="text-align:center;">
-  <h2 id="clr">
-    <i class="fa fa-eye" aria-hidden="true"></i>
-    Disclosures
-  </h2>
-  <div class="loader" *ngIf="loader">
-    <div class="container">
-      <div class="box"></div>
-    </div>
-  </div>
-  <table class="table table-bordered table-striped table-hover table-responsive">
-    <thead>
-      <tr>
-        <th> Title</th>
-        <th> Document</th>
-        <th> Date</th>
-      </tr>
-    </thead>
-    <!-- <div *ngFor="let d of disclosures"> -->
-    <tbody>
-      <tr *ngFor="let d of disclosures">
-        <td>{{d.disclosure_title}}</td>
-        <td><a href="{{d.disclosures}}" target="_blank"><i class="fa fa-download "></i></a></td>
-        <td>{{d.date}}</td>
-      </tr>
-    </tbody>
-    <!-- </div> -->
-  </table>
+	<h2 id="clr">
+		<i class="fa fa-eye" aria-hidden="true"></i>
+		Disclosures
+	</h2>
+	<div class="loader" *ngIf="loader">
+		<div class="container">
+			<div class="box"></div>
+		</div>
+	</div>
+	<table class="table table-bordered table-striped table-hover table-responsive">
+		<thead>
+			<tr>
+				<th> Title</th>
+				<th> Document</th>
+				<th> Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let d of disclosures">
+				<td>{{d.disclosure_title}}</td>
+				<td><a href="{{d.disclosures}}" target="_blank"><i class="fa fa-download "></i></a></td>
+				<td>{{d.date}}</td>
+			</tr>
+		</tbody>
+	</table>
 
 </div>
 
-  <app-foot></app-foot>
+<app-foot></app-foot>

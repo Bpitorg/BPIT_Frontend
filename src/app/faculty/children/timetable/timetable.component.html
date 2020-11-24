@@ -1,166 +1,167 @@
 <h1>Time Table</h1>
 <div class="add-button">
-  <button class="btn btn-success circle plus-btn" data-target="#addModal" data-toggle="modal">
-    <i class="glyphicon glyphicon-plus"></i>
-  </button>
+	<button class="btn btn-success circle plus-btn" data-target="#addModal" data-toggle="modal">
+		<i class="glyphicon glyphicon-plus"></i>
+	</button>
 </div>
 <!-- <div class="box"> -->
 <!-- display notices -->
 <div class="TimeTable">
-  <div class="display">
-    <div class="loader" *ngIf="loader || submitProgress">
-      <div class="box"></div>
-    </div>
-    <div class="TimeTable-wrap  col-sm-5 col-xs-12  center-h info" *ngFor="let a of alltimetable">
-      <p>
-        Time table for semester {{a.semester}}.
-        <br>
-        Section: {{a.branch_section}}
-      </p>
-      <a href="{{a.time_table}}" target="_blank"><i class="fa fa-download udIcon"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a (click)="deleteTimetable(a.id)"><i class="fa fa-trash-o udIcon"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-      <a (click)="selectTimetable(a)" data-target="#editModal" data-toggle="modal"><i
-          class="fa fa-pencil udIcon"></i></a>
-    </div>
-  </div>
+	<div class="display">
+		<div class="loader" *ngIf="loader || submitProgress">
+			<div class="box"></div>
+		</div>
+		<div class="TimeTable-wrap  col-sm-5 col-xs-12  center-h info" *ngFor="let a of alltimetable">
+			<p>
+				Time table for semester {{a.semester}}.
+				<br>
+				Section: {{a.branch_section}}
+			</p>
+			<a href="{{a.time_table}}" target="_blank"><i class="fa fa-download udIcon"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a (click)="deleteTimetable(a.id)"><i class="fa fa-trash-o udIcon"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a (click)="selectTimetable(a)" data-target="#editModal" data-toggle="modal"><i
+					class="fa fa-pencil udIcon"></i></a>
+		</div>
+	</div>
 </div>
 <!-- </div> -->
 <!-- add modal -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        Add Time Table
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="timetable">
-          <div class="form-group">
-            <label>Semester</label>
-            <select class="form-control" formControlName="semester">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-            </select>
-            <br>
-            <div
-              *ngIf="timetable.controls['semester'].invalid && (timetable.controls['semester'].dirty || timetable.controls['semester'].touched)"
-              class="alert alert-danger">
-              <div *ngIf="timetable.controls['semester'].errors.required">
-                Please select a field.
-               </div>
-            </div>
-            <label for="title">Section</label>
-            <select class="form-control" formControlName="branch_section" (ngModelChange)="onSelectSection($event)"
-              ([ngModel])="selectedSection">
-              <option *ngFor="let s of section" [value]="s.id">{{s.section}}</option>
-            </select>
-            <br>
-            <div
-              *ngIf="timetable.controls['branch_section'].invalid && (timetable.controls['branch_section'].dirty || timetable.controls['branch_section'].touched)"
-              class="alert alert-danger">
-              <div *ngIf="timetable.controls['branch_section'].errors.required">
-                Please select a field.
-               </div>
-            </div>
-            <label for="title">File</label>
-            <input type="file" id="title" class="form-control" formControlName="time_table" (change)="getFile($event)">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" (click)="timetableSubmit()" class="btn btn-default" data-dismiss="modal">Submit</button>
-      </div>
-    </div>
-  </div>
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				Add Time Table
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form [formGroup]="timetable">
+					<div class="form-group">
+						<label>Semester</label>
+						<select class="form-control" formControlName="semester">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+							<option>8</option>
+						</select>
+						<br>
+						<div *ngIf="timetable.controls['semester'].invalid && (timetable.controls['semester'].dirty || timetable.controls['semester'].touched)"
+							class="alert alert-danger">
+							<div *ngIf="timetable.controls['semester'].errors.required">
+								Please select a field.
+							</div>
+						</div>
+						<label for="title">Section</label>
+						<select class="form-control" formControlName="branch_section"
+							(ngModelChange)="onSelectSection($event)" ([ngModel])="selectedSection">
+							<option *ngFor="let s of section" [value]="s.id">{{s.section}}</option>
+						</select>
+						<br>
+						<div *ngIf="timetable.controls['branch_section'].invalid && (timetable.controls['branch_section'].dirty || timetable.controls['branch_section'].touched)"
+							class="alert alert-danger">
+							<div *ngIf="timetable.controls['branch_section'].errors.required">
+								Please select a field.
+							</div>
+						</div>
+						<label for="title">File</label>
+						<input type="file" id="title" class="form-control" formControlName="time_table"
+							(change)="getFile($event)">
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" (click)="timetableSubmit()" class="btn btn-default"
+					data-dismiss="modal">Submit</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 
 <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        Success
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h4>You have successfully added the timetable</h4>
-      </div>
-    </div>
-  </div>
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				Success
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<h4>You have successfully added the timetable</h4>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="modal fade" id="successModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        Success
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h4>You have successfully deleted the timetable</h4>
-      </div>
-    </div>
-  </div>
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				Success
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<h4>You have successfully deleted the timetable</h4>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- edit modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        Edit Timetable
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" *ngIf="selectedTimetable">
-        <form [formGroup]="editTimetable">
-          <div class="form-group">
-            <label for="semester">Semester</label>
-            <select class="form-control" formControlName="semester" ([ngModel])="selectedSemester">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-            </select>
-          </div>
-          <!-- section back se aa rha h maybe isliye -->
-          <div class="form-group">
-            <label for="branch_section">Section</label>
-            <select class="form-control" formControlName="branch_section" ([ngModel])="selectedSemester"
-              (ngModelChange)="onSelectSection($event)" ([ngModel])="selectedSection">
-              <option *ngFor="let s of section" [value]="s.id">{{s.section}}</option>
-            </select>
-          </div>
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				Edit Timetable
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body" *ngIf="selectedTimetable">
+				<form [formGroup]="editTimetable">
+					<div class="form-group">
+						<label for="semester">Semester</label>
+						<select class="form-control" formControlName="semester" ([ngModel])="selectedSemester">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+							<option>8</option>
+						</select>
+					</div>
+					<!-- section back se aa rha h maybe isliye -->
+					<div class="form-group">
+						<label for="branch_section">Section</label>
+						<select class="form-control" formControlName="branch_section" ([ngModel])="selectedSemester"
+							(ngModelChange)="onSelectSection($event)" ([ngModel])="selectedSection">
+							<option *ngFor="let s of section" [value]="s.id">{{s.section}}</option>
+						</select>
+					</div>
 
-          <div class="form-group">
-            <label for="title">File</label>
-            <input type="file" id="title" class="form-control" formControlName="time_table" (change)="getFile($event)">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" (click)="editTimetableSubmit()" class="btn btn-default"
-          data-dismiss="modal">Submit</button>
-      </div>
-    </div>
-  </div>
+					<div class="form-group">
+						<label for="title">File</label>
+						<input type="file" id="title" class="form-control" formControlName="time_table"
+							(change)="getFile($event)">
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" (click)="editTimetableSubmit()" class="btn btn-default"
+					data-dismiss="modal">Submit</button>
+			</div>
+		</div>
+	</div>

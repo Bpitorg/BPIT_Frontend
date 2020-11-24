@@ -1,27 +1,27 @@
 <app-nav></app-nav>
 <div class="nba-wrap container">
-  <h2 id="clr">
-    <i class="fa fa-list" aria-hidden="true"></i>
-    National Institutional Ranking Framework
-  </h2>
+	<h2 id="clr">
+		<i class="fa fa-list" aria-hidden="true"></i>
+		National Institutional Ranking Framework
+	</h2>
 
-  <div class="loader" *ngIf="loader">
-    <div class="box"></div>
-  </div>
-  <div id="text-content">
-    <table class="table table-bordered">
-      <tr>
-        <th>NIRF</th>
-        <th>File</th>
-        <th>Date of upload</th>
-      </tr>
-      <tr *ngFor="let l of nirf">
-        <td>{{l.nirf_name}}</td>
-        <td>{{l.date_of_upload}}</td>
-        <td><a href="{{l.file}}" target="_blank"><i class="fa fa-download "></i></a></td>
-      </tr>
-    </table>
-  </div>
+	<div class="loader" *ngIf="loader">
+		<div class="box"></div>
+	</div>
+	<div id="text-content">
+		<table class="table table-bordered">
+			<tr>
+				<th>NIRF</th>
+				<th>File</th>
+				<th>Date of upload</th>
+			</tr>
+			<tr *ngFor="let l of nirf">
+				<td>{{l.nirf_name}}</td>
+				<td>{{l.date_of_upload}}</td>
+				<td><a href="{{l.file}}" target="_blank"><i class="fa fa-download "></i></a></td>
+			</tr>
+		</table>
+	</div>
 
 </div>
 <app-foot></app-foot>

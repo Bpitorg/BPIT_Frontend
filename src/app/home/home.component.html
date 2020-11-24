@@ -23,77 +23,16 @@
 
     <!-- Middle Column -->
     <div class="w3-col m12">
-        <div id="banner">
-        	<video autoplay="" class="banner-video" loop="" preload="auto">
-            <source src="../../assets/gallery/video/second.mp4" type="video/mp4">
-          </video>
-        </div>
-        <br>
+      <div id="banner">
+        <video autoplay="" class="banner-video" loop="" preload="auto" controls
+          poster="../../../../assets/images/logo.png">
+          <source src="../../assets/gallery/video/second.mp4" type="video/mp4">
+        </video>
+      </div>
+      <br>
       <!-- </div> -->
       <!-- End Middle Column -->
     </div>
-
-
-    <!-- <div _ngcontent-c1="" class="carousel slide" data-ride="carousel" id="screenshot-carousel">
-    <ol _ngcontent-c1="" class="carousel-indicators">
-      <li _ngcontent-c1="" class="" data-slide-to="0" data-target="#screenshot-carousel" class="active"></li>
-      <li _ngcontent-c1="" data-slide-to="1" data-target="#screenshot-carousel" class=""></li>
-      <li _ngcontent-c1="" data-slide-to="2" data-target="#screenshot-carousel"></li>
-
-    </ol>
-
-    <div _ngcontent-c1="" class="carousel-inner">
-      <div _ngcontent-c1="" class="item active">
-        <img _ngcontent-c1="" alt="Bootstrap Touch Slider" class="slide-image" id="img2"
-          src="../../../assets/images/slide-1.jpg">
-        <div _ngcontent-c1="" class="bs-slider-overlay"> </div>
-        <div _ngcontent-c1="" class="container">
-          <div _ngcontent-c1="" class="row">
-
-            <div _ngcontent-c1="" class="slide-text slide_style_left" style="font-weight:bolder;">
-              <h1 _ngcontent-c1=""></h1>
-              <p _ngcontent-c1=""></p>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div _ngcontent-c1="" class="item">
-
-        <img _ngcontent-c1="" alt="text of the image" id="img1" src="../../../assets/images/slide-2.jpg">
-        <div _ngcontent-c1="" class="bs-slider-overlay"></div>
-
-        <div _ngcontent-c1="" class="slide-text slide_style_left" style="font-weight:bolder;">
-
-          <h1 _ngcontent-c1=""></h1>
-          <p _ngcontent-c1=""></p>
-        </div>
-      </div>
-
-      <div _ngcontent-c1="" class="item">
-
-        <img _ngcontent-c1="" alt="Bootstrap Touch Slider" class="slide-image" id="img3"
-          src="../../../assets/images/slide-3.jpg">
-        <div _ngcontent-c1="" class="bs-slider-overlay"></div>
-
-        <div _ngcontent-c1="" class="slide-text slide_style_left" style="font-weight:bolder;">
-          <h1 _ngcontent-c1=""></h1>
-          <p _ngcontent-c1=""></p>
-        </div>
-      </div>
-    </div>
-
-    <a _ngcontent-c1="" class="left carousel-control" data-slide="prev" href="#screenshot-carousel" role="button">
-      <span _ngcontent-c1="" class="glyphicon glyphicon-chevron-left"></span>
-      <span _ngcontent-c1="" class="sr-only">Previous</span>
-    </a>
-    <a _ngcontent-c1="" class="right carousel-control" data-slide="next" href="#screenshot-carousel" role="button">
-      <span _ngcontent-c1="" class="glyphicon glyphicon-chevron-right"></span>
-      <span _ngcontent-c1="" class="sr-only">Next</span>
-    </a>
-
-  </div> -->
     <br _ngcontent-c1="">
 
     <!-- end carousel -->
@@ -119,6 +58,8 @@
                             <i class="fa fa-bell-o" aria-hidden="true"></i>
                             <p>{{n.title}}</p>
                           </div>
+                          <!-- <br/> -->
+                          <p>{{n.date}}</p>
                           <br>
                           <a target="_blank" href={{n.news}}>Click for details</a>
                         </div>
@@ -146,13 +87,17 @@
                       <a target="_blank" href={{notice.notices}}>
                         <div class="notice-wrap">
                           <div class="notice">
-                            <div *ngIf=" notice.examination_notice==true" class="red">Examination</div>
+                            <div *ngIf=" notice.examination_notice==true" class="red">
+                              Examination</div>
                             <div class="content">
                               <i class="fa fa-bell-o" aria-hidden="true"></i>
                               <p>{{notice.title}}</p>
                             </div>
+                            <!-- <br> -->
+                            <p>{{notice.date}}</p>
                             <br>
                             <a target="_blank" href={{notice.notices}}>Click for details</a>
+                            <!-- <p>{{}}</p> -->
                           </div>
                         </div>
                       </a>
@@ -184,29 +129,13 @@
                             <i class="fa fa-bell-o" aria-hidden="true"></i>
                             <p>{{event.title}}</p>
                           </div>
+                          <p>{{event.date}}</p>
                           <br>
                           <a target="_blank" href={{event.events}}>Click for details</a>
                         </div>
                       </div>
                     </a>
                   </div>
-
-                  <!-- <div class="events-wrap row">
-
-                  <div *ngFor="let event of events; let i=index" class="event col-sm-11">
-
-                    <div class="content">
-                      <i class="fa fa-calendar" aria-hidden="true"></i>
-                      <div class="texts">
-                        <p style="font-size:15px;">{{event.title}}</p>
-                        <a class="round-button black link" target="_blank" href={{event.events}}>
-                          Details
-                          <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
                 </marquee>
               </div>
             </div>
@@ -250,16 +179,23 @@
   <div class="container-fluid" style="background:#f1f1f1;">
     <br><br><br>
     <h1 id="glance">BPIT AT A <strong style="color: #EF2123;">GLANCE</strong></h1>
-    <p id="glancep">BPIT is a pioneer Institute providing education to the students of delhi and outside delhi in the
-      field of engineering and management since more than a decade. BPIT is the only self financing institute affiliated
+    <p id="glancep">BPIT is a pioneer Institute providing education to the students of delhi and outside delhi in
+      the
+      field of engineering and management since more than a decade. BPIT is the only self financing institute
+      affiliated
       to GGSIP University whose all UG engineering programs (B.Tech. CSE/IT/ ECE / EEE) are NBA (National Board of
-      Accreditation) which in itself certifies the quality policy and standards followed in BPIT. All the labs in BPIT
+      Accreditation) which in itself certifies the quality policy and standards followed in BPIT. All the labs in
+      BPIT
       are
-      well equipped. The fully dedicated placement team of BPIT has assured the placement of BPIT students in reputed
-      companies such as amazon, zomato, Virtusa, ByJuY’s, LibSys, IBM, Samsung, Motherson Sumi, Sopera Steria and many
-      more. BPIT is spread in an area of about 5.7 acres and has four storey building of academic and office complex
+      well equipped. The fully dedicated placement team of BPIT has assured the placement of BPIT students in
+      reputed
+      companies such as amazon, zomato, Virtusa, ByJuY’s, LibSys, IBM, Samsung, Motherson Sumi, Sopera Steria and
+      many
+      more. BPIT is spread in an area of about 5.7 acres and has four storey building of academic and office
+      complex
       with
-      lifts. A girl student's Hostel having 64 double occupancy rooms, with all modern amenities has been constructed
+      lifts. A girl student's Hostel having 64 double occupancy rooms, with all modern amenities has been
+      constructed
       and
       furnished.</p>
     <div class="row">
@@ -272,7 +208,8 @@
               <img src="../../../../assets/home/4.jpg" width="100%" height="300px" alt="">
             </div>
             <div class="wrimagecard-topimage_title">
-              <h4 style="text-overflow:hidden;">BPIT received outstanding Contributor Award from ICT Academy &
+              <h4 style="text-overflow:hidden;">BPIT received outstanding Contributor Award from ICT
+                Academy &
                 Salesforce
                 India
                 <div class="pull-right badge" id="WrGridSystem"></div>
@@ -291,7 +228,8 @@
               <img src="../../../../assets/home/7.jpg" width="100%" height="300px" alt="">
             </div>
             <div class="wrimagecard-topimage_title">
-              <h4 style="text-overflow:hidden;">Best Paper award to research paper of BPIT Student & Faculty in SIGMA
+              <h4 style="text-overflow:hidden;">Best Paper award to research paper of BPIT Student &
+                Faculty in SIGMA
                 2018
                 <div class="pull-right badge" id="WrInformation"></div>
               </h4>
@@ -309,8 +247,10 @@
               <img src="../../../../assets/home/6.jpg" width="100%" height="300px" alt="">
             </div>
             <div class="wrimagecard-topimage_title">
-              <h4 style="text-overflow:hidden;">The final year B.Tech IT students filed a patent for their process &
-                technique named as PoS SaaS. The technique is designed to change the user experience in Restaurants and
+              <h4 style="text-overflow:hidden;">The final year B.Tech IT students filed a patent for their
+                process &
+                technique named as PoS SaaS. The technique is designed to change the user experience in
+                Restaurants and
                 reduce the cost of the owner. They also started a company “One Root Technology”.
                 <div class="pull-right badge" id="WrNavigation"></div>
               </h4>
@@ -346,7 +286,8 @@
               <div class="statistics-icon"><i class="fas fa-book color-3"></i>
               </div>
               <div class="statistics-content">
-                <h5> <span data-count="120" class="statistics-count">915</span></h5><span>Publications</span>
+                <h5> <span data-count="120" class="statistics-count">915</span></h5>
+                <span>Publications</span>
               </div>
             </div>
           </div>
@@ -356,7 +297,8 @@
               <div class="statistics-icon"><i class="fa fa-graduation-cap color-5"></i>
               </div>
               <div class="statistics-content">
-                <h5><span data-count="200" class="statistics-count">1805</span></h5><span>Students</span>
+                <h5><span data-count="200" class="statistics-count">1805</span></h5>
+                <span>Students</span>
               </div>
             </div>
           </div>
@@ -366,7 +308,8 @@
               <div class="statistics-icon"><i class="fas fa-trophy color-4"></i>
               </div>
               <div class="statistics-content">
-                <h5><span data-count="400" class="statistics-count">23</span></h5><span>Awards Won</span>
+                <h5><span data-count="400" class="statistics-count">23</span></h5><span>Awards
+                  Won</span>
               </div>
             </div>
           </div>

@@ -1,27 +1,23 @@
 <div id="add-animation">
-  <header class="heading"><span class="heading__text">Students Placed</span></header>
-  <div class="loader" *ngIf="loader">
-    <div class="box"></div>
-  </div>
-  <!-- <div *ngFor="let l2 of list2">
-    <iframe width="60%" height="400px" [src]="l2.stats | safe"></iframe>
-
-  </div> -->
-  <br />
-  <br />
-  <br />
-  <div *ngIf="list">
-    <table class="table table-bordered">
-      <tr>
-        <th>Batch</th>
-        <th>Download</th>
-      </tr>
-      <tr *ngFor="let l of list">
-        <td>{{l.batch}}</td>
-        <td>
-          <div class="col-sm-2"><a href="{{l.data}}" target="_blank"><i class="fa fa-download"></i></a></div>
-        </td>
-      </tr>
-    </table>
-  </div>
+	<header class="heading"><span class="heading__text">Students Placed</span></header>
+	<div class="loader" *ngIf="loader">
+		<div class="box"></div>
+	</div>
+	<br />
+	<br />
+	<br />
+	<div *ngIf="list">
+		<table class="table table-bordered">
+			<tr>
+				<th>Batch</th>
+				<th>Download</th>
+			</tr>
+			<tr *ngFor="let l of list">
+				<td>{{l.batch}}</td>
+				<td>
+					<div class="col-sm-2"><a href="{{l.data}}" target="_blank"><i class="fa fa-download"></i></a></div>
+				</td>
+			</tr>
+		</table>
+	</div>
 </div>

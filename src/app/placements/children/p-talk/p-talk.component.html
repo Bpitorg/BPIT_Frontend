@@ -1,19 +1,19 @@
 <div id="add-animation">
-  <header class="heading"><span class="heading__text">Expert Talks and seminars</span></header>
-  <div id="text-content">
-    <table *ngIf="list"class="table table-bordered">
-      <tr>
-        <th>Date</th>
-        <th>Description</th>
-        <th>Download</th>
-      </tr>
-      <tr *ngFor="let l of list">
-        <td>{{l.date_of_upload}}</td>
-        <td>{{l.description}}</td>
-        <td>
-          <div class="col-sm-2"><a href="{{l.data}}" target="_blank"><i class="fa fa-download"></i></a></div>
-        </td>
-      </tr>
-    </table>
-  </div>
+	<header class="heading"><span class="heading__text">Expert Talks and seminars</span></header>
+	<div id="text-content">
+		<table *ngIf="list" class="table table-bordered">
+			<tr>
+				<th>Date</th>
+				<th>Description</th>
+				<th>Download</th>
+			</tr>
+			<tr *ngFor="let l of list">
+				<td>{{l.date_of_upload}}</td>
+				<td>{{l.description}}</td>
+				<td>
+					<div class="col-sm-2"><a href="{{l.data}}" target="_blank"><i class="fa fa-download"></i></a></div>
+				</td>
+			</tr>
+		</table>
+	</div>
 </div>

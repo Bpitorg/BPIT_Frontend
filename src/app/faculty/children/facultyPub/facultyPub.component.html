@@ -1,213 +1,208 @@
 <h1>Faculty Publications</h1>
 <div class="add-button">
-  <button class="btn btn-success circle plus-btn" data-target="#addModal" data-toggle="modal">
-    <i class="glyphicon glyphicon-plus"></i>
-  </button>
+	<button class="btn btn-success circle plus-btn" data-target="#addModal" data-toggle="modal">
+		<i class="glyphicon glyphicon-plus"></i>
+	</button>
 </div>
 <!-- <div class="box"></div> -->
 <!-- display notices -->
 <div class="display facpub center-h">
-  <div class="loader" *ngIf="loader || submitProgress">
-    <div class="box"></div>
-  </div>
-  <div *ngIf="data">
-    <div class="facpub-wrap col-sm-8 col-xs-12 center-h" *ngFor="let p of data1">
-      <div>
+	<div class="loader" *ngIf="loader || submitProgress">
+		<div class="box"></div>
+	</div>
+	<div *ngIf="data">
+		<div class="facpub-wrap col-sm-8 col-xs-12 center-h" *ngFor="let p of data1">
+			<div>
 
-        <a class="delete" (click)="deleteFacpubEvent(p.id)"><i class="fa fa-trash-o udIcon"></i></a>
-        <a class="edit" (click)="selectedPublication(p)" data-target="#editModal" data-toggle="modal"><i
-            class="fa fa-pencil udIcon"></i></a><br>
-        Paper Title: {{p.paper_title}}
-        <br>
-        Indexing: {{p.indexing}}
-        <br>
-        Year: {{p.year}}
-        <br>
-        ISBN Number: {{p.isbn_no}}
-        <br>
-        Volume: {{p.volume}}
-        <br>
-        Journal: {{p.journal}}
-      </div>
-    </div>
-  </div>
+				<a class="delete" (click)="deleteFacpubEvent(p.id)"><i class="fa fa-trash-o udIcon"></i></a>
+				<a class="edit" (click)="selectedPublication(p)" data-target="#editModal" data-toggle="modal"><i
+						class="fa fa-pencil udIcon"></i></a><br>
+				Paper Title: {{p.paper_title}}
+				<br>
+				Indexing: {{p.indexing}}
+				<br>
+				Year: {{p.year}}
+				<br>
+				ISBN Number: {{p.isbn_no}}
+				<br>
+				Volume: {{p.volume}}
+				<br>
+				Journal: {{p.journal}}
+			</div>
+		</div>
+	</div>
 </div>
 <!-- add modal -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        Add Publication
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="publication">
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" id="title" class="form-control" name="paper_title" formControlName="paper_title"
-              placeholder="enter title here"><br>
-            <div
-              *ngIf="publication.controls['paper_title'].invalid && (publication.controls['paper_title'].dirty || publication.controls['paper_title'].touched)"
-              class="alert alert-danger">
-              <div *ngIf="publication.controls['paper_title'].errors.required">
-                This field is required.
-              </div>
-              <div *ngIf="publication.controls['paper_title'].invalid && (publication.controls['paper_title'].dirty)">
-                (Please enter a valid field including alphabets only).
-              </div>
-            </div>
-            <label for="title">Indexing</label>
-            <input type="text" id="title" class="form-control" name="indexing" formControlName="indexing"
-              placeholder="enter indexing here"><br>
-            <div
-              *ngIf="publication.controls['indexing'].invalid && (publication.controls['indexing'].dirty || publication.controls['indexing'].touched)"
-              class="alert alert-danger">
-              <div *ngIf="publication.controls['indexing'].errors.required">
-                This field is required.
-              </div>
-            </div>
-            <label for="title">Year</label>
-            <input type="number" id="title" class="form-control" name="year" formControlName="year"
-              placeholder="enter date here"><br>
-            <div
-              *ngIf="publication.controls['year'].invalid && (publication.controls['year'].dirty || publication.controls['year'].touched)"
-              class="alert alert-danger">
-              <div *ngIf="publication.controls['year'].errors.required">
-                This field is required.
-              </div>
-            </div>
-            <label for="title">Volume</label>
-            <input type="text" id="title" class="form-control" name="volume" formControlName="volume"
-              placeholder="enter volume here"><br>
-            <div
-              *ngIf="publication.controls['volume'].invalid && (publication.controls['volume'].dirty || publication.controls['volume'].touched)"
-              class="alert alert-danger">
-              <div *ngIf="publication.controls['volume'].errors.required">
-                This field is required.
-              </div>
-            </div>
-            <label for="title">Journal</label>
-            <input type="text" id="title" class="form-control" name="journal" formControlName="journal"
-              placeholder="enter journal here"><br>
-            <div
-              *ngIf="publication.controls['journal'].invalid && (publication.controls['journal'].dirty || publication.controls['journal'].touched)"
-              class="alert alert-danger">
-              <div *ngIf="publication.controls['journal'].errors.required">
-                This field is required.
-              </div>
-            </div>
-            <label for="title">Isbn Number</label>
-            <input type="text" id="title" class="form-control" name="isbn_no" formControlName="isbn_no"
-              placeholder="enter isbn number here"><br>
-            <div
-              *ngIf="publication.controls['isbn_no'].invalid && (publication.controls['isbn_no'].dirty || publication.controls['isbn_no'].touched)"
-              class="alert alert-danger">
-              <div *ngIf="publication.controls['isbn_no'].errors.required">
-                This field is required.
-              </div>
-            </div>
-            <!-- <label for="title">Select The Publisher's name</label>
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				Add Publication
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form [formGroup]="publication">
+					<div class="form-group">
+						<label for="title">Title</label>
+						<input type="text" id="title" class="form-control" name="paper_title"
+							formControlName="paper_title" placeholder="enter title here"><br>
+						<div *ngIf="publication.controls['paper_title'].invalid && (publication.controls['paper_title'].dirty || publication.controls['paper_title'].touched)"
+							class="alert alert-danger">
+							<div *ngIf="publication.controls['paper_title'].errors.required">
+								This field is required.
+							</div>
+							<div
+								*ngIf="publication.controls['paper_title'].invalid && (publication.controls['paper_title'].dirty)">
+								(Please enter a valid field including alphabets only).
+							</div>
+						</div>
+						<label for="title">Indexing</label>
+						<input type="text" id="title" class="form-control" name="indexing" formControlName="indexing"
+							placeholder="enter indexing here"><br>
+						<div *ngIf="publication.controls['indexing'].invalid && (publication.controls['indexing'].dirty || publication.controls['indexing'].touched)"
+							class="alert alert-danger">
+							<div *ngIf="publication.controls['indexing'].errors.required">
+								This field is required.
+							</div>
+						</div>
+						<label for="title">Year</label>
+						<input type="number" id="title" class="form-control" name="year" formControlName="year"
+							placeholder="enter date here"><br>
+						<div *ngIf="publication.controls['year'].invalid && (publication.controls['year'].dirty || publication.controls['year'].touched)"
+							class="alert alert-danger">
+							<div *ngIf="publication.controls['year'].errors.required">
+								This field is required.
+							</div>
+						</div>
+						<label for="title">Volume</label>
+						<input type="text" id="title" class="form-control" name="volume" formControlName="volume"
+							placeholder="enter volume here"><br>
+						<div *ngIf="publication.controls['volume'].invalid && (publication.controls['volume'].dirty || publication.controls['volume'].touched)"
+							class="alert alert-danger">
+							<div *ngIf="publication.controls['volume'].errors.required">
+								This field is required.
+							</div>
+						</div>
+						<label for="title">Journal</label>
+						<input type="text" id="title" class="form-control" name="journal" formControlName="journal"
+							placeholder="enter journal here"><br>
+						<div *ngIf="publication.controls['journal'].invalid && (publication.controls['journal'].dirty || publication.controls['journal'].touched)"
+							class="alert alert-danger">
+							<div *ngIf="publication.controls['journal'].errors.required">
+								This field is required.
+							</div>
+						</div>
+						<label for="title">Isbn Number</label>
+						<input type="text" id="title" class="form-control" name="isbn_no" formControlName="isbn_no"
+							placeholder="enter isbn number here"><br>
+						<div *ngIf="publication.controls['isbn_no'].invalid && (publication.controls['isbn_no'].dirty || publication.controls['isbn_no'].touched)"
+							class="alert alert-danger">
+							<div *ngIf="publication.controls['isbn_no'].errors.required">
+								This field is required.
+							</div>
+						</div>
+						<!-- <label for="title">Select The Publisher's name</label>
             <select> -->
-            <!-- <option *ngFor="let p of data">{{p.username}}--{{p.faculty_id}}</option> -->
-            <!-- </select><br> -->
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" (click)="onSubmit()" data-dismiss="modal" class="btn btn-default">Submit</button>
-      </div>
-    </div>
-  </div>
+						<!-- <option *ngFor="let p of data">{{p.username}}--{{p.faculty_id}}</option> -->
+						<!-- </select><br> -->
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" (click)="onSubmit()" data-dismiss="modal" class="btn btn-default">Submit</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        Success
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h4>You have successfully added the Faculty Publication</h4>
-      </div>
-    </div>
-  </div>
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				Success
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<h4>You have successfully added the Faculty Publication</h4>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="modal fade" id="successModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        Success
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h4>You have successfully deleted the Faculty Publication</h4>
-      </div>
-    </div>
-  </div>
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				Success
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<h4>You have successfully deleted the Faculty Publication</h4>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- edit modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exapmleModalLabel">Edit Faculty Publication </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" *ngIf="selected">
-        <form [formGroup]="editPublication">
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" id="title" class="form-control" name="paper_title" formControlName="paper_title"
-              placeholder="enter title here"><br>
-              <div
-              *ngIf="editPublication.controls['paper_title'].invalid && (editPublication.controls['paper_title'].dirty || editPublication.controls['paper_title'].touched)"
-              class="alert alert-danger">
-              <div *ngIf="editPublication.controls['paper_title'].errors.required">
-                This field is required.
-              </div>
-              <div *ngIf="editPublication.controls['paper_title'].invalid && (editPublication.controls['paper_title'].dirty)">
-                (Please enter a valid field including alphabets only).
-              </div>
-            </div>
-            <label for="title">Indexing</label>
-            <input type="text" id="title" class="form-control" name="indexing" formControlName="indexing"
-              placeholder="enter indexing here"><br>
-            <label for="title">Year</label>
-            <input type="number" id="title" class="form-control" name="year" formControlName="year"
-              placeholder="enter date here"><br>
-            <label for="title">Volume</label>
-            <input type="text" id="title" class="form-control" name="volume" formControlName="volume"
-              placeholder="enter volume here"><br>
-            <label for="title">Journal</label>
-            <input type="text" id="title" class="form-control" name="journal" formControlName="journal"
-              placeholder="enter journal here"><br>
-            <label for="title">Isbn Number</label>
-            <input type="text" id="title" class="form-control" name="isbn_no" formControlName="isbn_no"
-              placeholder="enter isbn number here"><br>
-            <!-- <label for="title">Select The Publisher's name</label>
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exapmleModalLabel">Edit Faculty Publication </h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body" *ngIf="selected">
+				<form [formGroup]="editPublication">
+					<div class="form-group">
+						<label for="title">Title</label>
+						<input type="text" id="title" class="form-control" name="paper_title"
+							formControlName="paper_title" placeholder="enter title here"><br>
+						<div *ngIf="editPublication.controls['paper_title'].invalid && (editPublication.controls['paper_title'].dirty || editPublication.controls['paper_title'].touched)"
+							class="alert alert-danger">
+							<div *ngIf="editPublication.controls['paper_title'].errors.required">
+								This field is required.
+							</div>
+							<div
+								*ngIf="editPublication.controls['paper_title'].invalid && (editPublication.controls['paper_title'].dirty)">
+								(Please enter a valid field including alphabets only).
+							</div>
+						</div>
+						<label for="title">Indexing</label>
+						<input type="text" id="title" class="form-control" name="indexing" formControlName="indexing"
+							placeholder="enter indexing here"><br>
+						<label for="title">Year</label>
+						<input type="number" id="title" class="form-control" name="year" formControlName="year"
+							placeholder="enter date here"><br>
+						<label for="title">Volume</label>
+						<input type="text" id="title" class="form-control" name="volume" formControlName="volume"
+							placeholder="enter volume here"><br>
+						<label for="title">Journal</label>
+						<input type="text" id="title" class="form-control" name="journal" formControlName="journal"
+							placeholder="enter journal here"><br>
+						<label for="title">Isbn Number</label>
+						<input type="text" id="title" class="form-control" name="isbn_no" formControlName="isbn_no"
+							placeholder="enter isbn number here"><br>
+						<!-- <label for="title">Select The Publisher's name</label>
             <select> -->
-            <!-- <option *ngFor="let p of data">{{p.username}}--{{p.faculty_id}}</option> -->
-            <!-- </select><br> -->
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" (click)="onEditSubmit(selected.id)" data-dismiss="modal"
-          class="btn btn-default">Submit</button>
-      </div>
-    </div>
-  </div>
+						<!-- <option *ngFor="let p of data">{{p.username}}--{{p.faculty_id}}</option> -->
+						<!-- </select><br> -->
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" (click)="onEditSubmit(selected.id)" data-dismiss="modal"
+					class="btn btn-default">Submit</button>
+			</div>
+		</div>
+	</div>

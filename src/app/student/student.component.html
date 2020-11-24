@@ -1,26 +1,25 @@
 <app-nav></app-nav>
 
 <div class="f-wrap container">
-  <h2 id="clr">
-    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-    Student Life
-  </h2>
-  <div class="f-dash row">
-    <div class="col-sm-3 sidebar">
-      <h4>Menu</h4>
-      <a routerLink="examinations" routerLinkActive="active">Examinations</a>
-      <a routerLink="events" routerLinkActive="active">Events</a>
-      <a routerLink="publications" routerLinkActive="active">Publications</a>
-      <a routerLink="projects" routerLinkActive="active">Projects</a>
-      <a routerLink="achievments" routerLinkActive="active">Achievements</a>
-      <a routerLink="societies" routerLinkActive="active">Societies</a>
-      <a routerLink="sports" routerLinkActive="active">Sports</a>
-    </div>
-    <div class="col-sm-9 content">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
+	<h2 id="clr">
+		<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+		Student Life
+	</h2>
+	<div class="f-dash row">
+		<div class="col-sm-3 sidebar">
+			<h4>Menu</h4>
+			<a routerLink="examinations" routerLinkActive="active">Examinations</a>
+			<a routerLink="events" routerLinkActive="active">Events</a>
+			<a routerLink="publications" routerLinkActive="active">Publications</a>
+			<a routerLink="projects" routerLinkActive="active">Projects</a>
+			<a routerLink="achievments" routerLinkActive="active">Achievements</a>
+			<a routerLink="societies" routerLinkActive="active">Societies</a>
+			<a routerLink="sports" routerLinkActive="active">Sports</a>
+		</div>
+		<div class="col-sm-9 content">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
 </div>
 
 <app-foot></app-foot>
-

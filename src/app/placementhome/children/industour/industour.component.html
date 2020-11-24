@@ -1,184 +1,177 @@
 <h1>Industrial Tours & Workshops</h1>
 <div class="add-button">
-  <button class="btn btn-success circle plus-btn" data-target="#addModal" data-toggle="modal">
-    <i class="glyphicon glyphicon-plus"></i>
-  </button>
+	<button class="btn btn-success circle plus-btn" data-target="#addModal" data-toggle="modal">
+		<i class="glyphicon glyphicon-plus"></i>
+	</button>
 </div>
 <!-- <div class="box"> -->
 <!-- display notices -->
 <div class="display facpub center-h">
-  <div class="loader" *ngIf="loader || submitProgress">
-    <div class="box"></div>
-  </div>
-  <div *ngIf="data">
-    <div class="facpub-wrap col-sm-8 col-xs-12 center-h" *ngFor="let p of data">
-      <div>
+	<div class="loader" *ngIf="loader || submitProgress">
+		<div class="box"></div>
+	</div>
+	<div *ngIf="data">
+		<div class="facpub-wrap col-sm-8 col-xs-12 center-h" *ngFor="let p of data">
+			<div>
 
-        <a class="delete" (click)="deleteTour(p.id)"><i class="fa fa-trash-o udIcon"></i></a>
-        <a class="edit" (click)="selectedTour(p)" data-target="#editModal" data-toggle="modal"><i
-            class="fa fa-pencil udIcon"></i></a><br>
-        {{p.description}}
-        <br>
-        Date of upload: {{p.date}}
-        <br>
-        Company Name: {{p.company}}
-        <br>
-        Branch: {{p.branch}}
-        <br>
-        Number of Participants: {{p.participants}}
-      </div>
-    </div>
-  </div>
+				<a class="delete" (click)="deleteTour(p.id)"><i class="fa fa-trash-o udIcon"></i></a>
+				<a class="edit" (click)="selectedTour(p)" data-target="#editModal" data-toggle="modal"><i
+						class="fa fa-pencil udIcon"></i></a><br>
+				{{p.description}}
+				<br>
+				Date of upload: {{p.date}}
+				<br>
+				Company Name: {{p.company}}
+				<br>
+				Branch: {{p.branch}}
+				<br>
+				Number of Participants: {{p.participants}}
+			</div>
+		</div>
+	</div>
 </div>
 <!-- </div> -->
 <!-- add modal -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        Add Tour or Workshops
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="Tour">
-          <div class="form-group">
-            <label for="description">Description</label>
-            <input type="text" id="title" class="form-control" name="description" formControlName="description"
-              placeholder="enter title here">
-            <br>
-            <div
-              *ngIf="Tour.controls['description'].invalid && (Tour.controls['description'].dirty || Tour.controls['description'].touched)"
-              class="alert alert-danger">
-              <div *ngIf="Tour.controls['description'].errors.required">
-                This field is required.
-              </div>
-            </div>
-            <label for="date">Date</label>
-            <input type="date" class="form-control" name="date" data-date-format="YYYY MMMM DD" formControlName="date">
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				Add Tour or Workshops
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form [formGroup]="Tour">
+					<div class="form-group">
+						<label for="description">Description</label>
+						<input type="text" id="title" class="form-control" name="description"
+							formControlName="description" placeholder="enter title here">
+						<br>
+						<div *ngIf="Tour.controls['description'].invalid && (Tour.controls['description'].dirty || Tour.controls['description'].touched)"
+							class="alert alert-danger">
+							<div *ngIf="Tour.controls['description'].errors.required">
+								This field is required.
+							</div>
+						</div>
+						<label for="date">Date</label>
+						<input type="date" class="form-control" name="date" data-date-format="YYYY MMMM DD"
+							formControlName="date">
 
-            <br> <label for="branch">Branch</label>
-            <select class="form-control" formControlName="branch">
-              <option>CSE</option>
-              <option>IT</option>
-              <option>ECE</option>
-              <option>EEE</option>
-            </select>
-            <br>
-            <div
-              *ngIf="Tour.controls['branch'].invalid && (Tour.controls['branch'].dirty || Tour.controls['branch'].touched)"
-              class="alert alert-danger">
-              <div *ngIf="Tour.controls['branch'].errors.required">
-                Please select an option.
-              </div>
-            </div>
-            <label for="company">Company Name</label>
-            <input type="text" class="form-control" name="company" formControlName="company">
-            <br>
-            <div
-            *ngIf="Tour.controls['company'].invalid && (Tour.controls['company'].dirty || Tour.controls['company'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="Tour.controls['company'].errors.required">
-              This field is required.
-            </div>
-          </div>
-            <label for="participants">No. of Participants</label>
-            <input type="number" class="form-control" name="participants" formControlName="participants">
-            <br>
-            <div
-            *ngIf="Tour.controls['participants'].invalid && (Tour.controls['participants'].dirty || Tour.controls['participants'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="Tour.controls['participants'].errors.required">
-              This field is required.
-            </div>
-          </div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" (click)="onSubmit()" data-dismiss="modal" class="btn btn-default">Submit</button>
-      </div>
-    </div>
-  </div>
+						<br> <label for="branch">Branch</label>
+						<select class="form-control" formControlName="branch">
+							<option>CSE</option>
+							<option>IT</option>
+							<option>ECE</option>
+							<option>EEE</option>
+						</select>
+						<br>
+						<div *ngIf="Tour.controls['branch'].invalid && (Tour.controls['branch'].dirty || Tour.controls['branch'].touched)"
+							class="alert alert-danger">
+							<div *ngIf="Tour.controls['branch'].errors.required">
+								Please select an option.
+							</div>
+						</div>
+						<label for="company">Company Name</label>
+						<input type="text" class="form-control" name="company" formControlName="company">
+						<br>
+						<div *ngIf="Tour.controls['company'].invalid && (Tour.controls['company'].dirty || Tour.controls['company'].touched)"
+							class="alert alert-danger">
+							<div *ngIf="Tour.controls['company'].errors.required">
+								This field is required.
+							</div>
+						</div>
+						<label for="participants">No. of Participants</label>
+						<input type="number" class="form-control" name="participants" formControlName="participants">
+						<br>
+						<div *ngIf="Tour.controls['participants'].invalid && (Tour.controls['participants'].dirty || Tour.controls['participants'].touched)"
+							class="alert alert-danger">
+							<div *ngIf="Tour.controls['participants'].errors.required">
+								This field is required.
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" (click)="onSubmit()" data-dismiss="modal" class="btn btn-default">Submit</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        Success
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h4>You have successfully added the Industrial tour or Workshop</h4>
-      </div>
-    </div>
-  </div>
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				Success
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<h4>You have successfully added the Industrial tour or Workshop</h4>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="modal fade" id="successModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        Success
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h4>You have successfully deleted the Industrial tour or Workshop</h4>
-      </div>
-    </div>
-  </div>
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				Success
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<h4>You have successfully deleted the Industrial tour or Workshop</h4>
+			</div>
+		</div>
+	</div>
 </div>
 <!-- edit modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exapmleModalLabel">Edit Industrial tour or Workshop </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" *ngIf="selected">
-        <form [formGroup]="editTour">
-          <div class="form-group">
-            <label for="description">Description</label>
-            <input type="text" id="title" class="form-control" name="description" formControlName="description"
-              placeholder="enter title here">
-            <!-- <div *ngIf="editTour.get('description').touched" class="invalid-feedback">This field is required.</div> -->
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exapmleModalLabel">Edit Industrial tour or Workshop </h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body" *ngIf="selected">
+				<form [formGroup]="editTour">
+					<div class="form-group">
+						<label for="description">Description</label>
+						<input type="text" id="title" class="form-control" name="description"
+							formControlName="description" placeholder="enter title here">
 
-            <br> <label for="date">Date</label>
+						<br> <label for="date">Date</label>
 
-            <input type="date" class="form-control" name="date" data-date-format="YYYY MMMM DD" formControlName="date">
-            <!-- <div *ngIf="editTour.get('date').touched" class="invalid-feedback">This field is required.</div> -->
+						<input type="date" class="form-control" name="date" data-date-format="YYYY MMMM DD"
+							formControlName="date">
 
-            <br> <label for="branch">Branch</label>
-            <input type="branch" class="form-control" name="branch" formControlName="branch">
-            <!-- <div *ngIf="editTour.get('branch').touched" class="invalid-feedback">This field is required.</div> -->
+						<br> <label for="branch">Branch</label>
+						<input type="branch" class="form-control" name="branch" formControlName="branch">
 
-            <br> <label for="company">Company Name</label>
-            <input type="text" class="form-control" name="company" formControlName="company">
-            <!-- <div *ngIf="editTour.get('company').touched" class="invalid-feedback">This field is required.</div> -->
+						<br> <label for="company">Company Name</label>
+						<input type="text" class="form-control" name="company" formControlName="company">
 
-            <br> <label for="participants">No. of Participants</label>
-            <input type="number" class="form-control" name="participants" formControlName="participants">
-            <!-- <div *ngIf="editTour.get('participants').touched" class="invalid-feedback">This field is required.</div> -->
+						<br> <label for="participants">No. of Participants</label>
+						<input type="number" class="form-control" name="participants" formControlName="participants">
 
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" (click)="onEditSubmit(selected.id)" data-dismiss="modal"
-          class="btn btn-default">Submit</button>
-      </div>
-    </div>
-  </div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" (click)="onEditSubmit(selected.id)" data-dismiss="modal"
+					class="btn btn-default">Submit</button>
+			</div>
+		</div>
+	</div>

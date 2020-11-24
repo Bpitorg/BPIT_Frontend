@@ -1,27 +1,30 @@
 <div id="add-animation">
-  <header class="heading"><span class="heading__text">Industrial tours and workshops</span></header>
-  <p id="text-content">
-    A number of industrial trips and visits are organized by BPIT every year ,thereby providing opportunities to the students
-    to explore industrial avenues and provide them an exposure to the real world dynamics. <br> <br> An industrial visit
-    to Rudraksh Bioproduct Pvt. Ltd., Ambala was organized for CSE&IT (3rd Semester). The visit aimed at enhancing the technical
-    skills of the students and helped them gain knowledge in an exciting and congenial environment.
-  </p>
-  <div id="text-content">
-    <table *ngIf="list"class="table table-bordered">
-      <tr>
-        <th>Date</th>
-        <th>Description</th>
-        <th>Company</th>
-        <th>Branch</th>
-        <th>No of participants</th>
-      </tr>
-      <tr *ngFor="let l of list">
-        <td>{{l.date}}</td>
-        <td>{{l.description}}</td>
-        <td>{{l.company}}</td>
-        <td>{{l.branch}}</td>
-        <td>{{l.participants}}</td>
-      </tr>
-    </table>
-  </div>
+	<header class="heading"><span class="heading__text">Industrial tours and workshops</span></header>
+	<p id="text-content">
+		A number of industrial trips and visits are organized by BPIT every year ,thereby providing opportunities to the
+		students
+		to explore industrial avenues and provide them an exposure to the real world dynamics. <br> <br> An industrial
+		visit
+		to Rudraksh Bioproduct Pvt. Ltd., Ambala was organized for CSE&IT (3rd Semester). The visit aimed at enhancing
+		the technical
+		skills of the students and helped them gain knowledge in an exciting and congenial environment.
+	</p>
+	<div id="text-content">
+		<table *ngIf="list" class="table table-bordered">
+			<tr>
+				<th>Date</th>
+				<th>Description</th>
+				<th>Company</th>
+				<th>Branch</th>
+				<th>No of participants</th>
+			</tr>
+			<tr *ngFor="let l of list">
+				<td>{{l.date}}</td>
+				<td>{{l.description}}</td>
+				<td>{{l.company}}</td>
+				<td>{{l.branch}}</td>
+				<td>{{l.participants}}</td>
+			</tr>
+		</table>
+	</div>
 </div>

@@ -1,136 +1,130 @@
 <div class="main">
-  <h1>Welcome to your Dashboard...</h1>
-  <button class="btn btn-primary home" data-target="#addModal" data-toggle="modal">Add New User</button>
+	<h1>Welcome to your Dashboard...</h1>
+	<button class="btn btn-primary home" data-target="#addModal" data-toggle="modal">Add New User</button>
 </div>
 
 
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        Add Credentials
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="user">
-          Username:
-          <input type="text" formControlName="username" placeholder="enter username here" required>
-          <br><br>
-          <div
-            *ngIf="user.controls['username'].invalid && (user.controls['username'].dirty || user.controls['username'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="user.controls['username'].errors.required">
-              This field is required.
-            </div>
-          </div>
-          Firstname:
-          <input type="text" formControlName="first_name" placeholder="enter firstname here" required>
-          <br><br>
-          <div
-            *ngIf="user.controls['first_name'].invalid && (user.controls['first_name'].dirty || user.controls['first_name'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="user.controls['first_name'].errors.required">
-              This field is required.
-            </div>
-            <div *ngIf="user.controls['first_name'].invalid && (user.controls['first_name'].dirty)">
-              (Name should contain alphabets only).
-            </div>
-          </div>
-          Lastname:
-          <input type="text" formControlName="last_name" placeholder="enter lastname here" required>
-          <br><br>
-          <div
-            *ngIf="user.controls['last_name'].invalid && (user.controls['last_name'].dirty || user.controls['last_name'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="user.controls['last_name'].errors.required">
-              This field is required.
-            </div>
-            <div *ngIf="user.controls['last_name'].invalid && (user.controls['last_name'].dirty)">
-              (Name should contain alphabets only).
-            </div>
-          </div>
-          Email:
-          <input type="email" formControlName="email" placeholder="enter email here" required>
-          <br><br>
-          <div
-            *ngIf="user.controls['email'].invalid && (user.controls['email'].dirty || user.controls['email'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="user.controls['email'].errors.required">
-              This field is required.
-            </div>
-            <div *ngIf="user.controls['email'].invalid && (user.controls['email'].dirty)">
-              Enter a valid email address.
-            </div>
-          </div>
-          Password:
-          <input type="password" formControlName="password" placeholder="enter password here" required>
-          <br><br>
-          <div
-            *ngIf="user.controls['password'].invalid && (user.controls['password'].dirty || user.controls['password'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="user.controls['password'].errors.required">
-              This field is required.
-            </div>
-          </div>
-          <hr />
-          <form [formGroup]="Team">
-            <div class="form-group">
-              <br> <label for="title">Profile pic</label>
-              <input type="file" class="form-control" name="profile_pic" formControlName="profile_pic"
-                (change)="getFile($event)">
-              <br>
-              <label for="title">Phone Number</label>
-              <input type="number" class="form-control" name="Phone_Number" formControlName="Phone_Number"
-                placeholder="enter number here">
-              <br>
-              <div
-                *ngIf="Team.controls['Phone_Number'].invalid && (Team.controls['Phone_Number'].dirty || Team.controls['Phone_Number'].touched)"
-                class="alert alert-danger">
-                <div *ngIf="Team.controls['Phone_Number'].errors.required">
-                  This field is required.
-                </div>
-              </div>
-              <label for="title">Designation</label>
-              <input type="text" class="form-control" name="designation" formControlName="designation"
-                placeholder="enter title here">
-              <br>
-              <div
-                *ngIf="Team.controls['designation'].invalid && (Team.controls['designation'].dirty || Team.controls['designation'].touched)"
-                class="alert alert-danger">
-                <div *ngIf="Team.controls['designation'].errors.required">
-                  This field is required.
-                </div>
-              </div>
-              <label for="title">Is faculty admin?</label> <input type="checkbox" name="is_placement_team_admin"
-                formControlName="is_placement_team_admin">
-            </div>
-          </form>
-          <div class="modal-footer">
-            <button type="button" (click)="UserSubmit()" class="btn btn-default" data-dismiss="modal">Submit</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				Add Credentials
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form [formGroup]="user">
+					Username:
+					<input type="text" formControlName="username" placeholder="enter username here" required>
+					<br><br>
+					<div *ngIf="user.controls['username'].invalid && (user.controls['username'].dirty || user.controls['username'].touched)"
+						class="alert alert-danger">
+						<div *ngIf="user.controls['username'].errors.required">
+							This field is required.
+						</div>
+					</div>
+					Firstname:
+					<input type="text" formControlName="first_name" placeholder="enter firstname here" required>
+					<br><br>
+					<div *ngIf="user.controls['first_name'].invalid && (user.controls['first_name'].dirty || user.controls['first_name'].touched)"
+						class="alert alert-danger">
+						<div *ngIf="user.controls['first_name'].errors.required">
+							This field is required.
+						</div>
+						<div *ngIf="user.controls['first_name'].invalid && (user.controls['first_name'].dirty)">
+							(Name should contain alphabets only).
+						</div>
+					</div>
+					Lastname:
+					<input type="text" formControlName="last_name" placeholder="enter lastname here" required>
+					<br><br>
+					<div *ngIf="user.controls['last_name'].invalid && (user.controls['last_name'].dirty || user.controls['last_name'].touched)"
+						class="alert alert-danger">
+						<div *ngIf="user.controls['last_name'].errors.required">
+							This field is required.
+						</div>
+						<div *ngIf="user.controls['last_name'].invalid && (user.controls['last_name'].dirty)">
+							(Name should contain alphabets only).
+						</div>
+					</div>
+					Email:
+					<input type="email" formControlName="email" placeholder="enter email here" required>
+					<br><br>
+					<div *ngIf="user.controls['email'].invalid && (user.controls['email'].dirty || user.controls['email'].touched)"
+						class="alert alert-danger">
+						<div *ngIf="user.controls['email'].errors.required">
+							This field is required.
+						</div>
+						<div *ngIf="user.controls['email'].invalid && (user.controls['email'].dirty)">
+							Enter a valid email address.
+						</div>
+					</div>
+					Password:
+					<input type="password" formControlName="password" placeholder="enter password here" required>
+					<br><br>
+					<div *ngIf="user.controls['password'].invalid && (user.controls['password'].dirty || user.controls['password'].touched)"
+						class="alert alert-danger">
+						<div *ngIf="user.controls['password'].errors.required">
+							This field is required.
+						</div>
+					</div>
+					<hr />
+					<form [formGroup]="Team">
+						<div class="form-group">
+							<br> <label for="title">Profile pic</label>
+							<input type="file" class="form-control" name="profile_pic" formControlName="profile_pic"
+								(change)="getFile($event)">
+							<br>
+							<label for="title">Phone Number</label>
+							<input type="number" class="form-control" name="Phone_Number" formControlName="Phone_Number"
+								placeholder="enter number here">
+							<br>
+							<div *ngIf="Team.controls['Phone_Number'].invalid && (Team.controls['Phone_Number'].dirty || Team.controls['Phone_Number'].touched)"
+								class="alert alert-danger">
+								<div *ngIf="Team.controls['Phone_Number'].errors.required">
+									This field is required.
+								</div>
+							</div>
+							<label for="title">Designation</label>
+							<input type="text" class="form-control" name="designation" formControlName="designation"
+								placeholder="enter title here">
+							<br>
+							<div *ngIf="Team.controls['designation'].invalid && (Team.controls['designation'].dirty || Team.controls['designation'].touched)"
+								class="alert alert-danger">
+								<div *ngIf="Team.controls['designation'].errors.required">
+									This field is required.
+								</div>
+							</div>
+							<label for="title">Is faculty admin?</label> <input type="checkbox"
+								name="is_placement_team_admin" formControlName="is_placement_team_admin">
+						</div>
+					</form>
+					<div class="modal-footer">
+						<button type="button" (click)="UserSubmit()" class="btn btn-default"
+							data-dismiss="modal">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </div>
 
 
 <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        Success
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h4>You have successfully Added User. </h4>
-      </div>
-    </div>
-  </div>
+	aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				Success
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<h4>You have successfully Added User. </h4>
+			</div>
+		</div>
+	</div>
 </div>

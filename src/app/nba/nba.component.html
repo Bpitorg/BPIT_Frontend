@@ -1,24 +1,21 @@
 <app-nav></app-nav>
 <div class="nba-wrap container">
-  <h2 id="clr">
-    <i class="fa fa-list" aria-hidden="true"></i>
-    The National Board of Accreditation
-  </h2>
-       <!-- <div class="text-center">
-          <loader [condition]="loader"></loader>
-        </div> -->
-        <div class="loader" *ngIf="loader">
-          <div class="box"></div>
-        </div>
-    <div *ngFor="let n of nba">
-        <div class="container">
-            <div class="row dis">
-                <div class="col-sm-8 col-sm-offset-2">
-                     {{n.NBA_title}} 
-                </div>
-                 <div class="col-sm-2"><a href="{{n.NBA_file}}"><i class="fa fa-download "></i></a></div> 
-            </div>
-        </div>
-    </div>
+	<h2 id="clr">
+		<i class="fa fa-list" aria-hidden="true"></i>
+		The National Board of Accreditation
+	</h2>
+	<div class="loader" *ngIf="loader">
+		<div class="box"></div>
+	</div>
+	<div *ngFor="let n of nba">
+		<div class="container">
+			<div class="row dis">
+				<div class="col-sm-8 col-sm-offset-2">
+					{{n.NBA_title}}
+				</div>
+				<div class="col-sm-2"><a href="{{n.NBA_file}}"><i class="fa fa-download "></i></a></div>
+			</div>
+		</div>
+	</div>
 </div>
 <app-foot></app-foot>

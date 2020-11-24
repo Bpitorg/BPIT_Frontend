@@ -1,27 +1,25 @@
 <app-nav></app-nav>
 
 <div class="f-wrap container">
-  <h2 id="clr">
-    <i class="fa fa-smile-o" aria-hidden="true"></i>
-    Facilities
-  </h2>
-  <div class="f-dash row">
-    <div class="col-sm-3 sidebar">
-      <h4>Menu</h4>
-      <a routerLink="library" routerLinkActive="active">Library</a>
-      <!-- <a routerLink="" routerLinkActive="active">Objective</a> -->
-      <a routerLink="hostel" routerLinkActive="active">Hostel</a>
-      <a routerLink="medicalroom" routerLinkActive="active">Medical Room</a>
-      <a routerLink="bookbank" routerLinkActive="active">Book Bank</a>
-      <a routerLink="seminarhall" routerLinkActive="active">Seminar Hall</a>
-      <a routerLink="EDUSAT" routerLinkActive="active">EDUSAT</a>
-      <a routerLink="sportsroom" routerLinkActive="active">Sports Room</a>
-      <a routerLink="canteen" routerLinkActive="active">Canteen</a>
-    </div>
-    <div class="col-sm-9 content">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
+	<h2 id="clr">
+		<i class="fa fa-smile-o" aria-hidden="true"></i>
+		Facilities
+	</h2>
+	<div class="f-dash row">
+		<div class="col-sm-3 sidebar">
+			<h4>Menu</h4>
+			<a routerLink="library" routerLinkActive="active">Library</a>
+			<a routerLink="hostel" routerLinkActive="active">Hostel</a>
+			<a routerLink="medicalroom" routerLinkActive="active">Medical Room</a>
+			<a routerLink="bookbank" routerLinkActive="active">Book Bank</a>
+			<a routerLink="seminarhall" routerLinkActive="active">Seminar Hall</a>
+			<a routerLink="EDUSAT" routerLinkActive="active">EDUSAT</a>
+			<a routerLink="sportsroom" routerLinkActive="active">Sports Room</a>
+			<a routerLink="canteen" routerLinkActive="active">Canteen</a>
+		</div>
+		<div class="col-sm-9 content">
+			<router-outlet></router-outlet>
+		</div>
+	</div>
 </div>
 <app-foot></app-foot>
-

@@ -1,13 +1,13 @@
 <div id="add-animation">
-  <h1>Projects</h1>
-  <div class="text-center">
-    <div class="loader" *ngIf="loader">
-      <div class="box"></div>
-    </div>
-  </div>
-  <div *ngFor="let project of projects">
-    <h3>{{project.Project_title}}</h3>
-    <img src="{{project.project_pic}}">
-    <p>&emsp; &emsp; -{{project.description}}</p>
-  </div>
+	<h1>Projects</h1>
+	<div class="text-center">
+		<div class="loader" *ngIf="loader">
+			<div class="box"></div>
+		</div>
+	</div>
+	<div *ngFor="let project of projects">
+		<h3>{{project.Project_title}}</h3>
+		<img src="{{project.project_pic}}">
+		<p>&emsp; &emsp; -{{project.description}}</p>
+	</div>
 </div>

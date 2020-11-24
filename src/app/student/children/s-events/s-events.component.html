@@ -1,340 +1,392 @@
 <div id="add-animation">
-        <h1 heading__text>Events</h1>
-        <!-- <div class="text-center">
-          <loader [condition]="loader"></loader>
-        </div>  -->
-        <div class="loader" *ngIf="loader">
-          <div class="box"></div>
-        </div>
-        <div class="container">
-          <div *ngFor="let event of events; let i=index">
-<!--            <div class="event-image">0{{i}}</div>-->
-            <div class="col-sm-3">
-                    <div class="card">
-                     	<div class="card-body">
-                           <h4 class="card-title"> {{event.title}}</h4>
-                             <a href="{{event.events}}" class="btn btn-primary" target="_blank"> Details <i class="fa fa-angle-double-right"></i> </a>
-                        </div>
-                     </div>
-            </div>
-          </div>
-        </div>
-        <section id="blog-detail" class="blog-detail-section padding">
-    <div class="container">    <div class="row section-content">
-
+	<h1 heading__text>Events</h1>
+	<div class="loader" *ngIf="loader">
+		<div class="box"></div>
+	</div>
+	<div class="container">
+		<div *ngFor="let event of events; let i=index">
+			<div class="col-sm-3">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title"> {{event.title}}</h4>
+						<a href="{{event.events}}" class="btn btn-primary" target="_blank"> Details <i
+								class="fa fa-angle-double-right"></i> </a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<section id="blog-detail" class="blog-detail-section padding">
+		<div class="container">
+			<div class="row section-content">
+
+
+				<div class="col-lg-8">
+					<div class="blog-detail-content pb20">
+						<h3 class="trust__heading">Technical Events CORONA’18 </h3>
+						<p>On 5th-6th April 2018, a colourful and memorable Techno-Cultural Fest was organized in our
+							college. In this mega event, many students from different colleges took part.</p>
+						<p>IEEE BPIT organized 8 events in association with Corona18.</p>
+
+						<p class="pt-2"><strong>Those events are:</strong></p>
+						<p>• Hackathon</p>
+						<p>• Web Quickie</p>
+						<p>• Robo Race </p>
+						<p>• Robo Soccer</p>
+						<p>• LFR(Line following Robot)</p>
+						<p>• Technochamp(Coding Quiz</p>
+						<p>• Competitive Coding</p>
+						<p>• Pixelography</p>
+
+						<hr>
+						<h3 class="trust__heading">ROBO RACE </h3>
+						<p>
+							IEEE BPIT has organised Robo race in cultural and technical fest of BPIT CORONA’18.
+							Participants has designed robot either wired or wireless within the specified dimensions
+							that can operated manually and can travel through all turns of the track. The robot that had
+							completed the specified task in least time was declared winner.
+						</p>
+						<p><strong>PRIZES WORTH: Rs. 22000</strong></p>
+						<p><strong>Registration Fee: Rs. 100</strong></p>
+						<p>
+							Total 17 teams have participated in the event with their wired and wireless robot. Each team
+							comprises of at most 4 members. The Birla Institute of Applied Science(BIAS) won the first
+							prize and NSIT team the second prize.
+						</p>
+						<div class="blog-detail-pic pb30"> <img class="people-image center-h"
+								src="../../../../assets/images/student_life_event_img.jpg" alt="image"> </div>
+						<hr>
+						<h3 class="trust__heading">ROBO SOCCER </h3>
+
+						<p>
+							Robo soccer is an competition where parcipants bring their own robots to compete against
+							each other in a game of football. There are 2 teams against one another. We conducted this
+							in the corona 2k18. There were 15 teams all together. Enormous crowd was present there
+							during the event which spaned over 5 hours. It was a great success.
+						</p>
+
+						<p><strong>PRIZES WORTH: Rs. 20000</strong></p>
+						<p><strong>Registration Fee: Rs. 100</strong></p>
+
+						<p class="mb-4">The 1st two winning teams were given their winning amount and certificates.
+							Birla Institute of Applied Science(BIAS) won the first prize and NSIT Team the second Prize.
+						</p>
+
+						<div class="blog-detail-pic pb30"> <img class="people-image center-h"
+								src="../../../../assets/images/student_life_event_img1.jpg" alt="image"> </div>
+						<hr>
+						<h3 class="trust__heading">TECHN OCHAMP </h3>
+
+						<p>
+							IEEE BPIT has organised TechnoChamp in cultural and technical fest of BPIT CORONA’18.
+							Participants were given a 30-minute quiz in any coding language they choose. It comprises of
+							30 MCQ type questions. The quiz was conducted online. Results were computer generated.
+						</p>
+
+						<p><strong>PRIZES WORTH: Rs. 5000</strong></p>
+						<p><strong>Registration Fee: Rs. 50</strong></p>
+
+						<p class="mb-4">
+							Total 31 students have participated in the event. The first prize was won by the Darshan
+							Baid from Galgotias University where as the second and third prize by Peeyush Saxena and
+							Siddharth Bhasin of BPIT.
+						</p>
+
+						<div class="blog-detail-pic pb30"> <img class="people-image center-h"
+								src="../../../../assets/images/student_life_event_img2.jpg" alt="image"> </div>
+
+						<hr>
+
+
+
+
+						<h3 class="trust__heading">COMPETITIVE CODING </h3>
 
-  <div class="col-lg-8">
-  	<div class="blog-detail-content pb20">
-  		    <h3 class="trust__heading">Technical Events CORONA’18  </h3>
-  			<p>On 5th-6th April 2018, a colourful and memorable Techno-Cultural Fest was organized in our college. In this mega event, many students from different colleges took part.</p>
-  			<p>IEEE BPIT organized 8 events in association with Corona18.</p>
-
-  			<p class="pt-2"><strong>Those events are:</strong></p>
-  				<p>•	Hackathon</p>
-  				<p>•	Web Quickie</p>
-  				<p>•	Robo Race </p>
-  				<p>•	Robo Soccer</p>
-  				<p>•	LFR(Line following Robot)</p>
-  				<p>•	Technochamp(Coding Quiz</p>
-  				<p>•	Competitive Coding</p>
-  				<p>•	Pixelography</p>
+						<p>
+							Technical Event of COMPETITIVE CODING was successfully organised in CORONA '18 the
+							techno-cultural festival of BPIT in 102 LAB on the ONLINE PLATFORM CODEZEN OF CODING NINJAS
+							which was the event sponsor.
+						</p>
 
-  			<hr>
-  			<h3 class="trust__heading">ROBO RACE  </h3>
-  			<p>
-  				IEEE BPIT has organised Robo race in cultural and technical fest of BPIT CORONA’18. Participants has designed robot either wired or wireless within the specified dimensions that can operated manually and can travel through all turns of the track. The robot that had completed the specified task in least time was declared winner.
-  			</p>
-  			<p><strong>PRIZES WORTH: Rs. 22000</strong></p>
-  			<p><strong>Registration Fee: Rs. 100</strong></p>
-  			<p>
-  				Total 17 teams have participated in the event with their wired and wireless robot. Each team comprises of at most 4 members. The Birla Institute of Applied Science(BIAS) won the first prize and NSIT team the second prize.
-  			</p>
-               <div class="blog-detail-pic pb30"> <img  class="people-image center-h" src="../../../../assets/images/student_life_event_img.jpg" alt="image"> </div>
-  			<hr>
-  			<h3 class="trust__heading">ROBO SOCCER  </h3>
+						<p><strong>PRIZES WORTH: Rs. 5000</strong></p>
+						<p><strong>Registration Fee: Rs. 50</strong></p>
 
-  			<p>
-  				Robo soccer is an competition where parcipants bring their own robots to compete against each other in a game of football. There are 2 teams against one another. We conducted this in the corona 2k18. There were 15 teams all together. Enormous crowd was present there during the event which spaned over 5 hours. It was a great success.
-  			</p>
+						<p>
+							Total 31 students have participated in the event. The first prize was won by the Darshan
+							Baid from Galgotias University where as the second and third prize by Peeyush Saxena and
+							Siddharth Bhasin of BPIT.
+						</p>
+						<p class="mb-4">
+							18 teams from different colleges all over delhi participated in this event. Results are
+							declared on the leader-board of CODEZEN and results are announced and prizes are given to
+							winning Participants. The first prize was won by the team of Amity and second by BPIT.
+						</p>
+						<div class="blog-detail-pic pb30"> <img class="people-image center-h"
+								src="../../../../assets/images/student_life_event_img3.jpg" alt="image"> </div>
 
-  				<p><strong>PRIZES WORTH: Rs. 20000</strong></p>
-  				<p><strong>Registration Fee: Rs. 100</strong></p>
+						<hr>
 
-  				<p class="mb-4">The 1st two winning teams were given their winning amount and certificates. Birla Institute of Applied Science(BIAS) won the first prize and NSIT Team the second Prize.</p>
 
-  			  <div class="blog-detail-pic pb30"> <img  class="people-image center-h" src="../../../../assets/images/student_life_event_img1.jpg" alt="image"> </div>
-  			<hr>
-  			<h3 class="trust__heading">TECHN OCHAMP  </h3>
 
-  			<p>
-  				IEEE BPIT has organised TechnoChamp in cultural and technical fest of BPIT CORONA’18. Participants were given a 30-minute quiz in any coding language they choose. It comprises of 30 MCQ type questions. The quiz was conducted online. Results were computer generated.
-  			</p>
+						<h3 class="trust__heading">PIXELO GRAPHY </h3>
 
-  				<p><strong>PRIZES WORTH: Rs. 5000</strong></p>
-  				<p><strong>Registration Fee: Rs. 50</strong></p>
+						<p>
+							<u>EVENT DESCRIPTION:</u> A theme was given toevery participant. Every participant had to
+							capture their clicks within 2 hours and some of the participants edited their captures in
+							the given time. A platform (Photoshop) was provided.
+						</p>
+						<p class="mb-4">
+							EVENT DESCRIPTION: A theme was given toevery participant. Every participant had to capture
+							their clicks within 2 hours and some of the participants edited their captures in the given
+							time. A platform (Photoshop) was provided.
+						</p>
+						<div class="blog-detail-pic pb30"> <img class="people-image center-h"
+								src="../../../../assets/images/student_life_event_img4.jpg" alt="image"> </div>
 
-  				<p class="mb-4">
-  					Total 31 students have participated in the event. The first prize was won by the Darshan Baid  from Galgotias University where as the second and third prize by Peeyush Saxena and Siddharth Bhasin of BPIT.
-  				</p>
+						<hr>
 
-  			  <div class="blog-detail-pic pb30"> <img  class="people-image center-h" src="../../../../assets/images/student_life_event_img2.jpg" alt="image"> </div>
 
-  			<hr>
 
 
+						<h3 class="trust__heading">LINE FOLLOWING ROBOT </h3>
 
+						<p>
+							IEEE BPIT has organised line follower robot (lfr) competition in cultural and technical fest
+							of BPIT CORONA’18. Participants has designed robot either wired or wireless within the
+							specified dimensions that can follow a particular path (black lines) on their own . The
+							robot that had completed the specified task in least time was declared winner.
+						</p>
 
-  			<h3 class="trust__heading">COMPETITIVE  CODING  </h3>
+						<p class="mb-4">
+							Total 11 teams have participated in the event with their wired and wireless robot. Each team
+							comprises of at most 4 members. The teams from NIEC delhi won both the first and second
+							prizes.
+						</p>
+						<div class="blog-detail-pic pb30"> <img class="people-image center-h"
+								src="../../../../assets/images/student_life_event_img5.jpg" alt="image"> </div>
 
-  			<p>
-  				Technical Event of COMPETITIVE CODING was successfully organised in CORONA '18 the techno-cultural festival of BPIT in 102 LAB on the ONLINE PLATFORM CODEZEN OF CODING NINJAS which was the event sponsor.
-  			</p>
+						<hr>
 
-  				<p><strong>PRIZES WORTH: Rs. 5000</strong></p>
-  				<p><strong>Registration Fee: Rs. 50</strong></p>
 
-  				<p>
-  					Total 31 students have participated in the event. The first prize was won by the Darshan Baid  from Galgotias University where as the second and third prize by Peeyush Saxena and Siddharth Bhasin of BPIT.
-  				</p>
-  				<p class="mb-4">
-  					18 teams from different colleges all over delhi participated in this event. Results are declared on the leader-board of CODEZEN and results are announced and prizes are given to winning Participants. The first prize was won by the team of Amity and second by BPIT.
-  				</p>
-  			  <div class="blog-detail-pic pb30"> <img  class="people-image center-h" src="../../../../assets/images/student_life_event_img3.jpg" alt="image"> </div>
 
-  			<hr>
 
 
+						<h3 class="trust__heading">WEB QUICKIE </h3>
 
-  			<h3 class="trust__heading">PIXELO  GRAPHY  </h3>
-
-  			<p>
-  				<u>EVENT DESCRIPTION:</u> A theme was given toevery participant. Every participant had to capture their clicks within 2 hours and some of the participants edited their captures in the given time. A platform (Photoshop) was provided.
-  			</p>
-  				<p class="mb-4">
-  					EVENT DESCRIPTION: A theme was given toevery participant. Every participant had to capture their clicks within 2 hours and some of the participants edited their captures in the given time. A platform (Photoshop) was provided.
-  				</p>
-  			  <div class="blog-detail-pic pb30"> <img  class="people-image center-h" src="../../../../assets/images/student_life_event_img4.jpg" alt="image"> </div>
-
-  			<hr>
-
-
-
-
-  			<h3 class="trust__heading">LINE FOLLOWING  ROBOT  </h3>
-
-  			<p>
-  				IEEE BPIT has organised line follower robot (lfr) competition in cultural and technical fest of BPIT CORONA’18. Participants has designed robot either wired or wireless within the specified dimensions that can follow a particular path (black lines) on their own . The robot that had completed the specified task in least time was declared winner.
-  			</p>
-
-  			<p class="mb-4">
-  				Total 11 teams have participated in the event with their wired and wireless robot. Each team comprises of at most 4 members. The teams from NIEC delhi won both the first and second prizes.
-  			</p>
-  			  <div class="blog-detail-pic pb30"> <img  class="people-image center-h" src="../../../../assets/images/student_life_event_img5.jpg" alt="image"> </div>
-
-  			<hr>
-
-
-
-
-
-  			<h3 class="trust__heading">WEB QUICKIE  </h3>
-
-  			<p>
-  				On 6th Web Quickie was held. Web Quickie is a web development Competition,which provides participants a platform to showtheir creative skills in the field of web development.The tagline for the event was "Design the frontend and code the Backend". The marking was done on different criteria like frontend(15),backend(35),UI&amp;UX(30) and creativity(20).
-  			</p>
-
-  			<p class="mb-4">
-  				Around 6:00 pm the result was declared and the First Position was awarded to the team headed by Avirup (BPIT) and the runner up was the team headed by Harsh (MAIT).
-  			</p>
-  			  <div class="blog-detail-pic pb30"> <img  class="people-image center-h" src="../../../../assets/images/student_life_event_img6.jpg" alt="image"> </div>
-
-  			<hr>
-
-
-
-  			<h3 class="trust__heading">WORKSHOP FOR STUDENT  </h3>
-
-  			<p class="mb-4">
-  				<strong>Workshop for Students on “Ethics, Technical Writing and Effective Presentation”</strong>
-  				Workshop for Students on “Ethics, Technical Writing and Effective Presentation” A One Day workshop was organized by Department of Information Technology of BPIT for the students on 7th March 2018. The speaker Prof. Abhishek Swaroop emphasized on the importance of ethics in technical world. Besides that he taught how to write effective technical documents and how to effectively present your work.  In the workshop, 55 students from all the branches participated.
-  			</p>
-
-  			  <div class="blog-detail-pic pb30"> <img  class="people-image center-h" src="../../../../assets/images/student_life_event_img7.jpg" alt="image"> </div>
-
-  			<hr>
-
-
-
-
-  			<h3 class="trust__heading">Workshop on   Android Development  </h3>
-
-  			<p>
-  				<u>Date: 7 Feb 2018</u> A workshop is organised on Android App Development on 7th Feb 2018. The workshop is aimed to help students enlarge their domains.This 4-5 hours’ workshop was conducted by <strong>Coding</strong> Blocks. Workshop was certified.
-  				</p><p>Total 48 students both IEEE and Non IEEE participated in the workshop.</p>
-  				<p>Registration fees:-</p>
-  				<p>IEEE-BPIT students- free</p>
-  				<p>Non IEEE-BPIT- 100/-</p>
-
-  			<p></p>
-  				<p class="mb-4">
-  					EVENT DESCRIPTION: A theme was given toevery participant. Every participant had to capture their clicks within 2 hours and some of the participants edited their captures in the given time. A platform (Photoshop) was provided.
-  				</p>
-  			  <div class="blog-detail-pic pb30"> <img  class="people-image center-h" src="../../../../assets/images/student_life_event_img8.jpg" alt="image"> </div>
-  				<u>National Conference on Computing, Informatics and Networks NCCIN-2K18 </u>
-  				<p class="mb-4">
-  					Department of CSE and Department of IT of BPIT Jointly organized a one day National Conference on Computing, Informatics and Networks. The conference was inaugurated by Prof. A.P. Mittal Member Secretary AICTE. The students of BPIT were actively involved in organizing the conference. The faculty members and students of BPIT as well as several other institutes presented their research paper.
-  				</p>
-  			<!-- <div class="blog-detail-pic pb30"> <img  class="people-image center-h" src="../../../../assets/images/student_life_event_img9.jpg" alt="image"> </div>  -->
-  			 <div class="blog-detail-pic pb30"> <img  class="people-image center-h" src="../../../../assets/images/student_life_event_img10.jpg" alt="image"> </div>
-  			<hr>
-
-
-
-  			<h3 class="trust__heading">Cultural Events  </h3>
-  			<strong class="mb-2 pull-left w-100">ORIENTATION DAY CUM FRESHERS PARTY</strong>
-
-  			<div class="w-100 pull-left">
-  				<div class="row">
-  					<div class="col-lg">
-  					<img  class="people-image center-h" src="../../../../assets/images/student_life_event_img11.jpg" alt="image"><br>
-  					<p style="line-height:29px;">
-  						Freshers' party cum orientation day is celebrated every year with a view to welcome new students to the institute. The motive of this orientation day is to acquaint the new students with the college life which provides freshers with an opportunity to unleash their talents.
-
-  					</p>
-  				</div>
-  				</div>
-  				<hr>
-  			</div>
-
-  			<div class="cluUpper">
-  				<strong class="mb-2 pull-left w-100">TEACHERS DAY</strong>
-
-  			<div class="w-100 pull-left">
-  				<div class="row">
-  					<div class="col-lg">
-  					<img  class="people-image center-h" src="../../../../assets/images/cultucher240.jpg" alt="image"><br>
-  					<p style="line-height:29px;">
-  						The dream begins with a teacher who believes in you, tugs you, pushes and leads you to next plateau and sometimes pokes you with a sharp stick called truth. Starting from Dronacharya and moving on to the great teachers in the history to the like of Dr. Sarvapalli Radhakrishnan, teachers have guided their students to great success, embedded ethical values and molded them into responsible citizens of the country. Students celebrate teacher’s day on 5th September as a token of respect to their teachers. Students organize fun activities for their teachers followed by dance and music performances.
-  					</p>
-  				</div>
-  				</div>
-  				<hr>
-  			</div>
-  			</div>
-
-
-  			<div class="cluUpper">
-  				<strong class="mb-2 pull-left w-100">INDEPENDENCE DAY</strong>
-
-  			<div class="w-100 pull-left">
-  				<div class="row">
-  					<div class="col-lg">
-  					<img  class="people-image center-h"  src="../../../../assets/images/cultucher241.jpg" alt="image"><br>
-  					<p style="line-height:29px;">
-  						Every year BPIT proudly celebrates the day of our nation's independence with great enthusiasm and patriotism. The celebration begins with flag hoisting followed by the national anthem , scintillating music and dance perfomances highlighting the rich culture and diversity of India.
-  					</p>
-  				</div>
-  				</div>
-  				<hr>
-  			</div>
-  			</div>
-
-
-  			<div class="cluUpper">
-  				<strong class="mb-2 pull-left w-100">HOLI MILAN</strong>
-
-  			<div class="w-100 pull-left">
-  				<div class="row">
-  					<div class="col-lg">
-  					<img  class="people-image center-h"  src="../../../../assets/images/cultucher242.jpg" alt="image"><br>
-  					<p style="line-height:29px;">
-  						This day is one of the most important occasions of BPIT as all the honourable members of management, trustees, faculty members and students join together to celebrate Holi with colours and flowers in this event. A plethora of dance and music performances are performed by the students of BPIT which mesmerizes the audience. Besides this, the students are awarded for their excellent performance in academics, co-curricular activities and sports.
-  					</p>
-  				</div>
-  				</div>
-  				<hr>
-  			</div>
-  			</div>
-
-
-  			<div class="cluUpper">
-  				<strong class="mb-2 pull-left w-100">CORONA</strong>
-
-  			<div class="w-100 pull-left">
-  				<div class="row">
-  					<div class="col-lg">
-  					<img  class="people-image center-h"  src="../../../../assets/images/cultucher243.jpg" alt="image"><br>
-  					<p style="line-height:29px;">
-  						Corona is the annual techno-cultural fest,which is organized in the month of March with the dream of spreading its wings and expanding its reach beyond previously unseen levels of events. Cultural Events like Fashion show ,Mr and Miss Corona,Music and Dance Events,Star night etc and Technical Events like WebLop,Gaming,C/C++ Programming are organised. Avalanche of cash prizes, gift vouchers are distributed to the winners. In few words,CORONA can be compared to an eagle that flies too high that no obstacles can affect its flight.
-  					</p>
-  				</div>
-  				</div>
-  				<hr>
-  			</div>
-  			</div>
-
-
-  			<div class="cluUpper">
-  				<strong class="mb-2 pull-left w-100">ELOQUENCE</strong>
-
-  			<div class="w-100 pull-left">
-  				<div class="row">
-  					<div class="col-lg">
-  					<img  class="people-image center-h"  src="../../../../assets/images/cultucher244.jpg" alt="image"><br>
-  					<p style="line-height:29px;">
-  						BPIT holds its biggest literary fest “ELOQUENCE” with great fervour to celebrate literature and mark its importance. Many events are organaised in the fest, not only for knowledge but also for entertainment and fun. Literary events like BPIT- MUN,Kavi Sammelan Debate, Group Discussion, Eloquent Personality and fun events like Treasure Hunt, Book Seller, Face Painting, Ad Mad, Doodle Art are organised which witnesses an overwhelming participation. Loads of interesting prizes are given to the winners that include cash prizes and gift vouchers .
-  					</p>
-  				</div>
-  				</div>
-  				<hr>
-  			</div>
-  			</div>
-
-
-
-
-
-           <!-- <ul class="categories-list-item">
-            <li><a href="#">1.	42279 books and 6095 titles, including good quality books on Applied Mathematics, Applied Physics, Applied Chemistry, Communication skills, Engineering Mechanics and a wide range standard quality books on Computer Science Engineering, Electronics and Communication Engineering, Information Technology, and Electrical Engineering and  graduate and post graduate level books on Management Studies.</a></li>
-            <li><a href="#">2.	Book Bank facility for all the students.</a></li>
-            <li><a href="#">3.	151 chairs in the central position for study.</li>
-            <li><a href="#">4.	55 good quality hard copy journals.</a></li>
-            <li><a href="#">5.	DELNET package of on line journals.</a></li>
-            <li><a href="#">6.	15 news papers and 10 magazines.	</a></li>
-            <li><a href="#">7.	Separate section for faculty members for study and accessing online journals.</a></li>
-            <li><a href="#">8.	Separate section for students to access the online journals.</a></li>
-            <li><a href="#">9.	OPAC facility.</a></li>
-            </ul>-->
-
-
-
-
-
-
-
-
-
-
-          </div>
-          <!-- /comment-area -->
-  </div>
-  	  </div>
-    </div>
-  </section>
-      <!-- <div class="notices col-sm-3">
-        <h3>News</h3>
-        <div class="loader">
-          <div [ngClass]="{'box': newsLoader}"></div>
-        </div>
-        <div class="notice-wrap">
-          <div *ngFor="let n of news" class="notice">
-              <div class="content">
-                <i class="fa fa-bell-o" aria-hidden="true"></i>
-                <p>{{n.title}}</p>
-              </div>
-            <a target="_blank" href={{n.news}}>Click for details</a>
-          </div>
-        </div>
-      </div> -->
-
+						<p>
+							On 6th Web Quickie was held. Web Quickie is a web development Competition,which provides
+							participants a platform to showtheir creative skills in the field of web development.The
+							tagline for the event was "Design the frontend and code the Backend". The marking was done
+							on different criteria like frontend(15),backend(35),UI&amp;UX(30) and creativity(20).
+						</p>
+
+						<p class="mb-4">
+							Around 6:00 pm the result was declared and the First Position was awarded to the team headed
+							by Avirup (BPIT) and the runner up was the team headed by Harsh (MAIT).
+						</p>
+						<div class="blog-detail-pic pb30"> <img class="people-image center-h"
+								src="../../../../assets/images/student_life_event_img6.jpg" alt="image"> </div>
+
+						<hr>
+
+
+
+						<h3 class="trust__heading">WORKSHOP FOR STUDENT </h3>
+
+						<p class="mb-4">
+							<strong>Workshop for Students on “Ethics, Technical Writing and Effective
+								Presentation”</strong>
+							Workshop for Students on “Ethics, Technical Writing and Effective Presentation” A One Day
+							workshop was organized by Department of Information Technology of BPIT for the students on
+							7th March 2018. The speaker Prof. Abhishek Swaroop emphasized on the importance of ethics in
+							technical world. Besides that he taught how to write effective technical documents and how
+							to effectively present your work. In the workshop, 55 students from all the branches
+							participated.
+						</p>
+
+						<div class="blog-detail-pic pb30"> <img class="people-image center-h"
+								src="../../../../assets/images/student_life_event_img7.jpg" alt="image"> </div>
+
+						<hr>
+
+
+
+
+						<h3 class="trust__heading">Workshop on Android Development </h3>
+
+						<p>
+							<u>Date: 7 Feb 2018</u> A workshop is organised on Android App Development on 7th Feb 2018.
+							The workshop is aimed to help students enlarge their domains.This 4-5 hours’ workshop was
+							conducted by <strong>Coding</strong> Blocks. Workshop was certified.
+						</p>
+						<p>Total 48 students both IEEE and Non IEEE participated in the workshop.</p>
+						<p>Registration fees:-</p>
+						<p>IEEE-BPIT students- free</p>
+						<p>Non IEEE-BPIT- 100/-</p>
+
+						<p></p>
+						<p class="mb-4">
+							EVENT DESCRIPTION: A theme was given toevery participant. Every participant had to capture
+							their clicks within 2 hours and some of the participants edited their captures in the given
+							time. A platform (Photoshop) was provided.
+						</p>
+						<div class="blog-detail-pic pb30"> <img class="people-image center-h"
+								src="../../../../assets/images/student_life_event_img8.jpg" alt="image"> </div>
+						<u>National Conference on Computing, Informatics and Networks NCCIN-2K18 </u>
+						<p class="mb-4">
+							Department of CSE and Department of IT of BPIT Jointly organized a one day National
+							Conference on Computing, Informatics and Networks. The conference was inaugurated by Prof.
+							A.P. Mittal Member Secretary AICTE. The students of BPIT were actively involved in
+							organizing the conference. The faculty members and students of BPIT as well as several other
+							institutes presented their research paper.
+						</p>
+						<div class="blog-detail-pic pb30"> <img class="people-image center-h"
+								src="../../../../assets/images/student_life_event_img10.jpg" alt="image"> </div>
+						<hr>
+
+
+
+						<h3 class="trust__heading">Cultural Events </h3>
+						<strong class="mb-2 pull-left w-100">ORIENTATION DAY CUM FRESHERS PARTY</strong>
+
+						<div class="w-100 pull-left">
+							<div class="row">
+								<div class="col-lg">
+									<img class="people-image center-h"
+										src="../../../../assets/images/student_life_event_img11.jpg" alt="image"><br>
+									<p style="line-height:29px;">
+										Freshers' party cum orientation day is celebrated every year with a view to
+										welcome new students to the institute. The motive of this orientation day is to
+										acquaint the new students with the college life which provides freshers with an
+										opportunity to unleash their talents.
+
+									</p>
+								</div>
+							</div>
+							<hr>
+						</div>
+
+						<div class="cluUpper">
+							<strong class="mb-2 pull-left w-100">TEACHERS DAY</strong>
+
+							<div class="w-100 pull-left">
+								<div class="row">
+									<div class="col-lg">
+										<img class="people-image center-h"
+											src="../../../../assets/images/cultucher240.jpg" alt="image"><br>
+										<p style="line-height:29px;">
+											The dream begins with a teacher who believes in you, tugs you, pushes and
+											leads you to next plateau and sometimes pokes you with a sharp stick called
+											truth. Starting from Dronacharya and moving on to the great teachers in the
+											history to the like of Dr. Sarvapalli Radhakrishnan, teachers have guided
+											their students to great success, embedded ethical values and molded them
+											into responsible citizens of the country. Students celebrate teacher’s day
+											on 5th September as a token of respect to their teachers. Students organize
+											fun activities for their teachers followed by dance and music performances.
+										</p>
+									</div>
+								</div>
+								<hr>
+							</div>
+						</div>
+
+
+						<div class="cluUpper">
+							<strong class="mb-2 pull-left w-100">INDEPENDENCE DAY</strong>
+
+							<div class="w-100 pull-left">
+								<div class="row">
+									<div class="col-lg">
+										<img class="people-image center-h"
+											src="../../../../assets/images/cultucher241.jpg" alt="image"><br>
+										<p style="line-height:29px;">
+											Every year BPIT proudly celebrates the day of our nation's independence with
+											great enthusiasm and patriotism. The celebration begins with flag hoisting
+											followed by the national anthem , scintillating music and dance perfomances
+											highlighting the rich culture and diversity of India.
+										</p>
+									</div>
+								</div>
+								<hr>
+							</div>
+						</div>
+
+
+						<div class="cluUpper">
+							<strong class="mb-2 pull-left w-100">HOLI MILAN</strong>
+
+							<div class="w-100 pull-left">
+								<div class="row">
+									<div class="col-lg">
+										<img class="people-image center-h"
+											src="../../../../assets/images/cultucher242.jpg" alt="image"><br>
+										<p style="line-height:29px;">
+											This day is one of the most important occasions of BPIT as all the
+											honourable members of management, trustees, faculty members and students
+											join together to celebrate Holi with colours and flowers in this event. A
+											plethora of dance and music performances are performed by the students of
+											BPIT which mesmerizes the audience. Besides this, the students are awarded
+											for their excellent performance in academics, co-curricular activities and
+											sports.
+										</p>
+									</div>
+								</div>
+								<hr>
+							</div>
+						</div>
+
+
+						<div class="cluUpper">
+							<strong class="mb-2 pull-left w-100">CORONA</strong>
+
+							<div class="w-100 pull-left">
+								<div class="row">
+									<div class="col-lg">
+										<img class="people-image center-h"
+											src="../../../../assets/images/cultucher243.jpg" alt="image"><br>
+										<p style="line-height:29px;">
+											Corona is the annual techno-cultural fest,which is organized in the month of
+											March with the dream of spreading its wings and expanding its reach beyond
+											previously unseen levels of events. Cultural Events like Fashion show ,Mr
+											and Miss Corona,Music and Dance Events,Star night etc and Technical Events
+											like WebLop,Gaming,C/C++ Programming are organised. Avalanche of cash
+											prizes, gift vouchers are distributed to the winners. In few words,CORONA
+											can be compared to an eagle that flies too high that no obstacles can affect
+											its flight.
+										</p>
+									</div>
+								</div>
+								<hr>
+							</div>
+						</div>
+
+
+						<div class="cluUpper">
+							<strong class="mb-2 pull-left w-100">ELOQUENCE</strong>
+
+							<div class="w-100 pull-left">
+								<div class="row">
+									<div class="col-lg">
+										<img class="people-image center-h"
+											src="../../../../assets/images/cultucher244.jpg" alt="image"><br>
+										<p style="line-height:29px;">
+											BPIT holds its biggest literary fest “ELOQUENCE” with great fervour to
+											celebrate literature and mark its importance. Many events are organaised in
+											the fest, not only for knowledge but also for entertainment and fun.
+											Literary events like BPIT- MUN,Kavi Sammelan Debate, Group Discussion,
+											Eloquent Personality and fun events like Treasure Hunt, Book Seller, Face
+											Painting, Ad Mad, Doodle Art are organised which witnesses an overwhelming
+											participation. Loads of interesting prizes are given to the winners that
+											include cash prizes and gift vouchers .
+										</p>
+									</div>
+								</div>
+								<hr>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
 </div>

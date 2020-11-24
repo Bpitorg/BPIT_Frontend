@@ -1,15 +1,16 @@
 <div id="add-animation" class="departments lab">
-  <header class="heading"><span class="heading__text">Laboratories</span></header>
-  <div class="loader" *ngIf="loader">
-    <div class="box"></div>
-  </div>
-  <div class="slideshow"></div>
-  <p id="text-content">The department has the following eight laboratories; and each laboratory is equipped with 30 desk top computers, loaded with latest hardware and software.</p>
-  <ul *ngFor="let l of Data" id="text-content">
-   <li>
-   Name:{{l.name}} <br>
-   Description:{{l.description}}<br>
-   <img src="{{l.pic}}" width="200px" height="200px;" alt="lab image">
-   </li>
-  </ul>
+	<header class="heading"><span class="heading__text">Laboratories</span></header>
+	<div class="loader" *ngIf="loader">
+		<div class="box"></div>
+	</div>
+	<div class="slideshow"></div>
+	<p id="text-content">The department has the following eight laboratories; and each laboratory is equipped with 30
+		desk top computers, loaded with latest hardware and software.</p>
+	<ul *ngFor="let l of Data" id="text-content">
+		<li>
+			Name:{{l.name}} <br>
+			Description:{{l.description}}<br>
+			<img src="{{l.pic}}" width="200px" height="200px;" alt="lab image">
+		</li>
+	</ul>
 </div>

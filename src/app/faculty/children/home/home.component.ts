@@ -102,6 +102,7 @@ is_faculty_admin:new FormControl('',[Validators.required])
 UserSubmit(){
   this.submitProgress=true;
   let formData = new FormData();
+
   formData.append('username',this.facultyhome.value['username']);
   formData.append('first_name',this.facultyhome.value['first_name']);
   formData.append('last_name',this.facultyhome.value['last_name']);
@@ -115,7 +116,7 @@ onSubmit(formData:any){
   this.ls.postUser(formData).subscribe(res=>{
     let Data = res.json();
     let formData1 = new FormData();
-    formData1.append('User',Data['pk']);
+	formData1.append('User',Data['pk']);	
     formData1.append('profile_pic',this.file);
     formData1.append('designation',this.facultyhome1.value['designation']);
     formData1.append('Qualification',this.facultyhome1.value['Qualification']);
@@ -130,6 +131,8 @@ onSubmit(formData:any){
     this.onSubmitFaculty(formData1);
     console.log(formData1)
     },err=>{
+	console.log(this.file);
+
   this.submitProgress=false;
   this.opensweetalertError();
 })

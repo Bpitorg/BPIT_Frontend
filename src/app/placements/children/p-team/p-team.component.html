@@ -1,12 +1,12 @@
 <div id="add-animation">
-  <header class="heading"><span class="heading__text">The Team</span></header>
-  <div *ngFor="let faculty of list" class="card-h">
-    <img src={{faculty.profile_pic}} alt="" class="card-h__pic">
-    <div class="card-h__content ">
-      <h4>{{faculty.firstname}} {{faculty.lastname}}</h4>
-      <h5>{{faculty.email}}</h5>
-      <p><b>Designation:</b> {{faculty.designation}}</p>
-      <p><b>Phone Number:</b> {{faculty.Phone_Number}}</p>
-    </div>
-  </div>
+	<header class="heading"><span class="heading__text">The Team</span></header>
+	<div *ngFor="let faculty of list" class="card-h">
+		<img src={{faculty.profile_pic}} alt="" class="card-h__pic">
+		<div class="card-h__content ">
+			<h4>{{faculty.firstname}} {{faculty.lastname}}</h4>
+			<h5>{{faculty.email}}</h5>
+			<p><b>Designation:</b> {{faculty.designation}}</p>
+			<p><b>Phone Number:</b> {{faculty.Phone_Number}}</p>
+		</div>
+	</div>
 </div>

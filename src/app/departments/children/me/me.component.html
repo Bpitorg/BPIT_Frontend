@@ -1,30 +1,27 @@
 <div class="department-wrap container">
-
-     <h2 id="clr"><i class="fa fa-desktop" aria-hidden="true"></i>
-       Mechanical</h2>
-     <div class="container">
-         <div class="d-dash row row-eq-height">
-         <div class="col-sm-3 sidebar">
-             <h4>Menu</h4>
-             <a routerLink="about" routerLinkActive="active">About</a>
-             <a routerLink="faculty" routerLinkActive="active">Faculty</a>
-              <a routerLink="lab-resources" routerLinkActive="active">Lab Resources</a>
-             <a routerLink="faculty-publication" routerLinkActive="active">Faculty Publications</a>
-             <h4>Resources</h4>
-             <a routerLink="notice" routerLinkActive="active">Notice</a>
-             <a routerLink="news" routerLinkActive="active">Achievements</a>
-             <a routerLink="time-table" routerLinkActive="active">Time Table</a>
-             <a routerLink="lesson-plan" routerLinkActive="active">Lesson Plan</a>
-             <a href="http://www.ipu.ac.in/syll.php" target="_blank">Syllabus</a>
-             <a href="http://www.ipu.ac.in/acadcall.php" target="_blank">Academic Calendar</a>
-             <!-- <a routerLink="self-learning" routerLinkActive="active">Self Learning</a>
-             <a routerLink="study-material" routerLinkActive="active">Study Material</a> -->
-             <a href="http://www.ipu.ac.in/exam_datesheet.php" target="_blank">Datesheet</a>
-             <a href="http://www.ipu.ac.in/exam_results.php" target="_blank">Results</a>
-         </div>
-         <div class="col-sm-9 content">
-             <router-outlet ></router-outlet>
-         </div>
-         </div>
-     </div>
+	<h2 id="clr"><i class="fa fa-desktop" aria-hidden="true"></i>
+		Mechanical</h2>
+	<div class="container">
+		<div class="d-dash row row-eq-height">
+			<div class="col-sm-3 sidebar">
+				<h4>Menu</h4>
+				<a routerLink="about" routerLinkActive="active">About</a>
+				<a routerLink="faculty" routerLinkActive="active">Faculty</a>
+				<a routerLink="lab-resources" routerLinkActive="active">Lab Resources</a>
+				<a routerLink="faculty-publication" routerLinkActive="active">Faculty Publications</a>
+				<h4>Resources</h4>
+				<a routerLink="notice" routerLinkActive="active">Notice</a>
+				<a routerLink="news" routerLinkActive="active">News</a>
+				<a routerLink="time-table" routerLinkActive="active">Time Table</a>
+				<a routerLink="lesson-plan" routerLinkActive="active">Lesson Plan</a>
+				<a href="http://www.ipu.ac.in/syll.php" target="_blank">Syllabus</a>
+				<a href="http://www.ipu.ac.in/acadcall.php" target="_blank">Academic Calendar</a>
+				<a href="http://www.ipu.ac.in/exam_datesheet.php" target="_blank">Datesheet</a>
+				<a href="http://www.ipu.ac.in/exam_results.php" target="_blank">Results</a>
+			</div>
+			<div class="col-sm-9 content">
+				<router-outlet></router-outlet>
+			</div>
+		</div>
+	</div>
 </div>
